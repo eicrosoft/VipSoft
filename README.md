@@ -37,9 +37,9 @@ QQ:47262947  苏州-阿军   <br/>
 ======================================================= <br/>
 引用第三方控件 <br/>
 http://www.bootcss.com/						Bootstrap v3.0.0 <br/>
-http://fontawesome.io/						Font Awesome 4.0.1 <br/>
+http://fontawesome.io/						 Font Awesome 4.0.1 <br/>
 http://www.datatables.net/   <br/>
- <br/>
+http://ueditor.baidu.com/    百度编辑器<br/>
 ======================================================= <br/>
 
 提供 香港 VPS 空间，有需要测试名购买的可以联系我。<br/>
