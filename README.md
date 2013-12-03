@@ -1,6 +1,6 @@
 VipSoft CMS
 =======
-等后台界面换好了将代码迁过来。现在代码比较垃圾，不敢github上。：）
+等后台界面换好了将代码迁过来。初期代码BUG比较多，暂不放github上。：）
 
 演示地址：http://cms.vipsoft.com.cn <br/>
 后台地址：http://cms.vipsoft.com.cn/vipsoft  <br/>
