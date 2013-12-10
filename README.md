@@ -9,7 +9,7 @@ VipSoft CMS
 GitHub  : https://github.com/eicrosoft/VipSoft  <br/>
 
 源码SVN地址，帐号，密码如下： <br/>
-http://developer.vipsoft.com.cn:8080/svn/vipsoft/ <br/>
+http://developer.vipsoft.com.cn:8080/svn/vipsoft/trunk/ <br/>
 用户名： 2686690 <br/>
 密  码： 2686690 <br/>
  <br/>
