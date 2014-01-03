@@ -14,8 +14,6 @@ http://developer.vipsoft.com.cn:8080/svn/vipsoft/trunk/ <br/>
 密  码： 2686690 <br/>
  <br/>
   <br/>
-运行项目时请先看 <br/>
-http://www.cnblogs.com/vipsoft/archive/2012/11/08/2761121.html <br/>
 
 
 采用技术或框架： <br/>
