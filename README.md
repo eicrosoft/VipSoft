@@ -8,12 +8,7 @@
 界面下载：http://cms.vipsoft.com.cn/AdminUI.rar  <br/>
 GitHub  : https://github.com/eicrosoft/VipSoft  <br/>
 
-源码SVN地址，帐号，密码如下： <br/>
-http://developer.vipsoft.com.cn:8080/svn/vipsoft/trunk/ <br/>
-用户名： 2686690 <br/>
-密  码： 2686690 <br/>
- <br/>
-  <br/>
+
 
 
 采用技术或框架： <br/>
