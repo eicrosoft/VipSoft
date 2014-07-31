@@ -1,0 +1,11 @@
+﻿@model List<VipSoft.CMS.Core.Entity.Category> 
+<div class="lefttit">@ViewBag.CurrentCategory.Name</div>
+<div class="leftlist">
+    <ul>
+        @foreach (var item in Model)
+        { 
+            <li ><a href="@item.Url" title="@item.Name">@item.Name</a></li>
+        }
+    </ul>
+</div>
+<div class="leftfoot"></div>

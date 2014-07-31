@@ -1,0 +1,168 @@
+﻿@{
+    ViewBag.Title = "个人设置";
+    Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
+}
+@section Style {
+
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="fa"><i class="fa fa-ellipsis-horizontal"></i></span>
+                    <h5>个人设置</h5>
+                    <ul class="nav nav-tabs pull-right">
+                        <li><a data-toggle="tab" href="#tab2r">密码修改</a></li>
+                        <li class="active"><a data-toggle="tab" href="#tab1r">个人资料</a></li>
+                    </ul>
+                </div>
+
+                <form id="frmConfig" method="post" class="form-horizontal">
+                    <div class="widget-content tab-content">
+
+                        <div id="tab1r" class="tab-pane  active"> 
+                            <div class="form-group">
+                                <label class="control-label">个人头像 </label>
+                                <div class="controls">
+                                    <div id="swfu_container" style="margin: 3px 10px;">
+                                        <div>
+                                            <span id="spanButtonPlaceholder"></span>
+                                        </div>
+                                    </div>
+                                    <div id="thumbnails">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">用户名</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">真实姓名</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">用户性别</label>
+                                <div class="controls">
+                                     <div class="switch switch-small">
+                                        <input type="radio" checked name="UserStatus" />
+                                        男
+                                        <input type="radio" name="UserStatus" />
+                                        女
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">用户邮箱</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">出生日期</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">手机</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">QQ</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label">地址</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">自我介绍</label>
+                                <div class="controls">
+                                    @Html.TextArea("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab2r" class="tab-pane ">
+                            <div class="form-group">
+                                <label class="control-label">用户名</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">旧的密码</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">新的密码</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">重复密码</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label">@Html.ValidationSummary(true)</label>
+                            <div class="controls">
+                                <input type="hidden" id="mid" value="@Request.RequestContext.RouteData.Values["mid"]"/>
+                                <input type="hidden" id="cid" value="@Request.RequestContext.RouteData.Values["cid"]"/>
+                                <input type="button" name="btnSubmit" onclick="unrealized()" value="提交保存" id="btnSave" class="btn btn-primary" />
+                                &nbsp;<input name="重置" type="reset" class="btn btn-danger" value="重 置" />
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Script {
+
+    <script src="@Url.Content("~/Scripts/UEditor/editor_config.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/UEditor/_examples/editor_api.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui.custom.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-colorpicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/bootstrap-switch.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/jquery.icheck.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.jpanelmenu.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/unicorn.form_common.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/UEditor/third-party/swfupload/swfupload.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/swfupload.handlers.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
+
+}

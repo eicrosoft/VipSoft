@@ -1,0 +1,72 @@
+﻿@model IEnumerable<VipSoft.CMS.Core.Entity.Category>
+@Html.Partial("AdminBase")
+<div class="navigation">首页 &gt; 类别管理 &gt; 类别列表</div>
+<div class="tools_box">
+    <div class="tools_bar">
+        @Html.ActionLink("添加类别", "Add")
+        <a href="edit.aspx?action=Add&channel_id=1" class="tools_btn"><span><b class="add">添加类别</b></span></a>
+        <a id="btnSave" class="tools_btn" href="javascript:__doPostBack('btnSave','')"><span><b class="send">保存排序</b></span></a>
+        <a href="javascript:void(0);" onclick="checkAll(this);" class="tools_btn"><span><b class="all">全选</b></span></a>
+        <a onclick="return ExePostBack('btnDelete', '本操作会删除本类别和下属类别，确定要继续吗？');" id="btnDelete" class="tools_btn" href="javascript:__doPostBack('btnDelete','')"><span><b class="delete">批量删除</b></span></a>
+    </div>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="msgtable">
+    <tr>
+        <th>ParentID
+        </th>
+        <th>Name
+        </th>
+        <th>Seo
+        </th>
+        <th>SeoKeywords
+        </th>
+        <th>SeoDescription
+        </th>
+        <th>LinkURL
+        </th>
+        <th>Sequence
+        </th>
+        <th>Status
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeoKeywords)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeoDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinkUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sequence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td> 
+            <td>
+                @Html.ActionLink("Edit", "Add", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+
+</table>
+<div class="line10"></div>

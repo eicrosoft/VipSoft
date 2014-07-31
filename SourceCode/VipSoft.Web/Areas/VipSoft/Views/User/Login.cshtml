@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>管理员后台登录</title>
+    @Html.Partial("AdminBase")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ibtnLogin").click(
+               function () {
+                   $('form').submit();
+               } 
+            );
+        })
+    </script> 
+</head>
+<body id="userlogin_body">
+   @using (Html.BeginForm("Login", "User", FormMethod.Post))
+   {       
+       <div id="user_login">
+           <dl>
+               <dd id="user_top">
+               <ul>
+                   <li class="user_top_l"></li>
+                   <li class="user_top_c"></li>
+                   <li class="user_top_r"></li>
+               </ul>
+               <dd id="user_main">
+               <ul>
+                   <li class="user_main_l"></li>
+                   <li class="user_main_c">
+                       <div class="user_main_box">
+                           <ul>
+                               <li class="user_main_text">用户名： </li>
+                               <li class="user_main_input"><input type="text" id="UserName" name="UserName" class="TxtUserNameCssClass" maxlength="20" /> </li>
+                           </ul>
+                           <ul>
+                               <li class="user_main_text">密 &nbsp;&nbsp; 码： </li>
+                               <li class="user_main_input"><input type="password" id="Password" name="Password" class="TxtPasswordCssClass" /> </li>
+                           </ul>
+                           <ul style="display: none;">
+                               <li class="user_main_text">验证码： </li>
+                               <li class="user_main_input"><input type="text" id="txtValidateCode" name="txtValidateCode" width="100" class="TxtValidateCodeCssClass"  />&nbsp;&nbsp;&nbsp;
+                                   <img id="Image1" src="http://www.vipsoft.com.cn/login.aspx?validate=true" alt="看不清？请点击验证码刷新" style="margin-bottom: -5px" onclick="this.src = this.src + '&' " />
+                               </li>
+                           </ul>
+                       </div>
+                   </li>
+                   <li class="user_main_r">
+                       <img id="ibtnLogin" src="/Content/themes/Admin/images/Login/user_botton.gif" commandname="Login"/>
+                   </li>
+               </ul>
+               <dd id="user_bottom">
+                   <ul>
+                       <li class="user_bottom_l"></li>
+                       <li class="user_bottom_c">
+                           <a href="http://www.vipsoft.com.cn" target="_blank"> <span style="margin-top: 40px; margin-left: 20px;">Copyright &copy; 2007 EicroSoft</span></a>
+                       </li>
+                       <li class="user_bottom_r"></li>
+                   </ul>
+               </dd>
+           </dl>
+       </div>@Html.ValidationSummary(true)
+       <span id="ValrUserName" style="display: none; color: #FF0000"></span>
+       <span id="ValrPassword" style="display: none; color: #FF0000"></span>
+       <span id="ValrValidateCode" style="display: none; color: #FF0000"></span>
+       <div id="ValidationSummary1" style="display: none; color: #FF0000">
+       </div>
+   }
+</body>
+</html>

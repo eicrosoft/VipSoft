@@ -1,0 +1,422 @@
+﻿@{
+    ViewBag.Title = "系统设置";
+    Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
+}
+@section Style {
+    <link href="@Url.Content("~/Content/themes/base/bootstrap-switch.css")"  class="skin-color" rel="stylesheet" type="text/css" />
+
+}
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="fa"><i class="fa fa-ellipsis-horizontal"></i></span>
+                    <h5>系统设置</h5>
+                    <ul class="nav nav-tabs pull-right">
+                        <li class="active"><a data-toggle="tab" href="#tab5r">系统SEO</a></li>
+                        <li><a data-toggle="tab" href="#tab4r">邮件设置</a></li>
+                        <li><a data-toggle="tab" href="#tab3r">文件设置</a></li>
+                        <li><a data-toggle="tab" href="#tab2r">用户设置</a></li>
+                        <li><a data-toggle="tab" href="#tab1r">基本信息</a></li>
+                    </ul>
+                </div>
+                <form id="frmConfig" method="post" class="form-horizontal">
+                    <div class="widget-content tab-content">
+
+
+                        <div id="tab1r" class="tab-pane  ">
+                            <div class="form-group">
+                                <label class="control-label">系统名称</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">系统标题</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">系统网址</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">站长姓名</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">站长信箱</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">联系电话</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">版权信息</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">备案号</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">统计代码</label>
+                                <div class="controls">
+                                    @Html.TextArea("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label">系统Logo </label>
+                                <div class="controls">
+                                    <div id="swfu_container" style="margin: 3px 10px;">
+                                        <div>
+                                            <span id="spanButtonPlaceholder"></span>
+                                        </div>
+                                    </div>
+                                    <div id="thumbnails">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab2r" class="tab-pane ">
+                            <div class="form-group">
+                                <label class="control-label">会员系统状态：</label>
+                                <div class="controls">
+                                    <div class="switch switch-small">
+                                        <input type="radio" checked name="UserStatus" />
+                                        开启
+                                        <input type="radio" name="UserStatus" />
+                                        停用
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">是否允许新会员注册：</label>
+                                <div class="controls">
+                                    <input type="radio" checked name="AllowReg" />
+                                    是
+                                        <input type="radio" name="AllowReg" />
+                                    否
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">新用户注册需要审核：</label>
+                                <div class="controls">
+                                    <input type="radio" checked name="AllowVerify" />
+                                    是
+                                        <input type="radio" name="AllowVerify" />
+                                    否
+                                </div>
+                            </div> 
+                             <div class="form-group">
+                                <label class="control-label">会员注册启用验证码功能：</label>
+                                <div class="controls">
+                                    <div class="switch switch-small">
+                                        <input type="radio" checked name="AllowRegCaptcha" />
+                                        是
+                                        <input type="radio" name="AllowRegCaptcha" />
+                                        否
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">会员登录启用验证码功能：</label>
+                                <div class="controls">
+                                    <input type="radio" checked name="AllowLoginRegCaptcha" />
+                                    是
+                                        <input type="radio" name="AllowLoginRegCaptcha" />
+                                    否
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">密码找回方式：</label>
+                                <div class="controls">
+                                    <input type="checkbox" checked name="AllowReg" />
+                                    邮件
+                                    <input type="checkbox" name="AllowReg" />
+                                    手机短信
+                                    <input type="checkbox" name="AllowReg" />
+                                    密码保护
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">注册协议模板：</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">禁止注册的用户名：</label>
+                                <div class="controls">
+                                    @Html.TextArea("SiteName", "", new { @class = "form-control input-sm" })
+                                    <br/>
+                                    在上边指定的用户名将被禁止注册，每个用户名请用“|”符号分隔
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="tab3r" class="tab-pane">
+                            <div class="form-group">
+                                <label class="control-label">附件上传目录：</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">附件上传类型：</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">附件保存方式：</label>
+                                <div class="controls">
+                                    <select name="attachsave" id="attachsave" class="select2 valid">
+                                        <option value="1">按年月日每天一个目录</option>
+                                        <option selected="selected" value="2">按年月/日/存入不同目录</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label">文件上传最大值：</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label">图片上传最大值：</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">图片最大尺寸：</label>
+                                <div class="controls"> 
+                                    <div class="row">
+										 <div class="col-md-2"><input type="text" class="form-control" value="宽"></div> 
+										 <div class="col-md-2"><input type="text" class="form-control" value="高"></div>
+									</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">生成缩略图大小：</label>
+                                <div class="controls">
+                                    <div class="row">
+										 <div class="col-md-2"><input type="text" class="form-control" value="宽"></div> 
+										 <div class="col-md-2"><input type="text" class="form-control" value="高"></div>
+									</div>
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">图片水印类型：</label>
+                                <div class="controls">
+                                    <span id="watermarktype"><input id="watermarktype_0" type="radio" name="watermarktype" value="0"><label for="watermarktype_0">关闭水印 </label><input id="watermarktype_1" type="radio" name="watermarktype" value="1"><label for="watermarktype_1">文字水印 </label><input id="watermarktype_2" type="radio" name="watermarktype" value="2" checked="checked"><label for="watermarktype_2">图片水印 </label></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label">图片水印位置：</label>
+                                <div class="controls">
+                                    <span id="watermarkposition"><input id="watermarkposition_0" type="radio" name="watermarkposition" value="1"><label for="watermarkposition_0">左上 </label><input id="watermarkposition_1" type="radio" name="watermarkposition" value="2"><label for="watermarkposition_1">中上 </label><input id="watermarkposition_2" type="radio" name="watermarkposition" value="3"><label for="watermarkposition_2">右上 </label><input id="watermarkposition_3" type="radio" name="watermarkposition" value="4"><label for="watermarkposition_3">左中 </label><input id="watermarkposition_4" type="radio" name="watermarkposition" value="5"><label for="watermarkposition_4">居中 </label><input id="watermarkposition_5" type="radio" name="watermarkposition" value="6"><label for="watermarkposition_5">右中 </label><input id="watermarkposition_6" type="radio" name="watermarkposition" value="7"><label for="watermarkposition_6">左下 </label><input id="watermarkposition_7" type="radio" name="watermarkposition" value="8"><label for="watermarkposition_7">中下 </label><input id="watermarkposition_8" type="radio" name="watermarkposition" value="9" checked="checked"><label for="watermarkposition_8">右下 </label></span>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label">图片水印文件：</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label">水印文字：</label>
+                                <div class="controls">
+                                    @Html.TextBox("SiteName", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="control-label">文字字体：</label>
+                                <div class="controls">
+                                   
+                    <select name="watermarkfont" id="watermarkfont" class="select2 valid">
+	<option value="Arial">Arial</option>
+	<option value="Arial Black">Arial Black</option>
+	<option value="Batang">Batang</option>
+	<option value="BatangChe">BatangChe</option>
+	<option value="Comic Sans MS">Comic Sans MS</option>
+	<option value="Courier New">Courier New</option>
+	<option value="Dotum">Dotum</option>
+	<option value="DotumChe">DotumChe</option>
+	<option value="Estrangelo Edessa">Estrangelo Edessa</option>
+	<option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
+	<option value="Gautami">Gautami</option>
+	<option value="Georgia">Georgia</option>
+	<option value="Gulim">Gulim</option>
+	<option value="GulimChe">GulimChe</option>
+	<option value="Gungsuh">Gungsuh</option>
+	<option value="GungsuhChe">GungsuhChe</option>
+	<option value="Impact">Impact</option>
+	<option value="Latha">Latha</option>
+	<option value="Lucida Console">Lucida Console</option>
+	<option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+	<option value="Mangal">Mangal</option>
+	<option value="Marlett">Marlett</option>
+	<option value="Microsoft Sans Serif">Microsoft Sans Serif</option>
+	<option value="MingLiU">MingLiU</option>
+	<option value="MS Gothic">MS Gothic</option>
+	<option value="MS Mincho">MS Mincho</option>
+	<option value="MS PGothic">MS PGothic</option>
+	<option value="MS PMincho">MS PMincho</option>
+	<option value="MS UI Gothic">MS UI Gothic</option>
+	<option value="MV Boli">MV Boli</option>
+	<option value="Palatino Linotype">Palatino Linotype</option>
+	<option value="PMingLiU">PMingLiU</option>
+	<option value="Raavi">Raavi</option>
+	<option value="Shruti">Shruti</option>
+	<option value="Sylfaen">Sylfaen</option>
+	<option value="Symbol">Symbol</option>
+	<option selected="selected" value="Tahoma">Tahoma</option>
+	<option value="Times New Roman">Times New Roman</option>
+	<option value="Trebuchet MS">Trebuchet MS</option>
+	<option value="Tunga">Tunga</option>
+	<option value="Verdana">Verdana</option>
+	<option value="Webdings">Webdings</option>
+	<option value="Wingdings">Wingdings</option>
+	<option value="仿宋_GB2312">仿宋_GB2312</option>
+	<option value="宋体">宋体</option>
+	<option value="新宋体">新宋体</option>
+	<option value="楷体_GB2312">楷体_GB2312</option>
+	<option value="黑体">黑体</option>
+
+</select>
+                    <input name="watermarkfontsize" type="text" value="12" maxlength="10" id="watermarkfontsize" class="txtInput small2 required digits">px
+                    <label>*文字水印的字体和大小</label>
+                
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="tab4r" class="tab-pane">
+                            <div class="form-group">
+                                <label class="control-label">STMP服务器：</label>
+                                <div class="controls">
+                                    <input type="text" maxlength="15" placeholder="输入STMP服务器地址..." class="form-control input-sm">
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">SMTP端口：</label>
+                                <div class="controls">
+                                    <input type="text" maxlength="15" placeholder="输入STMP端口..." class="form-control input-sm">
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">发件人地址：</label>
+                                <div class="controls">
+                                    <input type="text" maxlength="15" placeholder="发件人邮箱地址..." class="form-control input-sm">
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">邮箱账号：</label>
+                                <div class="controls">
+                                    <input type="text" maxlength="15" placeholder="邮箱账号..." class="form-control input-sm">
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">邮箱密码：</label>
+                                <div class="controls">
+                                    <input type="text" maxlength="15" placeholder="邮箱密码..." class="form-control input-sm">
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">发件人昵称：</label>
+                                <div class="controls">
+                                    <input type="text" maxlength="15" placeholder="发件人昵称..." class="form-control input-sm">
+                                </div>
+                            </div> 
+                        </div>
+                        
+                        <div id="tab5r" class="tab-pane active"> 
+                            <div class="form-group">
+                                <label class="control-label">首页标题(SEO)：</label>
+                                <div class="controls">
+                                    <input type="text" maxlength="15" placeholder="依软内容管理系统..." class="form-control input-sm">
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">页面关健词(SEO)：</label>
+                                <div class="controls">
+                                    <input type="text" maxlength="15" placeholder="依软内容管理系统..." class="form-control input-sm">
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label class="control-label">页面描述(SEO)：</label>
+                                <div class="controls">
+                                    <textarea name="webdescription" rows="2" cols="20" id="webdescription" class="form-control input-sm">依软内容管理系统 VipSoft CMS </textarea>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">@Html.ValidationSummary(true)</label>
+                            <div class="controls">
+                                <input type="hidden" id="mid" value="@Request.RequestContext.RouteData.Values["mid"]"/>
+                                <input type="hidden" id="cid" value="@Request.RequestContext.RouteData.Values["cid"]"/>
+                                <input type="button" name="btnSubmit" onclick="unrealized()" value="提交保存" id="btnSave" class="btn btn-primary" />
+                                &nbsp;<input name="重置" type="reset" class="btn btn-danger" value="重 置" />
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section Script {
+
+    <script src="@Url.Content("~/Scripts/UEditor/editor_config.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/UEditor/_examples/editor_api.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui.custom.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-colorpicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/bootstrap-switch.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/jquery.icheck.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.jpanelmenu.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/unicorn.form_common.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/UEditor/third-party/swfupload/swfupload.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/swfupload.handlers.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
+
+}

@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Unicorn Admin</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/font-awesome.css" />
+		<link rel="stylesheet" href="css/unicorn.css" />
+		<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" /> 
+	</head>
+	<body> 
+		<div id="header">
+			<h1><a href="dashboard.html">Unicorn Admin</a></h1>	
+			<a id="menu-trigger" href="#"><i class="fa fa-list"></i></a>	
+		</div>
+		
+		<div id="search">
+			<input type="text" placeholder="Search here..."/><button type="submit" class="tip-right" title="Search"><i class="fa fa-search"></i></button>
+		</div>
+		<div id="user-nav">
+            <ul class="btn-group">
+                <li class="btn" ><a title="" href="#"><i class="fa fa-user"></i> <span class="text">Profile</span></a></li>
+                <li class="btn dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="fa fa-envelope"></i> <span class="text">Messages</span> <span class="label label-danger">5</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="sAdd" title="" href="#">new message</a></li>
+                        <li><a class="sInbox" title="" href="#">inbox</a></li>
+                        <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                        <li><a class="sTrash" title="" href="#">trash</a></li>
+                    </ul>
+                </li>
+                <li class="btn"><a title="" href="#"><i class="fa fa-cog"></i> <span class="text">Settings</span></a></li>
+                <li class="btn"><a title="" href="login.html"><i class="fa fa-share"></i> <span class="text">Logout</span></a></li>
+            </ul>
+        </div>
+            
+		<div id="sidebar">
+			<ul>
+				<li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="fa fa-flask"></i> <span>UI Lab</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li><a href="interface.html">Interface Elements</a></li>
+						<li><a href="jquery-ui.html">jQuery UI</a></li>
+						<li><a href="buttons.html">Buttons &amp; icons</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
+					<a href="#"><i class="fa fa-th-list"></i> <span>Form elements</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li><a href="form-common.html">Common elements</a></li>
+						<li><a href="form-validation.html">Validation</a></li>
+						<li><a href="form-wizard.html">Wizard</a></li>
+					</ul>
+				</li>
+				<li><a href="tables.html"><i class="fa fa-th"></i> <span>Tables</span></a></li>
+				<li><a href="grid.html"><i class="fa fa-th-list"></i> <span>Grid Layout</span></a></li>
+				<li class="active submenu open">
+					<a href="#"><i class="fa fa-file"></i> <span>Sample pages</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li class="active"><a href="invoice.html">Invoice</a></li>
+						<li><a href="chat.html">Support chat</a></li>
+						<li><a href="calendar.html">Calendar</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="messages.html">Messages</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="charts.html"><i class="fa fa-signal"></i> <span>Charts &amp; graphs</span></a>
+				</li>
+				<li>
+					<a href="widgets.html"><i class="fa fa-inbox"></i> <span>Widgets</span></a>
+				</li>
+			</ul>
+		
+		</div>
+		
+		<div id="style-switcher">
+			<i class="fa fa-arrow-left"></i>
+			<span>Style:</span>
+			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+            <a href="#light-blue" style="background-color: #8399b0;"></a>
+			<a href="#blue" style="background-color: #2D2F57;"></a>
+			<a href="#red" style="background-color: #673232;"></a>
+            <a href="#red-green" style="background-image: url(http://demo.bootstrap-hunter.com/unicorn/'img/demo/red-green.png');background-repeat: no-repeat;"></a>
+		</div>
+		
+		<div id="content">
+			<div id="content-header">
+				<h1>Invoice</h1>
+				<div class="btn-group">
+					<a class="btn" title="Manage Files"><i class="fa fa-file"></i></a>
+					<a class="btn" title="Manage Users"><i class="fa fa-user"></i></a>
+					<a class="btn" title="Manage Comments"><i class="fa fa-comment"></i><span class="label label-danger">5</span></a>
+					<a class="btn" title="Manage Orders"><i class="fa fa-shopping-cart"></i></a>
+				</div>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> Home</a>
+				<a href="#">Sample Pages</a>
+				<a href="#" class="current">Invoice</a>
+			</div>				
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="fa">
+									<i class="fa fa-th-list"></i>
+								</span>
+								<h5>Invoice</h5>
+								<div class="buttons">
+									<a title="Icon Title" class="btn" href="#"><i class="fa fa-shopping-cart"></i> <span class="text">Pay Now</span></a>
+									<a title="Icon Title" class="btn" href="#"><i class="fa fa-print"></i> <span class="text">Print</span></a>
+								</div>
+							</div>
+							<div class="widget-content">
+								<div class="invoice-content">
+									<div class="invoice-head">
+										<div class="invoice-meta">
+											Invoice <span class="invoice-number">#96558 </span><span class="invoice-date">Date: 2012-07-15</span>
+										</div>
+										<h5>Invoice Title/Subject</h5>
+										<div class="invoice-from">
+											<ul>
+												<li>
+												<span><strong>From</strong></span>
+												<span>ANA Solutions</span>
+												<span>244, Soranda Street,</span>
+												<span>New Morleno.</span>
+												</li>
+											</ul>
+										</div>
+										<div class="invoice-to">
+											<ul>
+												<li>
+												<span><strong>To</strong></span>
+												<span>Mihaki Technologies</span>
+												<span>233/44, Autumn Lane</span>
+												<span>Treyan.</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-hover">
+										<thead>
+											<tr>
+												<th>
+													 Transaction Id
+												</th>
+												<th>
+													 Title
+												</th>
+												<th>
+													 Amount
+												</th>
+											</tr>
+										</thead>
+										<tfoot>
+											<tr>
+												<th class="total-label" colspan="2">
+													 Total:
+												</th>
+												<th class="total-amount">
+													 $920.00
+												</th>
+											</tr>
+										</tfoot>
+										<tbody>
+										<tr>
+											<td>
+												 #43
+											</td>
+											<td>
+												 Vivamus sed auctor nibh congue, ligula
+											</td>
+											<td>
+												 $20.00
+											</td>
+										</tr>
+										<tr>
+											<td>
+												 #44
+											</td>
+											<td>
+												 Proin porttitor bibendum placerat.
+											</td>
+											<td>
+												 $500.00
+											</td>
+										</tr>
+										<tr>
+											<td>
+												 #45
+											</td>
+											<td>
+												 Lorem ipsum dolor sit amet, consectetur.
+											</td>
+											<td>
+												 $30.00
+											</td>
+										</tr>
+										<tr>
+											<td>
+												 #46
+											</td>
+											<td>
+												 Esta rata in doleur.
+											</td>
+											<td>
+												 $30.00
+											</td>
+										</tr>
+										<tr>
+											<td>
+												 #47
+											</td>
+											<td>
+												 Larta mida eno mosque teria.
+											</td>
+											<td>
+												 $340.00
+											</td>
+										</tr>
+										</tbody>
+										</table>
+									</div>
+									<p class="amount-word">
+										Amount in Word: <span>Nine Hundred Twenty Dollars</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<div class="row">
+			<div id="footer" class="col-xs-12">
+				2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="http://bootstra-hunter.com/">Bootstrap Hunter</a>
+			</div>
+		</div>
+		
+            
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery-ui.custom.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.jpanelmenu.min.js"></script>
+            <script src="js/jquery.nicescroll.min.js"></script>
+            <script src="js/unicorn.js"></script>
+	</body>
+</html>

@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA82EEC2-A00A-4B96-83EC-755B4B0182B3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\SourceCode\Extend-Bin\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="ephtmltopdf">
+      <HintPath>..\..\SourceCode\Extend-Bin\ephtmltopdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>Extend-Bin\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=1.0.10.1, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SourceCode\Extend-Bin\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\SourceCode\Extend-Bin\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web">
+      <HintPath>..\..\SourceCode\Extend-Bin\Spring.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\vipsoft.mdb" />
+    <Content Include="CriteriaTest.aspx" />
+    <Content Include="DemoConfig.aspx" />
+    <Content Include="DI.aspx" />
+    <Content Include="GetParamsTest.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="HtmlPage.html" />
+    <Content Include="HtmlToPdf.aspx" />
+    <Content Include="ORM.aspx" />
+    <Content Include="RoutesTest.aspx" />
+    <Content Include="SiteSettings.aspx" />
+    <Content Include="Test.aspx" />
+    <Content Include="TransactionTest.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebToModel.aspx" />
+    <Content Include="XMLDemo.aspx" />
+    <Content Include="ZipArchive.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\HtmlToPdf.cs" />
+    <Compile Include="ConfigHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CriteriaTest.aspx.cs">
+      <DependentUpon>CriteriaTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CriteriaTest.aspx.designer.cs">
+      <DependentUpon>CriteriaTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoConfig.aspx.cs">
+      <DependentUpon>DemoConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoConfig.aspx.designer.cs">
+      <DependentUpon>DemoConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DI.aspx.cs">
+      <DependentUpon>DI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DI.aspx.designer.cs">
+      <DependentUpon>DI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetParamsTest.aspx.cs">
+      <DependentUpon>GetParamsTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetParamsTest.aspx.designer.cs">
+      <DependentUpon>GetParamsTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlToPdf.aspx.cs">
+      <DependentUpon>HtmlToPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlToPdf.aspx.designer.cs">
+      <DependentUpon>HtmlToPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ORM.aspx.cs">
+      <DependentUpon>ORM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ORM.aspx.designer.cs">
+      <DependentUpon>ORM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoutesTest.aspx.cs">
+      <DependentUpon>RoutesTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoutesTest.aspx.designer.cs">
+      <DependentUpon>RoutesTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteSettings.aspx.cs">
+      <DependentUpon>SiteSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteSettings.aspx.designer.cs">
+      <DependentUpon>SiteSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SysSettings.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionTest.aspx.cs">
+      <DependentUpon>TransactionTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionTest.aspx.designer.cs">
+      <DependentUpon>TransactionTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserDto.cs" />
+    <Compile Include="UserService.cs" />
+    <Compile Include="UserDao.cs" />
+    <Compile Include="UserModel.cs" />
+    <Compile Include="WebToModel.aspx.cs">
+      <DependentUpon>WebToModel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebToModel.aspx.designer.cs">
+      <DependentUpon>WebToModel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="XMLDemo.aspx.cs">
+      <DependentUpon>XMLDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="XMLDemo.aspx.designer.cs">
+      <DependentUpon>XMLDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZipArchive.aspx.cs">
+      <DependentUpon>ZipArchive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZipArchive.aspx.designer.cs">
+      <DependentUpon>ZipArchive.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SourceCode\FastReflection\FastReflection.csproj">
+      <Project>{B94E2A5F-28B3-44E7-882C-F7CF13E510AC}</Project>
+      <Name>FastReflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SourceCode\VipSoft.CMS.Core\VipSoft.CMS.Core.csproj">
+      <Project>{c34b2a04-a55d-47a0-a19b-c06ad6ed2477}</Project>
+      <Name>VipSoft.CMS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SourceCode\VipSoft.CMS.Dao\VipSoft.CMS.Dao.csproj">
+      <Project>{82b20cfa-6079-4f1d-92b7-61fc96273746}</Project>
+      <Name>VipSoft.CMS.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SourceCode\VipSoft.Core\VipSoft.Core.csproj">
+      <Project>{2AF7F54C-9BC5-4AE9-A579-F19C7B107F96}</Project>
+      <Name>VipSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SourceCode\VipSoft.Data\VipSoft.Data.csproj">
+      <Project>{ce633be4-06ca-4c17-b809-d48713b5a037}</Project>
+      <Name>VipSoft.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SourceCode\VipSoft.Service\VipSoft.Service.csproj">
+      <Project>{5127591A-90FD-4718-810C-3BCB2D8FFD7D}</Project>
+      <Name>VipSoft.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Demo.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Service.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>24533</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

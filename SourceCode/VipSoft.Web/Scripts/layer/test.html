@@ -1,0 +1,128 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>layer-更懂你的web弹窗解决方案</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="layer/layer.min.js"></script> 
+<body> 
+<div class="box">
+<div class="layer_text">
+<h2>本期小例子：制作一个自定义页面层：<span class="button" id="oneyear">查看效果</span></h2>
+</div> 
+</div>
+
+<div id="about_hide">
+<div class="layer_text">
+<h2>一些唠叨</h2>
+<p><i>layer</i>，一个可以让你想到即可做到的<i>web</i>弹窗（层）解决方案（js组件），作者贤心（菜鸟级前端攻城师）。<i>layer</i>侧重于用户灵活的自定义，为不同人的使用习惯提供动力。其意义在于，可以让您的页面拥有更丰富与便捷的操作体验，而这，您只需在调用时简单地配置相关参数，即可轻松实现。</p>
+<p>与同类弹出层组件相比，<i>layer</i>的优势明显，她尽可能地在以更少的代码展现出更强健的功能。<i>layer</i>格外注重性能的提升，采用面向对象的思想实现，在多层模式的回调处理中，具备其它多数层组件所没有的“独立不冲突” 您完全可以大可放心地在页面弹出任意数量的层，她们彼此不妨碍。当你问及她的兼容时，<i>layer</i>必须告诉你，她兼容了一切浏览器，包括古老的ie6。</p>
+<p><i>layer</i>公开了如此多的接口（api），这使得您可以DIY太多您需要的风格，尤其是页面层模式，意味着必要时您可以完全抛弃<i>layer</i>的现有皮肤，并用你的思维去勾勒她的衣着。而问题在于，我必须中止“王婆卖瓜”的陈述。因为一切的不足或友好，都需要您在使用过程中去发现。</p>
+<p>据不完全统计，截至到2013年2月1号，layer已服务于3000多家web平台（网站）。</p>
+</div>
+</div>
+ 
+
+<script>
+(function(){
+
+layer.alert('hello,亲爱的朋友，当你看到这个的时候，意味着你已将layer下载到你的本地，并正常地运行了它。layer是一款基于web的弹窗解决方案，旨在为你的产品增强体验。——贤心 <a href="http://sentsin.com"  target="_blank">sentsin.com</a>',9,false);
+
+layer.msg('嗨，伙计，我是layerhello,亲爱的朋<br/>友，当你看到这个<br/>的时候，意味着你已将layer下载到你的本<br/>地，并正常地运行了它。layer是一款<br/>基于web的弹窗解决方案，旨在为你的产品增强体验。——贤心 <a href="http://sentsin.com"  target="_blank">sentsin.com</a>',2,0);
+
+$.layer({
+    type : 2,
+    title : false,
+	time:2,
+    iframe : {src : 'http://pic10.nipic.com/20101023/145234_134017065776_2.gif'},
+    area : ['350px' , '466px'],
+    success : function(){
+        layer.shift('right-bottom',400);	
+    }
+});
+
+
+$('#about').on('click',function(event){
+	event.preventDefault();
+	$.layer({
+		type : 1,
+		offset : ['100px',''],
+		shade: ['','',false],
+		area : ['900px','auto'],
+		page : {dom : '#about_hide'}
+	});
+});
+
+
+$('#suggest').on('click',function(event){
+	var height = $(window).height();
+    event.preventDefault();
+	var index = $.layer({
+		type : 2,
+		fix : false,
+		shade : [0.5 , '#000' , true],
+		shadeClose : true,
+		border : [!0],
+		title : false,
+		offset : ['25px',''],
+		area : ['900px', (height - 50)+'px'],
+		iframe : {src : $(this).attr('href')}
+	});
+});
+
+
+$('#wish').on('click',function(event){
+	event.preventDefault();
+	$.layer({
+		type: 2,
+		title: ['',false],
+		offset: ['100px',''],
+		closeBtn: [0,false],
+		bgcolor: '',
+		area: ['590px', '380px'],
+		border: [10 , 0.5 , '#EF8016', false],
+		iframe: {src : 'http://sentsin.com/hello/year2013.html'},
+		success:function(layerDom){
+			layerDom.append('<div id="y2013_move" style="height:110px; width:590px; cursor:move; position:absolute; top:0; left:0; z-index:20000000;"></div><div id="y2013_close" style="position:absolute;right:0; top:0; width:40px; height:40px; cursor:pointer; z-index:20000001;"><div>');
+			this.move = ['#y2013_move', true];
+			layer.setMove();
+			$('#y2013_close').on('click', function(){
+				var index = layer.getIndex(this);
+				layer.close(index);
+			});
+		}
+	});
+	layer.tips('许个好愿吧', '#wish', 5);
+});
+layer.ready(function(){
+	layer.tips('一定会实现噢', '#wish');
+});
+
+
+//layer一周年
+$('#oneyear').on('click', function(){
+	var html = $('#about_hide').html();
+
+	var i = $.layer({
+		type: 1,
+		title: ['',false],
+		closeBtn: ['',false],
+		border : [5, 0.5, '#666', true],
+		offset: ['0px',''],
+		move: ['.juanmove', true],
+		area: ['620px','auto'],
+		page: {
+			html: html
+		}
+	});
+
+	var juanLu = $('.juanLu'), juanGo = $('.juanGo');
+	juanLu.on('click', function(){
+		layer.close(i);
+	});
+});
+
+})();
+</script>
+</body>
+</html>

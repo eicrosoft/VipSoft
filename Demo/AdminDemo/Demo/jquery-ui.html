@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Unicorn Admin</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/font-awesome.css" />
+		<link rel="stylesheet" href="css/jquery.gritter.css" />
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+		<link rel="stylesheet" href="css/unicorn.css" />
+		<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" /> 
+	</head>
+	<body> 
+		<div id="header">
+			<h1><a href="dashboard.html">Unicorn Admin</a></h1>		
+			<a id="menu-trigger" href="#"><i class="fa fa-align-justify"></i></a>	
+		</div>
+		
+		<div id="search">
+			<input type="text" placeholder="Search here..."/><button type="submit" class="tip-right" title="Search"><i class="fa fa-search"></i></button>
+		</div>
+		<div id="user-nav">
+            <ul class="btn-group">
+                <li class="btn" ><a title="" href="#"><i class="fa fa-user"></i> <span class="text">Profile</span></a></li>
+                <li class="btn dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="fa fa-envelope"></i> <span class="text">Messages</span> <span class="label label-danger">5</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="sAdd" title="" href="#">new message</a></li>
+                        <li><a class="sInbox" title="" href="#">inbox</a></li>
+                        <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                        <li><a class="sTrash" title="" href="#">trash</a></li>
+                    </ul>
+                </li>
+                <li class="btn"><a title="" href="#"><i class="fa fa-cog"></i> <span class="text">Settings</span></a></li>
+                <li class="btn"><a title="" href="login.html"><i class="fa fa-share"></i> <span class="text">Logout</span></a></li>
+            </ul>
+        </div>
+            
+		<div id="sidebar">
+			<ul>
+				<li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+				<li class="submenu active open">
+					<a href="#"><i class="fa fa-flask"></i> <span>UI Lab</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li><a href="interface.html">Interface Elements</a></li>
+						<li class="active"><a href="jquery-ui.html">jQuery UI</a></li>
+						<li><a href="buttons.html">Buttons &amp; icons</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
+					<a href="#"><i class="fa fa-th-list"></i> <span>Form elements</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li><a href="form-common.html">Common elements</a></li>
+						<li><a href="form-validation.html">Validation</a></li>
+						<li><a href="form-wizard.html">Wizard</a></li>
+					</ul>
+				</li>
+				<li><a href="tables.html"><i class="fa fa-th"></i> <span>Tables</span></a></li>
+				<li><a href="grid.html"><i class="fa fa-th-list"></i> <span>Grid Layout</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="fa fa-file"></i> <span>Sample pages</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li><a href="invoice.html">Invoice</a></li>
+						<li><a href="chat.html">Support chat</a></li>
+						<li><a href="calendar.html">Calendar</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="messages.html">Messages</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="charts.html"><i class="fa fa-signal"></i> <span>Charts &amp; graphs</span></a>
+				</li>
+				<li>
+					<a href="widgets.html"><i class="fa fa-inbox"></i> <span>Widgets</span></a>
+				</li>
+			</ul>
+		
+		</div>
+		
+		<div id="style-switcher">
+			<i class="fa fa-arrow-left"></i>
+			<span>Style:</span>
+			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+            <a href="#light-blue" style="background-color: #8399b0;"></a>
+			<a href="#blue" style="background-color: #2D2F57;"></a>
+			<a href="#red" style="background-color: #673232;"></a>
+            <a href="#red-green" style="background-image: url(http://demo.bootstrap-hunter.com/unicorn/'img/demo/red-green.png');background-repeat: no-repeat;"></a>
+		</div>
+		
+		<div id="content">
+			<div id="content-header">
+				<h1>jQuery UI Elements</h1>
+				<div class="btn-group">
+					<a class="btn btn-large" title="Manage Files"><i class="fa fa-file"></i></a>
+					<a class="btn btn-large" title="Manage Users"><i class="fa fa-user"></i></a>
+					<a class="btn btn-large" title="Manage Comments"><i class="fa fa-comment"></i><span class="label label-danger">5</span></a>
+					<a class="btn btn-large" title="Manage Orders"><i class="fa fa-shopping-cart"></i></a>
+				</div>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> Home</a>
+				<a href="#">UI Lab</a>
+				<a href="#" class="current">jQuery UI elements</a>
+			</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-grid">
+						<div class="widget-box">
+							<div class="widget-title">
+								<h5>Dialog</h5>
+							</div>
+							<div class="widget-content">
+								<a href="#" id="open-dialog" class="btn btn-inverse">Dialog</a> <a href="#" id="open-modal" class="btn btn-primary">Modal Dialog</a>
+								<div id="dialog" title="Basic dialog">
+									<p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+								</div>
+								<div id="modal-dialog" title="Modal Dialog">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</div>
+							</div>
+						</div>
+						<div class="widget-box">
+							<div class="widget-title">
+								<h5>Sliders</h5>
+							</div>
+							<div class="widget-content">
+								<h4>Horizontal Slider</h4>
+								<div id="h-slider"></div>
+								<div id="h-slider-2" class="slider-red"></div>
+								<div id="h-slider-3" class="slider-green"></div>
+								<div id="h-slider-4" class="slider-yellow"></div>
+								<hr />
+								<h4>Vertical Slider</h4>
+								<div id="eq" style="height:120px;">
+									<span>88</span>
+									<span class="slider-red">77</span>
+									<span>55</span>
+									<span class="slider-green">33</span>
+									<span>40</span>
+									<span class="slider-yellow">45</span>
+									<span>70</span>
+								</div>
+							</div>
+						</div>
+						<div id="accordion" class="accordion">
+                            <div class="widget-box">
+                                <div class="widget-title">
+                                    <a href="#">
+                                        <span class="fa"><i class="fa fa-globe"></i></span><h5>Accordion, opened by default</h5>
+                                    </a>
+                                </div>
+                                <div class="widget-content">
+                                    This is opened by default
+                                </div>
+                            </div> 
+                            <div class="widget-box">
+                                <div class="widget-title">
+                                    <a href="#">
+                                        <span class="fa"><i class="fa fa-magnet"></i></span><h5>Accordion, closed</h5>
+                                    </a>
+                                </div>
+                                <div class="widget-content">
+                                    Another is open
+                                </div>
+                            </div>
+                            <div class="widget-box">
+                                <div class="widget-title">
+                                    <a href="#">
+                                        <span class="fa"><i class="fa fa-plane"></i></span><h5>Accordion, closed</h5>
+                                    </a>
+                                </div>
+                            	<div class="widget-content">
+                                	Another is open
+                            	</div>
+                            </div>
+                        </div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-grid">
+						<div class="widget-box">
+							<div class="widget-title">
+								<h5>Autocomplete</h5>
+							</div>
+							<div class="widget-content">
+								<input type="text" class="form-control" placeholder="Enter tag" id="tags" />
+							</div>
+						</div>
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="fa">
+									<i class="fa fa-calendar"></i>
+								</span>
+								<h5>Datepicker</h5>
+							</div>
+							<div class="widget-content">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6">
+										From: <input id="ui-datepicker" type="text" class="form-control input-sm" />
+									</div>
+									<div class="col-xs-12 col-sm-6">
+										To: <input id="ui-datepicker-2" type="text" class="form-control input-sm" />
+									</div>
+								</div>
+								<hr />
+								<h4>Inline Datepicker</h4>
+								<div id="ui-datepicker-inline" class="center"></div>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<br />		
+		</div>
+		<div class="row">
+			<div id="footer" class="col-xs-12">
+				2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="http://bootstra-hunter.com/">Bootstrap Hunter</a>
+			</div>
+		</div>
+		
+            
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery-ui.custom.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.jpanelmenu.min.js"></script>
+            <script src="js/jquery.nicescroll.min.js"></script>
+            <script src="js/unicorn.js"></script>
+            <script src="js/unicorn.jui.js"></script>
+	</body>
+</html>

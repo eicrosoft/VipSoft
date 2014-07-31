@@ -1,0 +1,68 @@
+﻿@using VipSoft.CMS.Core.Enum
+@using VipSoft.Web.Areas.VipSoft.Controllers
+@using VipSoft.WebUtility
+@model VipSoft.CMS.Core.Entity.Category
+@{
+    ViewBag.Title = "管理首页";
+    Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="fa">
+                        <i class="fa fa-align-justify"></i>
+                    </span>
+                    <h5>@ViewBag.SubTitle</h5>
+                    <div class="buttons">
+                        <a title="Icon Title" class="btn" href="@Url.Action("List", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-reply"></i><span class="text">返回</span></a>
+                    </div>
+                </div>
+                <div class="widget-content nopadding">
+                    <form id="frmCategory" method="post" class="form-horizontal">
+                        @if (@Request.RequestContext.RouteData.Values["id"] != null)
+                        {
+                            <div class="form-group">
+                                <label class="control-label">@Html.LabelFor(model => model.ParentId)</label>
+                                <div class="controls">
+                                    @Html.DropDownListFor(model => model.ParentId, (SelectList)ViewBag.Category, "请选择", new { @class = "select2 required" })
+                                </div>
+                            </div> 
+                        }
+                        <div class="form-group">
+                            <label class="control-label">@Html.LabelFor(model => model.Name)</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => model.Name, new { @class = "" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">@Html.ValidationSummary(true)</label>
+                            <div class="controls">
+                            <input type="hidden" id="mid" name="mid" value="@Request.RequestContext.RouteData.Values["mid"]"/>
+                            <input type="hidden" id="cid" name="ParentId" value="@Request.RequestContext.RouteData.Values["cid"]"/>
+                            @Html.HiddenFor(model => model.ID)
+                            @Html.Hidden("act", Request.QueryString["act"])
+                            <input type="submit" name="btnSubmit" value="提交保存" id="btnSubmit" class="btn btn-primary" />
+                            &nbsp;<input name="重置" type="reset" class="btn btn-danger" value="重 置" />
+                            </div>
+                        </div> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Script {
+    <script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/VipSoft.CMS.Category.js")" type="text/javascript"></script>
+    <script type="text/javascript">  
+        //定义mid,cid供VipSoft.CMS.Category.js中的变量使用。
+        var mid = @Request.RequestContext.RouteData.Values["mid"];
+        var cid = @Request.RequestContext.RouteData.Values["cid"];  
+    </script>
+}

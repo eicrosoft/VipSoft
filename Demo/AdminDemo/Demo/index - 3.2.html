@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Unicorn Admin</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/font-awesome.css" />
+		<link rel="stylesheet" href="css/fullcalendar.css" />
+		<link rel="stylesheet" href="css/jquery.jscrollpane.css" />	
+		<link rel="stylesheet" href="css/unicorn.css" />
+		<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />		
+	</head>
+	<body>
+		<div id="header">
+			<h1><a href="dashboard.html">Unicorn Admin</a></h1>	
+			<a id="menu-trigger" href="#"><i class="icon-align-justify"></i></a>	
+		</div>
+		
+		<div id="search">
+			<input type="text" placeholder="Search here..."/><button type="submit" class="tip-right" title="Search"><i class="icon-search"></i></button>
+		</div>
+		<div id="user-nav">
+            <ul class="btn-group">
+                <li class="btn" ><a title="" href="#"><i class="icon-user"></i> <span class="text">Profile</span></a></li>
+                <li class="btn dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon-envelope"></i> <span class="text">Messages</span> <span class="label label-danger">5</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="sAdd" title="" href="#">new message</a></li>
+                        <li><a class="sInbox" title="" href="#">inbox</a></li>
+                        <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                        <li><a class="sTrash" title="" href="#">trash</a></li>
+                    </ul>
+                </li>
+                <li class="btn"><a title="" href="#"><i class="icon-cog"></i> <span class="text">Settings</span></a></li>
+                <li class="btn"><a title="" href="login.html"><i class="icon-share-alt"></i> <span class="text">Logout</span></a></li>
+            </ul>
+        </div>
+            
+		<div id="sidebar">
+			<ul>
+				<li class="active"><a href="index.html"><i class="icon-home"></i> <span>Dashboard</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon-beaker"></i> <span>UI Lab</span> <i class="arrow icon-chevron-right"></i></a>
+					<ul>
+						<li><a href="interface.html">Interface Elements</a></li>
+						<li><a href="jquery-ui.html">jQuery UI</a></li>
+						<li><a href="buttons.html">Buttons &amp; icons</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
+					<a href="#"><i class="icon-th-list"></i> <span>Form elements</span> <i class="arrow icon-chevron-right"></i></a>
+					<ul>
+						<li><a href="form-common.html">Common elements</a></li>
+						<li><a href="form-validation.html">Validation</a></li>
+						<li><a href="form-wizard.html">Wizard</a></li>
+					</ul>
+				</li>
+				<li><a href="tables.html"><i class="icon-th"></i> <span>Tables</span></a></li>
+				<li><a href="grid.html"><i class="icon-th-list"></i> <span>Grid Layout</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon-file"></i> <span>Sample pages</span> <i class="arrow icon-chevron-right"></i></a>
+					<ul>
+						<li><a href="invoice.html">Invoice</a></li>
+						<li><a href="chat.html">Support chat</a></li>
+						<li><a href="calendar.html">Calendar</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="messages.html">Messages</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="charts.html"><i class="icon-signal"></i> <span>Charts &amp; graphs</span></a>
+				</li>
+				<li>
+					<a href="widgets.html"><i class="icon-inbox"></i> <span>Widgets</span></a>
+				</li>
+			</ul>
+		
+		</div>
+		
+		<div id="style-switcher">
+			<i class="icon-arrow-left"></i>
+			<span>Style:</span>
+			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+            <a href="#light-blue" style="background-color: #8399b0;"></a>
+			<a href="#blue" style="background-color: #2D2F57;"></a>
+			<a href="#red" style="background-color: #673232;"></a>
+            <a href="#red-green" style="background-image: url(http://demo.bootstrap-hunter.com/unicorn/'img/demo/red-green.png');background-repeat: no-repeat;"></a>
+		</div>
+		
+		<div id="content">
+			<div id="content-header">
+				<h1>Dashboard</h1>
+				<ul class="mini-stats box-3">
+					<li>
+						<div class="left sparkline_bar_good"><span>2,4,9,7,12,10,12</span>+10%</div>
+						<div class="right">
+							<strong>36094</strong>
+							Visits
+						</div>
+					</li>
+					<li>
+						<div class="left sparkline_bar_neutral"><span>20,15,18,14,10,9,9,9</span>0%</div>
+						<div class="right">
+							<strong>1433</strong>
+							Users
+						</div>
+					</li>
+					<li>
+						<div class="left sparkline_bar_bad"><span>3,5,9,7,12,20,10</span>+50%</div>
+						<div class="right">
+							<strong>8650</strong>
+							Orders
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+				<a href="#" class="current">Dashboard</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 center" style="text-align: center;">					
+						<ul class="quick-actions">
+							<li>
+								<a href="#">
+									<i class="icon-cal"></i>
+									Manage Events
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-shopping-bag"></i>
+									Manage Orders
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-database"></i>
+									Manage DB
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-people"></i>
+									Manage Users
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-lock"></i>
+									Security
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="icon-piechart"></i>
+									Statistics
+								</a>
+							</li>
+						</ul>
+					</div>	
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="alert alert-info">
+							Welcome in the <strong>Unicorn Admin Theme</strong>. Don't forget to check all the pages!
+							<a href="#" data-dismiss="alert" class="close">×</a>
+						</div>
+						<div class="widget-box">
+							<div class="widget-title"><span class="icon"><i class="icon-signal"></i></span><h5>Site Statistics</h5><div class="buttons"><a href="#" class="btn"><i class="icon-refresh"></i> <span class="text">Update stats</span></a></div></div>
+							<div class="widget-content">
+								<div class="row">
+									<div class="col-xs-12 col-sm-4">
+										<ul class="site-stats">
+											<li><div class="cc"><i class="icon-user"></i> <strong>1433</strong> <small>Total Users</small></div></li>
+											<li><div class="cc"><i class="icon-arrow-right"></i> <strong>16</strong> <small>New Users (last week)</small></div></li>
+											<li class="divider"></li>
+											<li><div class="cc"><i class="icon-shopping-cart"></i> <strong>259</strong> <small>Total Shop Items</small></div></li>
+											<li><div class="cc"><i class="icon-tag"></i> <strong>8650</strong> <small>Total Orders</small></div></li>
+											<li><div class="cc"><i class="icon-repeat"></i> <strong>29</strong> <small>Pending Orders</small></div></li>
+										</ul>
+									</div>
+									<div class="col-xs-12 col-sm-8">
+										<div class="chart"></div>
+									</div>	
+								</div>							
+							</div>
+						</div>					
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<div class="widget-box">
+							<div class="widget-title"><span class="icon"><i class="icon-file"></i></span><h5>Recent Posts</h5><span title="54 total posts" class="label label-info tip-left">54</span></div>
+							<div class="widget-content nopadding">
+								<ul class="recent-posts">
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av2.jpg">
+										</div>
+										<div class="article-post">
+											<span class="user-info"> By: neytiri on 2 Aug 2012, 09:27 AM, IP: 186.56.45.7 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av3.jpg">
+										</div>
+										<div class="article-post">
+											<span class="user-info"> By: john on on 24 Jun 2012, 04:12 PM, IP: 192.168.24.3 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av1.jpg">
+										</div>
+										<div class="article-post">
+											<span class="user-info"> By: michelle on 22 Jun 2012, 02:44 PM, IP: 172.10.56.3 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li class="viewall">
+										<a title="View all posts" class="tip-top" href="#"> + View all + </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<div class="widget-box">
+							<div class="widget-title"><span class="icon"><i class="icon-comment"></i></span><h5>Recent Comments</h5><span title="88 total comments" class="label label-info tip-left">88</span></div>
+							<div class="widget-content nopadding">
+								<ul class="recent-comments">
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av1.jpg">
+										</div>
+										<div class="comments">
+											<span class="user-info"> User: michelle on IP: 172.10.56.3 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av3.jpg">
+										</div>
+										<div class="comments">
+											<span class="user-info"> User: john on IP: 192.168.24.3 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li>
+										<div class="user-thumb">
+											<img width="40" height="40" alt="User" src="img/demo/av2.jpg">
+										</div>
+										<div class="comments">
+											<span class="user-info"> User: neytiri on IP: 186.56.45.7 </span>
+											<p>
+												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+											</p>
+											<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+										</div>
+									</li>
+									<li class="viewall">
+										<a title="View all comments" class="tip-top" href="#"> + View all + </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="widget-box widget-calendar">
+							<div class="widget-title"><span class="icon"><i class="icon-calendar"></i></span><h5>Calendar</h5></div>
+							<div class="widget-content nopadding">
+								<div class="calendar"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+		<div class="row">
+			<div id="footer" class="col-xs-12">
+				2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="http://bootstra-hunter.com/">Bootstrap Hunter</a>
+			</div>
+		</div>
+
+            <script src="js/excanvas.min.js"></script>
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery-ui.custom.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.flot.min.js"></script>
+            <script src="js/jquery.flot.resize.min.js"></script>
+            <script src="js/jquery.sparkline.min.js"></script>
+            <script src="js/fullcalendar.min.js"></script>
+            <script src="js/jquery.jpanelmenu.min.js"></script>
+            <script src="js/jquery.nicescroll.min.js"></script>
+            <script src="js/unicorn.js"></script>
+            <script src="js/unicorn.dashboard.js"></script>
+	</body>
+</html>

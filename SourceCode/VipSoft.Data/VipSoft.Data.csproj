@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE633BE4-06CA-4C17-B809-D48713B5A037}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VipSoft.Data</RootNamespace>
+    <AssemblyName>VipSoft.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Extend-Bin\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Extend-Bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\Configuration.cs" />
+    <Compile Include="Config\SessionElementCollection.cs" />
+    <Compile Include="Config\SessionSection.cs" />
+    <Compile Include="Config\Settings.cs" />
+    <Compile Include="Connection\ConnectionManager.cs" />
+    <Compile Include="Connection\ConnectionProvider.cs" />
+    <Compile Include="Connection\ConnectionProviderFactory.cs" />
+    <Compile Include="Connection\DriverConnectionProvider.cs" />
+    <Compile Include="Connection\IConnectionProvider.cs" />
+    <Compile Include="Connection\UserSuppliedConnectionProvider.cs" />
+    <Compile Include="Context\CallSessionContext.cs" />
+    <Compile Include="Context\CurrentSessionContext.cs" />
+    <Compile Include="Context\ICurrentSessionContext.cs" />
+    <Compile Include="Context\ManagedWebSessionContext.cs" />
+    <Compile Include="Context\MapBasedSessionContext.cs" />
+    <Compile Include="Context\ThreadLocalSessionContext.cs" />
+    <Compile Include="Context\ThreadStaticSessionContext.cs" />
+    <Compile Include="Context\WebSessionContext.cs" />
+    <Compile Include="Dao\AbstractDao.cs" />
+    <Compile Include="Driver\ASA10ClientDriver.cs" />
+    <Compile Include="Driver\ASAClientDriver.cs" />
+    <Compile Include="Driver\DB2400Driver.cs" />
+    <Compile Include="Driver\DB2Driver.cs" />
+    <Compile Include="Driver\DriverBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Driver\FirebirdClientDriver.cs" />
+    <Compile Include="Driver\FirebirdDriver.cs" />
+    <Compile Include="Driver\IfxDriver.cs" />
+    <Compile Include="Driver\IngresDriver.cs" />
+    <Compile Include="Driver\MySqlDataDriver.cs" />
+    <Compile Include="Driver\NDataReader.cs" />
+    <Compile Include="Driver\NHybridDataReader.cs" />
+    <Compile Include="Driver\NpgsqlDriver.cs" />
+    <Compile Include="Driver\OdbcDriver.cs" />
+    <Compile Include="Driver\OleDbDriver.cs" />
+    <Compile Include="Driver\OracleClientDriver.cs" />
+    <Compile Include="Driver\OracleDataClientDriver.cs" />
+    <Compile Include="Driver\OracleLiteDataClientDriver.cs" />
+    <Compile Include="Driver\ReflectionBasedDriver.cs" />
+    <Compile Include="Driver\SqlClientDriver.cs" />
+    <Compile Include="Driver\SQLite20Driver.cs" />
+    <Compile Include="Driver\SQLiteDriver.cs" />
+    <Compile Include="Driver\SqlServerCeDriver.cs" />
+    <Compile Include="Driver\SybaseAdoNet12ClientDriver.cs" />
+    <Compile Include="Driver\SybaseClientDriver.cs" />
+    <Compile Include="Engine\IIsolatedWork.cs" />
+    <Compile Include="Engine\IPersistenceContext.cs" />
+    <Compile Include="Engine\ISessionFactoryImplementor.cs" />
+    <Compile Include="Engine\ISessionImplementor.cs" />
+    <Compile Include="Engine\Isolater.cs" />
+    <Compile Include="Impl\AbstractSessionImpl.cs" />
+    <Compile Include="Impl\SessionFactoryImpl.cs" />
+    <Compile Include="Impl\SessionFactoryObjectFactory.cs" />
+    <Compile Include="Impl\SessionIdLoggingContext.cs" />
+    <Compile Include="Impl\SessionImpl.cs" />
+    <Compile Include="ISession.cs" />
+    <Compile Include="ISessionFactory.cs" />
+    <Compile Include="Persister\Batcher.cs" />
+    <Compile Include="Persister\BatcherFactory.cs" />
+    <Compile Include="Persister\ColumnNameCache.cs" />
+    <Compile Include="Persister\EntityPersister.cs" />
+    <Compile Include="Persister\IBatcher.cs" />
+    <Compile Include="Persister\IBatcherFactory.cs" />
+    <Compile Include="Persister\IEntityPersister.cs" />
+    <Compile Include="Persister\IExpectation.cs" />
+    <Compile Include="Persister\Map.cs" />
+    <Compile Include="Persister\ResultSetWrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction\AdoNetTransactionFactory.cs" />
+    <Compile Include="Transaction\AdoNetWithDistrubtedTransactionFactory.cs" />
+    <Compile Include="Transaction\AdoTransaction.cs" />
+    <Compile Include="Transaction\ISynchronization.cs" />
+    <Compile Include="Transaction\ITransaction.cs" />
+    <Compile Include="Transaction\ITransactionContext.cs" />
+    <Compile Include="Transaction\ITransactionFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FastReflection\FastReflection.csproj">
+      <Project>{B94E2A5F-28B3-44E7-882C-F7CF13E510AC}</Project>
+      <Name>FastReflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VIPSOFT.Core\VipSoft.Core.csproj">
+      <Project>{2AF7F54C-9BC5-4AE9-A579-F19C7B107F96}</Project>
+      <Name>VipSoft.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entity\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

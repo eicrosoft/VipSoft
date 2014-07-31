@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "管理首页";
+    Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
+}
+ 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 center" style="text-align: center;">
+            <ul class="quick-actions">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cal"></i>
+                        日程安排
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-shopping-bag"></i>
+                        定单管理
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-database"></i>
+                        数据库管理
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List","User")">
+                        <i class="fa fa-people"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("RoleAccess","Role")">
+                        <i class="fa fa-lock"></i>
+                        权限管理
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-piechart"></i>
+                        系统设置
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="row" style="height: 40px">
+        <div class="col-xs-12">
+            <div class="alert alert-info">
+                VipSoft CMS 新版发布，请联系管理员做系统升级 <a href="http://www.vipsoft.com.cn"><strong>http://www.vipsoft.com.cn</strong></a>
+							<a href="#" data-dismiss="alert" class="close">×</a>
+            </div> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="fa"><i class="fa fa-file"></i></span>
+                    <h5>访问排行</h5>
+                    <span title="54 total posts" class="label label-info tip-left">54</span>
+                </div>
+                <div class="widget-content nopadding">
+                    <ul class="recent-posts">
+                        <li>
+                            <div class="user-thumb">
+                                <img width="40" height="40" alt="User" src="/Uploads/demo/av2.jpg">
+                            </div>
+                            <div class="article-post">
+                                <span class="user-info">By: 苏州-阿军 on 2 Aug 2013, 09:27 AM, IP: 186.56.45.7 </span>
+                                <p>
+                                    <a href="#">VipSoft CMS 正式发布...</a>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-xs">修改</a> <a href="#" class="btn btn-danger btn-xs">删除</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-thumb">
+                                <img width="40" height="40" alt="User" src="/Uploads/demo/av3.jpg">
+                            </div>
+                            <div class="article-post">
+                                <span class="user-info">By: 苏州-阿军 on 24 Jun 2013, 04:12 PM, IP: 192.168.24.3 </span>
+                                <p>
+                                    <a href="#">VipSoft CMS 功能介绍...</a>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-xs">修改</a> <a href="#" class="btn btn-danger btn-xs">删除</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-thumb">
+                                <img width="40" height="40" alt="User" src="/Uploads/demo/av1.jpg">
+                            </div>
+                            <div class="article-post">
+                                <span class="user-info">By: 苏州-阿军 on 22 Jun 2013, 02:44 PM, IP: 172.10.56.3 </span>
+                                <p>
+                                    <a href="#">如何将 Controllers 层独立...</a>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-xs">修改</a> <a href="#" class="btn btn-danger btn-xs">删除</a>
+                            </div>
+                        </li>
+                        <li class="viewall">
+                            <a title="View all posts" class="tip-top" href="#">+ 查看更多 + </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="fa"><i class="fa fa-comment"></i></span>
+                    <h5>客户留言</h5>
+                    <span title="88 total comments" class="label label-info tip-left">88</span>
+                </div>
+                <div class="widget-content nopadding">
+                    <ul class="recent-comments">
+                        <li>
+                            <div class="user-thumb">
+                                <img width="40" height="40" alt="User" src="/Uploads/demo/av1.jpg">
+                            </div>
+                            <div class="comments">
+                                <span class="user-info">User: michelle on IP: 172.10.56.3 </span>
+                                <p>
+                                    <a href="#">新版什么时候发布...</a>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-xs">详细</a> <a href="#" class="btn btn-success btn-xs">已读</a> <a href="#" class="btn btn-warning btn-xs">重要</a> <a href="#" class="btn btn-danger btn-xs">删除</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-thumb">
+                                <img width="40" height="40" alt="User" src="/Uploads/demo/av3.jpg">
+                            </div>
+                            <div class="comments">
+                                <span class="user-info">User: john on IP: 192.168.24.3 </span>
+                                <p>
+                                    <a href="#">系统做得不错，赞一个...</a>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-xs">详细</a> <a href="#" class="btn btn-success btn-xs">已读</a> <a href="#" class="btn btn-warning btn-xs">重要</a> <a href="#" class="btn btn-danger btn-xs">删除</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-thumb">
+                                <img width="40" height="40" alt="User" src="/Uploads/demo/av2.jpg">
+                            </div>
+                            <div class="comments">
+                                <span class="user-info">User: Jimmy on IP: 186.56.45.7 </span>
+                                <p>
+                                    <a href="#">定制服务，怎么收费...</a>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-xs">详细</a> <a href="#" class="btn btn-success btn-xs">已读</a> <a href="#" class="btn btn-warning btn-xs">重要</a> <a href="#" class="btn btn-danger btn-xs">删除</a>
+                            </div>
+                        </li>
+                        <li class="viewall">
+                            <a title="View all comments" class="tip-top" href="#">+ 查看更多 + </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="display: none">
+        <div class="col-xs-12">
+            <div class="widget-box widget-calendar">
+                <div class="widget-title">
+                    <span class="fa"><i class="fa fa-calendar"></i></span>
+                    <h5>日历</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <div class="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

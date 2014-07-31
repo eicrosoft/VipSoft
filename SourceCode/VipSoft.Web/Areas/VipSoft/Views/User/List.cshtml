@@ -1,0 +1,108 @@
+﻿@using VipSoft.WebUtility
+@using Webdiyer.WebControls.Mvc
+@using VipSoft.Membership.Core.Entity
+@model PagedList<Users>
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "用户管理";
+    Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="fa">
+                    <i class="fa fa-th"></i>
+                </span>
+                <h5>最新动态</h5>
+                <div class="buttons">
+                    <a title="Icon Title" class="btn" href="@Url.Action("Add", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-plus"></i><span class="text">新增</span></a>
+                </div>
+            </div>
+            <div class="widget-content nopadding">
+                <table class="table table-bordered table-striped table-hover data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30px">
+                                <div class="icheckbox_flat-blue" style="position: relative;">
+                                    <input type="checkbox" id="title-table-checkbox" name="title-table-checkbox" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                </div>
+                            </th>
+                            <th style="width: 80px">编号 </th>
+                            <th style="width: 120px;">机构名称</th>
+                            <th style="width: 100px;">用户名</th> 
+                            <th style="width: 100px;">姓名</th>
+                            <th style="width: 120px;">QQ</th>
+                            <th >手机</th>
+                            <th style="width: 100px;">创建日期</th>
+                            <th style="width: 80px;">状态</th>
+                            <th style="width: 200px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr> 
+                                <td class="tdCenter">
+                                    <input name="@item.ID" id="@item.ID" onclick="UnSelectAll('chkSelectAll')" type="checkbox" value="@item.ID"/>
+                                </td>
+                                <td class="tdCenter">
+                                    @item.ID
+                                </td>
+                                <td class="tdCenter">
+                                    苏州分公司
+                                </td>
+                                <td>
+                                    @item.UserName
+                                </td>
+                                <td>
+                                    @item.RealName
+                                </td>
+                                <td class="tdCenter">
+                                    @item.QQ
+                                </td>
+                                <td class="tdCenter">
+                                    @item.Mobile
+                                </td>
+                                <td>
+                                    @String.Format("{0:d}", item.CreateDate)
+                                </td>
+                                <td class="tdCenter">
+                                    @item.Status
+                                </td>
+                                <td class="tdCenter">
+                                    <div class="btn-group">
+                                        <button class="btn btn-purple btn-xs">
+                                            特性</button>
+                                        <button data-toggle="dropdown" class="btn btn-purple dropdown-toggle btn-xs">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-purple" style="text-align: left">
+                                            <li><a href="#" onclick="unrealized()">禁用</a></li>
+                                            <li><a href="#" onclick="unrealized()">角色</a></li>
+                                        </ul>
+                                    </div>
+                                    <a class="btn btn-primary btn-xs" href="@Url.Action("Add", new { id = item.ID, cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })" >修改</a>
+                                    <a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteUser(this,@item.ID)">删除</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Script {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/VipSoft.User.js")"></script> 
+     <script type="text/javascript">
+         //定义mid,cid供VipSoft.CMS.Category.js中的变量使用。
+         var mid = 0;
+         var cid = 0;
+    </script>
+}
+

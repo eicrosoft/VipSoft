@@ -1,0 +1,29 @@
+﻿<div class="logo">
+    <h1><a href="#">依软CMS</a></h1>
+</div>
+<div class="top_r">
+    <div class="webinfo">
+
+        <a href="#">登录</a> | <a href="/User/Register">注册</a>
+
+        | <a href="#">加入收藏</a>
+    </div>
+    <div class="search">
+        <form name="prdsearchform" id="prdsearchform" onsubmit="javascript:return check_prdsearch_info(this);" action="#" method="post">
+        <input type="text" class="searchtext" name="SearchKey" id="prd_keyword" value="" /><input type="submit" value="" class="searchsub" />
+        </form>
+        <script type="text/javascript" language="javascript">
+
+            function check_prdsearch_info(thisForm) {
+                if (/^\s*$/.test(thisForm.elements["prd_keyword"].value)) {
+                    alert("请先输入关键词!");
+                    thisForm.elements["prd_keyword"].focus();
+                    return false;
+                }
+                alert("功能待开发!");
+                return false;
+            }
+
+        </script>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="keywords" content="VipSoft CMS 依软内容管理系统" />
+    <meta name="description" content="VipSoft CMS 依软内容管理系统" />
+    <title>VipSoft CMS 依软内容管理系统</title>
+    <link href="/Content/themes/VipSoft/style.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="/Scripts/VipSoft/jquery.jcarousel.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Content/themes/VipSoft/VipSoft.css" />
+    @RenderSection("Style", false)
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#mycarousel').jcarousel({
+                scroll: 2,
+                auto: 2,
+                wrap: 'circular'
+            });
+        });
+    </script>
+
+    <script>
+<!--
+    /*红色显示样式*/
+    function setTabm(name, cursel, n) {
+        for (i = 1; i <= n; i++) {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById("con_" + name + "_" + i);
+            menu.className = i == cursel ? "redmenu" : "";
+            con.style.display = i == cursel ? "block" : "none";
+        }
+    }
+    //-->
+    </script>
+    <script>
+<!--
+    /*绿色显示样式*/
+    function setTab(name, cursel, n) {
+        for (i = 1; i <= n; i++) {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById("con_" + name + "_" + i);
+            menu.className = i == cursel ? "redmenu" : "";
+            con.style.display = i == cursel ? "block" : "none";
+        }
+    }
+    //-->
+    </script>
+</head>
+
+<body>
+    <div class="block">
+       
+        @{ Html.RenderPartial("_Header");}
+        @{ Html.RenderAction("MenuList", "Category");}
+        <div class="blank"></div>
+        <div class="banner">
+            <div id="banner">
+                <div id="fade_focus">
+                    <div class="loading" align="center">Loading...</div>
+                    <ul>
+                        <li>
+                            <img src="/Uploads/1.jpg" alt="VipSoft CMS 依软内容管理系统" /></li>
+
+                        <li>
+                            <img src="/Uploads/2.jpg" alt="VipSoft CMS 依软内容管理系统" /></li>
+
+                        <li>
+                            <img src="/Uploads/3.jpg" alt="VipSoft CMS 依软内容管理系统" /></li>
+                    </ul>
+                </div>
+
+                <script language="javascript" type="text/javascript">
+                    /*
+                    power by:  http://www.vipsoft.com.cn
+                    */
+                    //主函数
+                    var s = function () {
+                        var interv = 6000; //切换间隔时间
+                        var interv2 = 20; //切换速速
+                        var opac1 = 80; //文字背景的透明度
+                        var source = "fade_focus" //焦点轮换图片容器的id名称
+                        //获取对象
+                        function getTag(tag, obj) { if (obj == null) { return document.getElementsByTagName(tag) } else { return obj.getElementsByTagName(tag) } }
+                        function getid(id) { return document.getElementById(id) };
+                        var opac = 0, j = 0, t = 63, num, scton = 0, timer, timer2, timer3; var id = getid(source); id.removeChild(getTag("div", id)[0]); var li = getTag("li", id); var div = document.createElement("div"); var title = document.createElement("div"); var span = document.createElement("span"); var button = document.createElement("div"); button.className = "button"; for (var i = 0; i < li.length; i++) { var a = document.createElement("a"); a.innerHTML = i + 1; a.onclick = function () { clearTimeout(timer); clearTimeout(timer2); clearTimeout(timer3); j = parseInt(this.innerHTML) - 1; scton = 0; t = 63; opac = 0; fadeon(); }; a.className = "b1"; a.onmouseover = function () { this.className = "b2" }; a.onmouseout = function () { this.className = "b1"; sc(j) }; button.appendChild(a); }
+                        //控制图层透明度
+                        function alpha(obj, n) { if (document.all) { obj.style.filter = "alpha(opacity=" + n + ")"; } else { obj.style.opacity = (n / 100); } }
+                        //控制焦点按钮
+                        function sc(n) { for (var i = 0; i < li.length; i++) { button.childNodes[i].className = "b1" }; button.childNodes[n].className = "b2"; }
+                        title.className = "num_list"; title.appendChild(span); alpha(title, opac1); id.className = "d1"; div.className = "d2"; id.appendChild(div); id.appendChild(title); id.appendChild(button);
+                        //渐显
+                        var fadeon = function () { opac += 5; div.innerHTML = li[j].innerHTML; span.innerHTML = getTag("img", li[j])[0].alt; alpha(div, opac); if (scton == 0) { sc(j); num = -2; scrolltxt(); scton = 1 }; if (opac < 100) { timer = setTimeout(fadeon, interv2) } else { timer2 = setTimeout(fadeout, interv); }; }
+                        //渐隐
+                        var fadeout = function () { opac -= 5; div.innerHTML = li[j].innerHTML; alpha(div, opac); if (scton == 0) { num = 2; scrolltxt(); scton = 1 }; if (opac > 0) { timer = setTimeout(fadeout, interv2) } else { if (j < li.length - 1) { j++ } else { j = 0 }; fadeon() }; }
+                        //滚动文字
+                        var scrolltxt = function () { t += num; span.style.marginTop = t + "px"; if (num < 0 && t > 3) { timer3 = setTimeout(scrolltxt, interv2) } else if (num > 0 && t < 62) { timer3 = setTimeout(scrolltxt, interv2) } else { scton = 0 } };
+                        fadeon();
+                    }
+                    //初始化
+                </script>
+                <script type="text/javascript">s();</script>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        @RenderBody()
+
+    </div>
+
+    <div class="footer">
+        <div class="block">
+            <div class="clear link">
+                @{Html.RenderAction("Blogroll", "Article", new { cid = 12 });}
+            </div>
+            <div class="blank"></div>
+            <div class="footnav">
+                <a href="/">首页</a> |  
+                <a href="/Article/Content/2">关于我们</a> | 
+                <a href="/Article/List/3">最新动态</a> |
+                <a href="/Article/List/4">成功案例</a> | 
+                <a href="/Article/Content/5">加入我们</a> | 
+                <a href="/Article/Content/6">授权服务</a> | 
+                <a href="/Article/Content/8">联系我们</a>
+            </div>
+            <div class="footall">
+                地址：苏州市工业园区星湖街328号创意产业园&nbsp;&nbsp;QQ：47262947  苏州-阿军
+                <br />
+                VipSoft CMS&nbsp;&nbsp;版权所有&nbsp;2012&nbsp;.All&nbsp;Rrights&nbsp;Resserved&nbsp;<a href="http://www.vipsoft.com.cn/" target="_blank" title="苏州网站建设">网站建设</a>：<a href="http://www.vipsoft.com.cn/" target="_blank" title="依软科技">依软科技</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

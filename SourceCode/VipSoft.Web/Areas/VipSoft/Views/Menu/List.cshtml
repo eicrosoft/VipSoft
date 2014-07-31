@@ -1,0 +1,109 @@
+﻿@model System.Collections.Generic.IList<VipSoft.Membership.Core.Entity.Menu>
+
+@using VipSoft.WebUtility
+@using Webdiyer.WebControls.Mvc
+@using VipSoft.Membership.Core.Entity
+ 
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "菜单管理";
+    Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="fa">
+                    <i class="fa fa-th"></i>
+                </span>
+                <h5>菜单管理</h5>
+                <div class="buttons">
+                    <a title="Icon Title" class="btn" href="@Url.Action("Add", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-plus"></i><span class="text">新增</span></a>
+                </div>
+            </div>
+            <div class="widget-content nopadding"> 
+                <table class="table tree table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 30px">
+                                <div class="icheckbox_flat-blue" style="position: relative;">
+                                    <input type="checkbox" id="title-table-checkbox" name="title-table-checkbox" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                </div>
+                            </th>
+                            <th style="width: 80px;">编号</th>
+                            <th style="width: 150px;">名称</th>
+                            <th style="width: 120px;">类别</th>
+                            <th>地址</th> 
+                            <th style="width: 80px;">行数</th>
+                            <th style="width: 80px;">状态</th>
+                            <th style="width: 200px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="@item.DepthDescription">
+                                <td class="tdCenter">
+                                    <input name="@item.ID" id="@item.ID" onclick="UnSelectAll('chkSelectAll')" type="checkbox" value="@item.ID"/>
+                                </td>
+                                <td class="tdCenter">
+                                    @item.ID
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td> 
+                                <td>
+                                    权限管理
+                                </td>
+                                <td>
+                                    @item.Url
+                                </td> 
+                                <td>
+                                    @item.PageSize
+                                </td> 
+                                <td class="tdCenter">
+                                    @item.Status
+                                </td>
+
+                                <td class="tdCenter">
+                                    <div class="btn-group">
+                                        <button class="btn btn-purple btn-xs">
+                                            特性</button>
+                                        <button data-toggle="dropdown" class="btn btn-purple dropdown-toggle btn-xs">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-purple" style="text-align: left">
+                                            <li><a href="#" onclick="unrealized()">禁用</a></li>
+                                            <li><a href="#" onclick="unrealized()">权限</a></li>
+                                        </ul>
+                                    </div>
+                                    <a class="btn btn-primary btn-xs" href="@Url.Action("Add", new { id = item.ID, cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })" >修改</a>
+                                    <a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteUser(this,@item.ID)">删除</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+    
+@section Script {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.treegrid.js")" ></script>
+
+    <script type="text/javascript">
+        //定义mid,cid供VipSoft.CMS.Category.js中的变量使用。
+        var mid = @Request.RequestContext.RouteData.Values["mid"];
+        var cid = @Request.RequestContext.RouteData.Values["cid"];  
+        $(document).ready(function () { 
+            $('.tree').treegrid({
+                treeColumn: 2,
+                expanderExpandedClass: 'fa fa-chevron-down',
+                expanderCollapsedClass: 'fa fa-chevron-right'
+            }); 
+        });
+    </script>
+} 

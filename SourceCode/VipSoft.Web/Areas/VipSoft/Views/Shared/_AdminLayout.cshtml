@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>依软内容管理系统-@ViewBag.Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="@Url.Content("~/Content/themes/base/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/font-awesome.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/fullcalendar.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/select2.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/jquery.jscrollpane.css")" rel="stylesheet" type="text/css" />
+    
+    
+    <link href="@Url.Content("~/Scripts/layer/skin/layer.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/themes/Admin/icheck/flat/blue.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/Admin/unicorn.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/Admin/unicorn.grey.css")"  class="skin-color" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.min.js")"></script>
+
+    @RenderSection("Style", false)
+</head>
+<body>
+    <div id="header">
+        <h1><a href="#">VipSoft Admin</a></h1>
+        <a id="menu-trigger" href="http://www.vipsoft.com.cn" target="_blank"><i class="fa fa-align-justify"></i></a>
+    </div>
+
+    <div id="search" class="unrealized">
+        <input type="text" placeholder="Search here..." />
+        <button type="submit" class="tip-right" title="Search" onclick="unrealized()"><i class="fa fa-search"></i></button>
+    </div>
+    <div id="user-nav">
+        <ul class="btn-group">
+           
+                <li class="btn unrealized"><a title="" href="@Url.Action("Profile","User")"><i class="fa fa-user"></i><span class="text" >Profile</span></a></li>
+                <li class="btn dropdown unrealized" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="fa fa-envelope"></i><span class="text">Messages</span> <span class="label label-danger">5</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu unrealized">
+                        <li><a class="sAdd" title="" href="#" onclick="unrealized()">new message</a></li>
+                        <li><a class="sInbox" title="" href="#" onclick="unrealized()">inbox</a></li>
+                        <li><a class="sOutbox" title="" href="#" onclick="unrealized()">outbox</a></li>
+                        <li><a class="sTrash" title="" href="#" onclick="unrealized()">trash</a></li>
+                    </ul>
+                </li>
+                <li class="btn unrealized"><a title="" href="@Url.Action("Index","Config")"><i class="fa fa-cog"></i><span class="text">Settings</span></a></li>
+        <!--
+            <li class="btn unrealized"><a title="" href="@Url.Action("ChangePassword","User")"><i class="fa fa-cog"></i><span class="text">修改密码</span></a></li>
+            -->
+            <li class="btn"><a title="" href="@Url.Action("login","User")"><i class="fa fa-share"></i><span class="text" >退出</span></a></li>
+        </ul>
+    </div>
+
+    @{Html.RenderAction("AdminMenu", "Menu");}
+
+    <div id="style-switcher">
+        <i class="fa fa-arrow-left"></i>
+        <span>Style:</span>
+        <a href="#grey" style="background-color: #555555; border-color: #aaaaaa;"></a>
+        <a href="#light-blue" style="background-color: #8399b0;"></a>
+        <a href="#blue" style="background-color: #2D2F57;"></a>
+        <a href="#red" style="background-color: #673232;"></a>
+        <a href="#red-green" style="background-image: url('/Uploads/demo/red-green.png'); background-repeat: no-repeat;"></a>
+    </div>
+    <div id="content" >
+        <div id="content-header">
+        <h1>@ViewBag.Title</h1>
+        <ul class="mini-stats box-3">
+            <li>
+                <div class="left sparkline_bar_good"><span>2,4,9,7,12,10,12</span>+10%</div>
+                <div class="right">
+                    <strong>36094</strong>
+                    Visits
+                </div>
+            </li>
+            <li>
+                <div class="left sparkline_bar_neutral"><span>20,15,18,14,10,9,9,9</span>0%</div>
+                <div class="right">
+                    <strong>1433</strong>
+                    Users
+                </div>
+            </li>
+            <li>
+                <div class="left sparkline_bar_bad"><span>3,5,9,7,12,20,10</span>+50%</div>
+                <div class="right">
+                    <strong>8650</strong>
+                    Orders
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="breadcrumb">
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i>Home</a>
+        <a href="#" class="current">Main</a>
+    </div>
+        @RenderBody()
+    </div>
+    <div class="row">
+        <div id="footer" class="col-xs-12">
+            Copyright &copy; 2007 - 2013 <a href="http://www.vipsoft.com.cn/">VipSoft.com.cn</a> Inc. All Rights Reserved.         
+        </div>
+    </div>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/excanvas.min.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.custom.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <!--
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.flot.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.flot.resize.min.js")"></script>
+    -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.sparkline.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.icheck.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.jpanelmenu.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.nicescroll.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.history.js")"></script>  
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/fullcalendar.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/select2.min.js")"></script>
+    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/layer/layer.min.js")"></script>
+
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/unicorn.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/unicorn.tables.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/unicorn.dashboard.js")"></script>
+     @RenderSection("Script", false)
+</body>
+</html> 

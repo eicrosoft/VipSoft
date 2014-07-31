@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Unicorn Admin</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/font-awesome.css" />
+        <link rel="stylesheet" href="css/unicorn-login.css" /> 
+    </head>
+    <body> 
+        <div id="container">
+            <div id="logo">
+                 
+            </div>
+            <div id="user">
+                <div class="avatar">
+                    <div class="inner"></div>
+                    <img src="img/demo/av1_1.jpg" />
+                </div>
+                <div class="text">
+                    <h4>Hello,<span class="user_name"></span></h4>
+                </div>
+            </div>
+            <div id="loginbox">            
+                <form id="loginform" action="index.html">
+    				<p>请输入用户名和密码.</p>
+                    <div class="input-group input-sm">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" type="text" id="username" placeholder="Username" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" id="password" placeholder="Password" />
+                    </div>
+                    <div class="form-actions clearfix">
+                        <div class="pull-left">
+                            <a href="#registerform" class="flip-link to-register blue">创建帐号</a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#recoverform" class="flip-link to-recover grey">忘记密码?</a>
+                        </div>
+                        <input type="submit" class="btn btn-block btn-primary btn-default" value="登录" />
+                    </div>
+                    <div class="footer-login">
+                        <div class="pull-left text">
+                            VipSoft CMS
+                        </div>
+                        <div class="pull-right btn-social">
+                           
+                        </div>
+                    </div>
+
+                </form>
+                <form id="recoverform" action="#">
+    				<p>输入您注册的邮箱，我们会将密码发到你的邮箱中。</p>
+    				<div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" type="text" placeholder="E-mail address" />
+                    </div>
+                    <div class="form-actions clearfix">
+                        <div class="pull-left">
+                            <a href="#loginform" class="grey flip-link to-login">点击登录</a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#registerform" class="blue flip-link to-register">创建帐号</a>
+                        </div>
+                        <input type="submit" class="btn btn-block btn-inverse" value="密码找回" />
+                    </div>
+                </form>
+                <form id="registerform" action="#">
+                    <p>用户注册</p>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" type="text" placeholder="Enter Username" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" placeholder="Choose Password" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" type="password" placeholder="Confirm password" />
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" type="text" placeholder="Enter E-mail address" />
+                    </div>
+                    <div class="form-actions clearfix">
+                        <div class="pull-left">
+                            <a href="#loginform" class="grey flip-link to-login">登录</a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="#recoverform" class="grey flip-link to-recover">忘记密码?</a>
+                        </div>
+                        <input type="submit" class="btn btn-block btn-success" value="注册" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <script src="js/jquery.min.js"></script>  
+        <script src="js/jquery-ui.custom.min.js"></script>
+        <script src="js/unicorn.login.js"></script> 
+    </body>
+</html>

@@ -1,0 +1,79 @@
+﻿@using VipSoft.WebUtility
+@model IEnumerable<VipSoft.CMS.Core.Entity.Category>
+@using System.Web.Mvc.Html
+@using Webdiyer.WebControls.Mvc
+@using VipSoft.CMS.Core.Entity
+
+@{
+    ViewBag.Title = "类别管理";
+    Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row" id="divList">
+    <div class="col-xs-12">
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="fa">
+                    <i class="fa fa-th"></i>
+                </span>
+                <h5>@ViewBag.SubTitle</h5>
+                <div class="buttons">
+                    <a title="Icon Title" class="btn" href="@Url.Action("Add", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-plus"></i><span class="text">新增大类</span></a>
+                </div>
+            </div>
+            <div class="widget-content nopadding">
+                <table class="table tree table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px">编号 </th>
+                            <th>分类名称 </th>
+                            <th style="width: 100px">状态 </th>
+                            <th style="width: 200px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="@item.DepthDescription">
+                                <td class="tdCenter">
+                                    @item.ID
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td class="tdCenter">
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td class="tdCenter">
+                                    <a class="btn btn-success btn-xs" href="@Url.Action("Add", new { mid = @Request.RequestContext.RouteData.Values["mid"], cid = @Request.RequestContext.RouteData.Values["cid"], id = item.ID })" >添加子类</a>
+                                    <a class="btn btn-primary btn-xs" href="@Url.Action("Add", new { mid = @Request.RequestContext.RouteData.Values["mid"], cid = @Request.RequestContext.RouteData.Values["cid"], id = item.ID, act = 2 })" >修改</a>
+                                    <a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteNote(this,@item.ID)">删除</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Script {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.treegrid.js")" ></script>
+
+    <script src="@Url.Content("~/Scripts/Admin/VipSoft.CMS.Category.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        //定义mid,cid供VipSoft.CMS.Category.js中的变量使用。
+        var mid = @Request.RequestContext.RouteData.Values["mid"];
+        var cid = @Request.RequestContext.RouteData.Values["cid"];  
+        $(document).ready(function () {
+            $('.tree').treegrid({
+                treeColumn: 1,
+                expanderExpandedClass: 'fa fa-chevron-down',
+                expanderCollapsedClass: 'fa fa-chevron-right'
+            });
+
+        });
+    </script>
+}

@@ -1,0 +1,97 @@
+﻿@model VipSoft.Membership.Core.Entity.Role
+@using VipSoft.CMS.Core.Enum
+@using VipSoft.Web.Areas.VipSoft.Controllers
+@using VipSoft.WebUtility
+@{
+    ViewBag.Title = "管理首页";
+    Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
+}
+@section Style {
+
+}
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box">
+                <div class="widget-title">
+                    <span class="fa">
+                        <i class="fa fa-align-justify"></i>
+                    </span>
+                    <h5>关于我们</h5>
+                    <div class="buttons">
+                        <a title="Icon Title" class="btn" href="@Url.Action("List", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-reply"></i><span class="text">返回</span></a>
+                    </div>
+                </div>
+                <div class="widget-content nopadding">
+                    <form id="frmSubmit" method="post" class="form-horizontal">
+
+                        <div class="form-group">
+                            <label class="control-label">@Html.LabelFor(model => model.Code)</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => model.Code, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.Code)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">@Html.LabelFor(model => model.Name)</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">@Html.LabelFor(model => model.Description)</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => model.Description, new { @class = "form-control input-sm" })
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">状态</label>
+                            <div class="controls">
+                                <div class="switch switch-small">
+                                    <input type="radio" checked name="Status" />
+                                    启用
+                                        <input type="radio" name="Status" />
+                                    禁用
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">@Html.ValidationSummary(true)</label>
+                            <div class="controls">
+                                <input type="hidden" id="mid" value="@Request.RequestContext.RouteData.Values["mid"]"/>
+                                <input type="hidden" id="cid" value="@Request.RequestContext.RouteData.Values["cid"]"/>
+
+                                @Html.HiddenFor(model => model.ID)
+                                <input type="submit" name="btnSubmit" value="提交保存" id="btnSave" class="btn btn-primary" />
+                                &nbsp;<input name="重置" type="reset" class="btn btn-danger" value="重 置" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Script {
+
+    <script src="@Url.Content("~/Scripts/UEditor/editor_config.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/UEditor/_examples/editor_api.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui.custom.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-colorpicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.icheck.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.jpanelmenu.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/unicorn.form_common.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/UEditor/third-party/swfupload/swfupload.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/swfupload.handlers.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/Admin/VipSoft.Membership.Role.js")" type="text/javascript"></script>
+
+}

@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Unicorn Admin</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/font-awesome.css" />
+		<link rel="stylesheet" href="css/fullcalendar.css" />
+		<link rel="stylesheet" href="css/unicorn.css" />
+		<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" /> 
+	</head>
+	<body> 
+		<div id="header">
+			<h1><a href="dashboard.html">Unicorn Admin</a></h1>		
+			<a id="menu-trigger" href="#"><i class="fa fa-list"></i></a>		
+		</div>
+		
+		<div id="search">
+			<input type="text" placeholder="Search here..."/><button type="submit" class="tip-right" title="Search"><i class="fa fa-search fa fa-white"></i></button>
+		</div>
+		<div id="user-nav">
+            <ul class="btn-group">
+                <li class="btn" ><a title="" href="#"><i class="fa fa-user"></i> <span class="text">Profile</span></a></li>
+                <li class="btn dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="fa fa-envelope"></i> <span class="text">Messages</span> <span class="label label-danger">5</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="sAdd" title="" href="#">new message</a></li>
+                        <li><a class="sInbox" title="" href="#">inbox</a></li>
+                        <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                        <li><a class="sTrash" title="" href="#">trash</a></li>
+                    </ul>
+                </li>
+                <li class="btn"><a title="" href="#"><i class="fa fa-cog"></i> <span class="text">Settings</span></a></li>
+                <li class="btn"><a title="" href="login.html"><i class="fa fa-share"></i> <span class="text">Logout</span></a></li>
+            </ul>
+        </div>
+            
+		<div id="sidebar">
+			
+			<ul>
+				<li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="fa fa-flask"></i> <span>UI Lab</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li><a href="interface.html">Interface Elements</a></li>
+						<li><a href="jquery-ui.html">jQuery UI</a></li>
+						<li><a href="buttons.html">Buttons &amp; icons</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
+					<a href="#"><i class="fa fa-th-list"></i> <span>Form elements</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li><a href="form-common.html">Common elements</a></li>
+						<li><a href="form-validation.html">Validation</a></li>
+						<li><a href="form-wizard.html">Wizard</a></li>
+					</ul>
+				</li>
+				<li><a href="tables.html"><i class="fa fa-th"></i> <span>Tables</span></a></li>
+				<li><a href="grid.html"><i class="fa fa-th-list"></i> <span>Grid Layout</span></a></li>
+				<li class="active submenu open">
+					<a href="#"><i class="fa fa-file"></i> <span>Sample pages</span> <i class="arrow fa fa-chevron-right"></i></a>
+					<ul>
+						<li><a href="invoice.html">Invoice</a></li>
+						<li><a href="chat.html">Support chat</a></li>
+						<li class="active"><a href="calendar.html">Calendar</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="messages.html">Messages</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="charts.html"><i class="fa fa-signal"></i> <span>Charts &amp; graphs</span></a>
+				</li>
+				<li>
+					<a href="widgets.html"><i class="fa fa-inbox"></i> <span>Widgets</span></a>
+				</li>
+			</ul>
+		
+		</div>
+		
+		<div id="style-switcher">
+			<i class="fa fa-arrow-left"></i>
+			<span>Style:</span>
+			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+            <a href="#light-blue" style="background-color: #8399b0;"></a>
+			<a href="#blue" style="background-color: #2D2F57;"></a>
+			<a href="#red" style="background-color: #673232;"></a>
+            <a href="#red-green" style="background-image: url('img/demo/red-green.png');background-repeat: no-repeat;"></a>
+		</div>
+		
+		<div id="content">
+			<div id="content-header">
+				<h1>Calendar</h1>
+				<div class="btn-group">
+					<a class="btn" title="Manage Files"><i class="fa fa-file"></i></a>
+					<a class="btn" title="Manage Users"><i class="fa fa-user"></i></a>
+					<a class="btn" title="Manage Comments"><i class="fa fa-comment"></i><span class="label label-danger">5</span></a>
+					<a class="btn" title="Manage Orders"><i class="fa fa-shopping-cart"></i></a>
+				</div>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> Home</a>
+				<a href="#">Sample pages</a>
+				<a href="#" class="current">Calendar</a>
+			</div>
+				<br />
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="alert alert-info">
+							This page demonstrates a jQuery calendar plugin. Try to add a new event!
+							<a href="#" class="close" data-dismiss="alert">×</a>
+						</div>
+						<div class="widget-box widget-calendar">
+							<div class="widget-title">
+								<span class="fa"><i class="fa fa-calendar"></i></span>
+								<h5>Calendar</h5>
+								<div class="buttons">
+									<a id="add-event" data-toggle="modal" href="#modal-add-event" class="btn"><i class="fa fa-plus"></i> <span class="text">Add new event</span></a>
+								</div>
+							</div>
+							<div class="widget-content nopadding">
+								<div class="panel-left">
+									<div id="fullcalendar"></div>
+								</div>
+								<div id="external-events" class="panel-right">
+									<div class="panel-title"><h5>Events</h5></div>
+									<div class="panel-content">
+										<div class="external-event ui-draggable label label-inverse">Meet the customers</div>
+                                        <div class="external-event ui-draggable label label-inverse">Check servers condition</div>
+                                        <div class="external-event ui-draggable label label-inverse">Company party!</div>
+                                        <div class="external-event ui-draggable label label-inverse">Vacation</div>
+                                        <div class="external-event ui-draggable label label-inverse">Special: Meeting with president</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="modal-add-event">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">×</button>
+								<h3>Add a new event</h3>
+							</div>
+							<div class="modal-body">
+								<p>Enter event name:</p>
+								<p><input class="form-control" id="event-name" type="text" /></p>
+							</div>
+							<div class="modal-footer">
+								<a href="#" class="btn btn-default btn-small" data-dismiss="modal">Cancel</a>
+								<a href="#" id="add-event-submit" class="btn btn-primary btn-small">Add event</a>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<div class="row-fluid">
+			<div id="footer" class="span12">
+				2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="http://bootstra-hunter.com/">Bootstrap Hunter</a>
+			</div>
+		</div>
+		
+            
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery-ui.custom.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.jpanelmenu.min.js"></script>
+            <script src="js/jquery.nicescroll.min.js"></script>
+            <script src="js/fullcalendar.min.js"></script>
+            <script src="js/unicorn.js"></script>
+            <script src="js/unicorn.calendar.js"></script>
+	</body>
+</html>
