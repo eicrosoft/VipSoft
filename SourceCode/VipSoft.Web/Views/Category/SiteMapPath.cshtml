@@ -1,8 +1,0 @@
-﻿@model List<VipSoft.CMS.Core.Entity.Category> 
-
-<span>您的位置：<a href='/'>首页</a>
-    @foreach (var item in Model)
-    {
-        @Html.Raw(string.Format("  &gt; <a href='{1}'>{0}</a>",item.Name,item.Url)); 
-    } 
-</span>@ViewBag.CurrentCategory.Name

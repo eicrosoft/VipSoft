@@ -1,9 +1,0 @@
-﻿@using Webdiyer.WebControls.Mvc
-@model PagedList<VipSoft.CMS.Core.Entity.Article>
-<ul class="i_box1_list">
-    @foreach (var item in Model)
-    {
-        <li><span>@String.Format("{0:yyyy-MM-dd}", item.CreateDate)</span>·<a href="/Article/Content/@ViewBag.CId/@item.ID" title=" @item.Title"> @item.Title</a></li>
-    }
-</ul>
-<div class="i_box1_more"><a href="/Article/List/@ViewBag.CId">View More >></a></div>
