@@ -23,10 +23,11 @@ function submit() {
         //timeout:   3000 
         success: function () {
             
-            art.dialog({
-                title: '消息提示',
-                content: '保存成功'
-            });
+            //art.dialog({
+            //    title: '消息提示',
+            //    content: '保存成功'
+            //});
+            alert("保存成功");
             $("input[type='text']").val("");
             $("textarea").val("");
         }
