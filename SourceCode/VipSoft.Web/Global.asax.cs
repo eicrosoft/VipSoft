@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using System.Web.Routing;
 using log4net.Config;
 
@@ -52,6 +53,18 @@ namespace VipSoft.Web
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            var themes = System.Configuration.ConfigurationManager.AppSettings["Themes"];
+            RegSkin(themes);//修改皮肤名换肤
+        }
+
+
+        public static void RegSkin(string themes)
+        {
+            RazorViewEngine engine = ViewEngines.Engines.Single(e => e is RazorViewEngine) as RazorViewEngine;
+            engine.ViewLocationFormats = engine.PartialViewLocationFormats = engine.MasterLocationFormats = new string[]{
+                 "~/Themes/"+themes+"/Views/{1}/{0}.cshtml", 
+                 "~/Themes/"+themes+"/Views/Shared/{0}.cshtml",
+            };
         }
     }
 }

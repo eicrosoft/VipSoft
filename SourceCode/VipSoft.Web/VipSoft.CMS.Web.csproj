@@ -108,41 +108,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\vipsoft.mdb" />
-    <Content Include="Content\themes\VipSoft\Images\arrow.gif" />
-    <Content Include="Content\themes\VipSoft\Images\bannerbg.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\bannerbg2.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\bg.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\bg2.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\flashbutton.gif" />
-    <Content Include="Content\themes\VipSoft\Images\footbg.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\i_bg1.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\i_box3bg.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\i_box4bg.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\i_newsbg.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\i_newsbg1.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\kkb.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\leftfoot.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\leftlist1.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\lefttit.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\lineBg.gif" />
-    <Content Include="Content\themes\VipSoft\Images\logo.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\next-horizontal.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\nybox.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\nyboxfoot.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\prev-horizontal.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\search.jpg" />
-    <Content Include="Content\themes\VipSoft\Images\title.jpg" />
-    <Content Include="Content\themes\VipSoft\style.css" />
-    <Content Include="Content\themes\VipSoft\VipSoft.css" />
-    <Content Include="Content\work.gif" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Configs\Service.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Configs\Dao.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-colorpicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
@@ -161,6 +126,7 @@
     <Content Include="Scripts\jquery.gritter.min.js" />
     <Content Include="Scripts\jquery.history.js" />
     <Content Include="Scripts\jquery.icheck.min.js" />
+    <Content Include="Scripts\jquery.jcarousel.min.js" />
     <Content Include="Scripts\jquery.jpanelmenu.min.js" />
     <Content Include="Scripts\jquery.masonry.min.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -170,13 +136,6 @@
     <Content Include="Scripts\jquery.treegrid.js" />
     <Content Include="Scripts\jquery.wizard.js" />
     <Content Include="Ajax\UploadHandler.ashx" />
-    <Content Include="Configs\Controller.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Content\themes\VipSoft\Images\bannerbg2.psd" />
-    <Content Include="Content\themes\VipSoft\Images\bg2.psd" />
-    <Content Include="Content\themes\VipSoft\Images\i_bg1.psd" />
-    <Content Include="Content\themes\VipSoft\Images\logo.psd" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -188,11 +147,42 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\select2.min.js" />
-    <Content Include="Scripts\VipSoft\jquery-1.4.2.min.js" />
-    <Content Include="Scripts\VipSoft\jquery.jcarousel.min.js" />
-    <Content Include="Scripts\VipSoft\VipSoft.CMS.Feedback.js" />
-    <Content Include="Scripts\VipSoft\VipSoft.CMS.User.js" />
     <Content Include="Scripts\wysihtml5.js" />
+    <Content Include="Themes\Default\CSS\style.css" />
+    <Content Include="Themes\Default\CSS\VipSoft.css" />
+    <Content Include="Themes\Default\Images\arrow.gif" />
+    <Content Include="Themes\Default\Images\bannerbg.jpg" />
+    <Content Include="Themes\Default\Images\bannerbg2.jpg" />
+    <Content Include="Themes\Default\Images\bannerbg2.psd" />
+    <Content Include="Themes\Default\Images\bg.jpg" />
+    <Content Include="Themes\Default\Images\bg2.jpg" />
+    <Content Include="Themes\Default\Images\bg2.psd" />
+    <Content Include="Themes\Default\Images\flashbutton.gif" />
+    <Content Include="Themes\Default\Images\footbg.jpg" />
+    <Content Include="Themes\Default\Images\i_bg1.jpg" />
+    <Content Include="Themes\Default\Images\i_bg1.psd" />
+    <Content Include="Themes\Default\Images\i_box3bg.jpg" />
+    <Content Include="Themes\Default\Images\i_box4bg.jpg" />
+    <Content Include="Themes\Default\Images\i_newsbg.jpg" />
+    <Content Include="Themes\Default\Images\i_newsbg1.jpg" />
+    <Content Include="Themes\Default\Images\kkb.jpg" />
+    <Content Include="Themes\Default\Images\leftfoot.jpg" />
+    <Content Include="Themes\Default\Images\leftlist1.jpg" />
+    <Content Include="Themes\Default\Images\lefttit.jpg" />
+    <Content Include="Themes\Default\Images\lineBg.gif" />
+    <Content Include="Themes\Default\Images\logo.jpg" />
+    <Content Include="Themes\Default\Images\logo.psd" />
+    <Content Include="Themes\Default\Images\next-horizontal.jpg" />
+    <Content Include="Themes\Default\Images\nybox.jpg" />
+    <Content Include="Themes\Default\Images\nyboxfoot.jpg" />
+    <Content Include="Themes\Default\Images\prev-horizontal.jpg" />
+    <Content Include="Themes\Default\Images\search.jpg" />
+    <Content Include="Themes\Default\Images\title.jpg" />
+    <Content Include="Themes\Default\JS\VipSoft.CMS.Feedback.js" />
+    <Content Include="Themes\Default\JS\VipSoft.CMS.User.js" />
+    <Content Include="Themes\Test\Views\Home\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Uploads\1.jpg" />
     <Content Include="Uploads\12.jpg" />
     <Content Include="Uploads\2.jpg" />
@@ -200,15 +190,6 @@
     <Content Include="Uploads\5.jpg" />
     <Content Include="Uploads\adv.jpg" />
     <Content Include="Uploads\jkd.jpg" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -219,37 +200,30 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\Article\Add.cshtml" />
-    <Content Include="Views\Article\Blogroll.cshtml" />
-    <Content Include="Views\Article\Content.cshtml" />
-    <Content Include="Views\Article\List.cshtml" />
-    <Content Include="Views\Article\News.cshtml" />
-    <Content Include="Views\Article\Pic.cshtml" />
-    <Content Include="Views\Article\Products.cshtml" />
-    <Content Include="Views\Article\TopList.cshtml" />
-    <Content Include="Views\Category\Add.cshtml" />
-    <Content Include="Views\Category\List.cshtml" />
-    <Content Include="Views\Category\MenuList.cshtml" />
-    <Content Include="Views\Category\NavigationMenu.cshtml" />
-    <Content Include="Views\Category\SiteMapPath.cshtml" />
-    <Content Include="Views\Category\TreeMenu.cshtml" />
-    <Content Include="Views\FeedBack\Add.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\News\Add.cshtml" />
-    <Content Include="Views\News\List.cshtml" />
-    <Content Include="Views\Shared\AdminBase.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Shared\_AdminMenu.cshtml" />
-    <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\Shared\_HomeLayout.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\User\Register.cshtml" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Themes\Default\Views\_ViewStart.cshtml" />
+    <Content Include="Themes\Default\Views\Article\Add.cshtml" />
+    <Content Include="Themes\Default\Views\Article\Blogroll.cshtml" />
+    <Content Include="Themes\Default\Views\Article\Content.cshtml" />
+    <Content Include="Themes\Default\Views\Article\List.cshtml" />
+    <Content Include="Themes\Default\Views\Article\News.cshtml" />
+    <Content Include="Themes\Default\Views\Article\Pic.cshtml" />
+    <Content Include="Themes\Default\Views\Article\Products.cshtml" />
+    <Content Include="Themes\Default\Views\Article\TopList.cshtml" />
+    <Content Include="Themes\Default\Views\Category\MenuList.cshtml" />
+    <Content Include="Themes\Default\Views\Category\NavigationMenu.cshtml" />
+    <Content Include="Themes\Default\Views\Category\SiteMapPath.cshtml" />
+    <Content Include="Themes\Default\Views\Category\TreeMenu.cshtml" />
+    <Content Include="Themes\Default\Views\FeedBack\Add.cshtml" />
+    <Content Include="Themes\Default\Views\Home\Index.cshtml" />
+    <Content Include="Themes\Default\Views\Shared\_Header.cshtml" />
+    <Content Include="Themes\Default\Views\Shared\_HomeLayout.cshtml" />
+    <Content Include="Themes\Default\Views\Shared\_Layout.cshtml" />
+    <Content Include="Themes\Default\Views\Shared\Error.cshtml" />
+    <Content Include="Themes\Default\Views\User\Register.cshtml" />
+    <Content Include="Themes\Default\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Main\" />
+    <Folder Include="Themes\Default\Views\Main\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvcPager\MvcPager.csproj">
