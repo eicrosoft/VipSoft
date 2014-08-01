@@ -1,0 +1,59 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<VipSoft.CMS.Core.Entity.Article>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="nybox">
+    <div class="left">
+        @{Html.RenderAction("NavigationMenu", "Category");}
+    </div>
+    <div class="right">
+        <div class="title">
+            <span>您的位置：<a href='index.asp.html'>首页</a>
+                &gt; <a href="#">关于我们</a>
+                &gt; <a href="#">依软简介</a>
+            </span>关于我们
+        </div>
+        <div class="channelbox">
+            <div class="productBox">
+
+                <ul class="productList"> 
+                    @foreach (var item in Model)
+                    { 
+
+                        <li><span><a href="/Article/Content/@Request.RequestContext.RouteData.Values["cid"]/@item.ID" target="_blank">
+                            <img src="@item.FileName" alt="@item.Title"></a></span>
+                            <p><a href="/Article/Content/@Request.RequestContext.RouteData.Values["cid"]/@item.ID" class="ProName" target="_blank">@item.Title</a></p>
+                        </li>
+                    } 
+                </ul> 
+                <div class="pages clear">
+                    @Html.AjaxPager(Model, new PagerOptions { PageIndexParameterName = "Page", ShowDisabledPagerItems = false, AlwaysShowFirstLastPageNumber = true }, new AjaxOptions { UpdateTargetId = "divArticleList" })
+                </div> 
+            </div>
+            <p>
+                <br />
+            </p>
+            <div class="clearfix">
+                <!-- Baidu Button BEGIN -->
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                    <span class="bds_more">分享到：</span>
+                    <a class="bds_qzone"></a>
+                    <a class="bds_tsina"></a>
+                    <a class="bds_tqq"></a>
+                    <a class="bds_renren"></a>
+                    <a class="shareCount"></a>
+                </div>
+                <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0"></script>
+                <script type="text/javascript" id="bdshell_js"></script>
+                <script type="text/javascript">
+                    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)
+                </script>
+                <!-- Baidu Button END -->
+            </div>
+        </div>
+        <div class="nyboxfoot"></div>
+    </div>
+    <div class="clear"></div>
+</div>

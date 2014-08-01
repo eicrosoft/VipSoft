@@ -1,0 +1,8 @@
+﻿@model IList<VipSoft.CMS.Core.Entity.Article>
+<ul id="mycarousel" class="jcarousel-skin-tango">
+    @foreach (var item in Model)
+    {
+        <li class="pic1"><a title="@item.Title" href="@item.LinkUrl" target="_blank">
+            <img src="@item.Source" alt="@item.Title" width="170" height="50" /></a></li> 
+    }
+</ul>
