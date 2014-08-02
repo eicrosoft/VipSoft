@@ -153,14 +153,11 @@
     <Content Include="Themes\Default\Images\arrow.gif" />
     <Content Include="Themes\Default\Images\bannerbg.jpg" />
     <Content Include="Themes\Default\Images\bannerbg2.jpg" />
-    <Content Include="Themes\Default\Images\bannerbg2.psd" />
     <Content Include="Themes\Default\Images\bg.jpg" />
     <Content Include="Themes\Default\Images\bg2.jpg" />
-    <Content Include="Themes\Default\Images\bg2.psd" />
     <Content Include="Themes\Default\Images\flashbutton.gif" />
     <Content Include="Themes\Default\Images\footbg.jpg" />
     <Content Include="Themes\Default\Images\i_bg1.jpg" />
-    <Content Include="Themes\Default\Images\i_bg1.psd" />
     <Content Include="Themes\Default\Images\i_box3bg.jpg" />
     <Content Include="Themes\Default\Images\i_box4bg.jpg" />
     <Content Include="Themes\Default\Images\i_newsbg.jpg" />
@@ -171,7 +168,6 @@
     <Content Include="Themes\Default\Images\lefttit.jpg" />
     <Content Include="Themes\Default\Images\lineBg.gif" />
     <Content Include="Themes\Default\Images\logo.jpg" />
-    <Content Include="Themes\Default\Images\logo.psd" />
     <Content Include="Themes\Default\Images\next-horizontal.jpg" />
     <Content Include="Themes\Default\Images\nybox.jpg" />
     <Content Include="Themes\Default\Images\nyboxfoot.jpg" />
