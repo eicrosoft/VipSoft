@@ -54,11 +54,11 @@ namespace VipSoft.Web
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
             var themes = System.Configuration.ConfigurationManager.AppSettings["Themes"];
-            RegSkin(themes);//修改皮肤名换肤
+            RegisterView(themes);//修改皮肤名换肤
         }
 
 
-        public static void RegSkin(string themes)
+        public static void RegisterView(string themes)
         {
             RazorViewEngine engine = ViewEngines.Engines.Single(e => e is RazorViewEngine) as RazorViewEngine;
             engine.ViewLocationFormats = engine.PartialViewLocationFormats = engine.MasterLocationFormats = new string[]{

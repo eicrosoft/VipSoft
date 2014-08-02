@@ -1,69 +1,71 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta name="keywords" content="VipSoft CMS 依软内容管理系统" />
-        <meta name="description" content="VipSoft CMS 依软内容管理系统" />
-        <title>VipSoft CMS 依软内容管理系统</title>
-        <link href="/Content/themes/VipSoft/style.css" type="text/css" rel="stylesheet" />
-        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
-        <script type="text/javascript" src="/Scripts/VipSoft/jquery.jcarousel.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="/Content/themes/VipSoft/VipSoft.css" />
-        @RenderSection("Style", false)
-        <script type="text/javascript">
-            jQuery(document).ready(function () {
-                jQuery('#mycarousel').jcarousel({
-                    scroll: 2,
-                    auto: 2,
-                    wrap: 'circular'
-                });
-            });
-        </script>
+<head>
+    <meta name="keywords" content="VipSoft CMS 依软内容管理系统" />
+    <meta name="description" content="VipSoft CMS 依软内容管理系统" />
+    <title>VipSoft CMS 依软内容管理系统</title>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/Default/CSS/style.css")"/>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.jcarousel.min.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Themes/Default/CSS/VipSoft.css")"/>
 
-        <script>
+
+    @RenderSection("Style", false)
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#mycarousel').jcarousel({
+                scroll: 2,
+                auto: 2,
+                wrap: 'circular'
+            });
+        });
+    </script>
+
+    <script>
 <!--
     /*红色显示样式*/
-            function setTabm(name, cursel, n) {
-                for (i = 1; i <= n; i++) {
-                    var menu = document.getElementById(name + i);
-                    var con = document.getElementById("con_" + name + "_" + i);
-                    menu.className = i == cursel ? "redmenu" : "";
-                    con.style.display = i == cursel ? "block" : "none";
-                }
-            }
-        //-->
-    </script>
-        <script>
-<!--
-    /*绿色显示样式*/
-            function setTab(name, cursel, n) {
-                for (i = 1; i <= n; i++) {
-                    var menu = document.getElementById(name + i);
-                    var con = document.getElementById("con_" + name + "_" + i);
-                    menu.className = i == cursel ? "redmenu" : "";
-                    con.style.display = i == cursel ? "block" : "none";
+    function setTabm(name, cursel, n) {
+        for (i = 1; i <= n; i++) {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById("con_" + name + "_" + i);
+            menu.className = i == cursel ? "redmenu" : "";
+            con.style.display = i == cursel ? "block" : "none";
         }
     }
     //-->
     </script>
-    </head>
+    <script>
+<!--
+    /*绿色显示样式*/
+    function setTab(name, cursel, n) {
+        for (i = 1; i <= n; i++) {
+            var menu = document.getElementById(name + i);
+            var con = document.getElementById("con_" + name + "_" + i);
+            menu.className = i == cursel ? "redmenu" : "";
+            con.style.display = i == cursel ? "block" : "none";
+        }
+    }
+    //-->
+    </script>
+</head>
 
-<body style="background:url(/Content/themes/VipSoft/Images/bg2.jpg) repeat-x left top #fff">
+<body style="background: url(/Content/themes/VipSoft/Images/bg2.jpg) repeat-x left top #fff">
     <div class="block">
-       
-         @{ Html.RenderPartial("_Header");}
-          @{ Html.RenderAction("MenuList", "Category");} 
+
+        @{ Html.RenderPartial("_Header");}
+        @{ Html.RenderAction("MenuList", "Category");}
         <div class="blank"></div>
         <div class="subBanner">
             <div id="subBanner">
-                <div >
-                   
+                <div>
+
                     <ul>
                         <li>
-                            <img src="/Uploads/5.jpg" alt="VipSoft CMS 依软内容管理系统" style="width:968px; height:258px;" /></li>
- 
+                            <img src="/Uploads/5.jpg" alt="VipSoft CMS 依软内容管理系统" style="width: 968px; height: 258px;" /></li>
+
                     </ul>
                 </div>
-                 
+
                 <div class="clear"></div>
             </div>
         </div>
@@ -75,7 +77,7 @@
     <div class="footer">
         <div class="block">
             <div class="clear link">
-                @{Html.RenderAction("Blogroll", "Article", new { cid = 12 });} 
+                @{Html.RenderAction("Blogroll", "Article", new { cid = 12 });}
             </div>
             <div class="blank"></div>
             <div class="footnav">
