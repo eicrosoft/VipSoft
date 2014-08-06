@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="widget-content nopadding">
-                    <form id="frmSubmit" method="post" class="form-horizontal">
+                    <form id="frmRole" method="post" class="form-horizontal">
 
                         <div class="form-group">
                             <label class="control-label">@Html.LabelFor(model => model.Code)</label>
@@ -51,9 +51,9 @@
                             <label class="control-label">状态</label>
                             <div class="controls">
                                 <div class="switch switch-small">
-                                    <input type="radio" checked name="Status" />
+                                    <input type="radio" checked name="Status" value="1" />
                                     启用
-                                        <input type="radio" name="Status" />
+                                        <input type="radio" name="Status" value="0" />
                                     禁用
                                 </div>
                             </div>

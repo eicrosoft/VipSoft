@@ -14,7 +14,7 @@
                 <span class="fa">
                     <i class="fa fa-th"></i>
                 </span>
-                <h5>角色管理</h5>
+                <h5>角色列表</h5>
                 <div class="buttons">
                     <a title="Icon Title" class="btn" href="@Url.Action("Add", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-plus"></i><span class="text">新增</span></a>
                 </div>
@@ -73,7 +73,7 @@
                                         </ul>
                                     </div>
                                     <a class="btn btn-primary btn-xs" href="@Url.Action("Add", new { id = item.ID, cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })" >修改</a>
-                                    <a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteUser(this,@item.ID)">删除</a>
+                                    <a class="btn btn-danger btn-xs" href="javascript:;" onclick="deleteRole(this,@item.ID)">删除</a>
                                 </td>
                             </tr>
                         }
@@ -85,7 +85,7 @@
 </div>
 
 @section Script {
-    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/VipSoft.User.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Admin/VipSoft.Membership.Role.js")"></script>
     <script type="text/javascript">
         //定义mid,cid供VipSoft.CMS.Category.js中的变量使用。
         var mid = 0;

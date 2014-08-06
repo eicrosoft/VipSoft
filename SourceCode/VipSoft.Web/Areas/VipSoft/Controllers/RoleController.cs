@@ -73,7 +73,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             if (flag)
             {
                 result = 1;
-                RedirectToAction("List");
+                //RedirectToAction("List");
             }
             return Json(result);
         }
@@ -98,8 +98,9 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            RoleService.DeleteRole(id);
-            return RedirectToAction("List");
+            var result=RoleService.DeleteRole(id);
+            //return RedirectToAction("List");
+            return Json(result);
         }
 
         #endregion

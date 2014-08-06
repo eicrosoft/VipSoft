@@ -1,6 +1,6 @@
 ﻿/// <reference path="jquery-1.7.1.js" />
 /// <reference path="jquery.form.js" />
-
+/// <reference path="~/Scripts/layer/layer.js" />
 var editor;
 $(document).ready(function () {    
     submit();
@@ -23,16 +23,13 @@ function submit() {
         // $.ajax options can be used here too, for example: 
         //timeout:   3000 
         success: function () {
-            art.dialog({
-                title: '消息提示',
-                content: '保存成功'
-            });
+            layer.alert('保存成功！');
         }
     };
      
 
     // bind to the form's submit event 
-    $('#frmSubmit').submit(function () {
+    $('#frmRole').submit(function () {
         // inside event callbacks 'this' is the DOM element so we first 
         // wrap it in a jQuery object and then invoke ajaxSubmit 
        
@@ -43,6 +40,27 @@ function submit() {
     });
      
 }
+
+function deleteRole(sender, id) {
+    if (id > 0) {
+        layer.confirm('是否删除该数据！', function () {
+            {
+                var url = "/VipSoft/Role/Delete/" + mid + "/" + cid + "/" + id;
+                console.log(url);
+                $.post(url, function (data) {
+                    if (data > 0) {
+                        layer.msg('删除成功！');
+                        $(sender).closest("tr").hide();
+                    }
+                });
+                return false;
+            }
+        });
+    } else {
+        layer.alert('请选择数据！');
+    }
+}
+
 
 
 
@@ -63,10 +81,7 @@ function roleAccess() {
         // $.ajax options can be used here too, for example: 
         //timeout:   3000 
         success: function () {
-            art.dialog({
-                title: '消息提示',
-                content: '保存成功'
-            });
+            layer.alert('保存成功！');
         }
     };
      
@@ -83,7 +98,7 @@ function roleAccess() {
 
 
 function successed() {
-    alert("删除成功！");
+    layer.alert('保存成功！');
 }
 
 
