@@ -7,7 +7,6 @@
     Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
 }
 
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
@@ -16,13 +15,13 @@
                     <span class="fa">
                         <i class="fa fa-align-justify"></i>
                     </span>
-                    <h5>类别维护</h5>
+                    <h5>用户维护</h5>
                     <div class="buttons">
                         <a title="Icon Title" class="btn" href="@Url.Action("List", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-reply"></i><span class="text">返回</span></a>
                     </div>
                 </div>
                 <div class="widget-content nopadding">
-                    <form id="frmCategory" method="post" class="form-horizontal"> 
+                    <form id="frmUser" method="post" class="form-horizontal"> 
                         <div class="form-group">
                             <label class="control-label">@Html.LabelFor(model => model.UserName) </label>
                             <div class="controls">
@@ -109,14 +108,7 @@
                                 @Html.TextBoxFor(model => model.QQ, new { @class = "form-control input-sm" })
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label class="control-label">@Html.LabelFor(model => model.Email)</label>
-                            <div class="controls">
-                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control input-sm" })
-                            </div>
-                        </div> 
-
+                         
                         <div class="form-group">
                             <label class="control-label">@Html.ValidationSummary(true)</label>
                             <div class="controls">

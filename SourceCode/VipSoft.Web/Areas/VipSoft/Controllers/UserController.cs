@@ -81,7 +81,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             if (flag)
             {
                 result = 1;
-                RedirectToAction("List");
+                //RedirectToAction("List");
             }
             return Json(result);
         }

@@ -4,7 +4,7 @@
 @model PagedList<Users>
 @using System.Web.Mvc.Html
 @{
-    ViewBag.Title = "用户管理";
+    ViewBag.Title = "用户列表";
     Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -16,7 +16,7 @@
                 <span class="fa">
                     <i class="fa fa-th"></i>
                 </span>
-                <h5>最新动态</h5>
+                <h5>用户列表</h5>
                 <div class="buttons">
                     <a title="Icon Title" class="btn" href="@Url.Action("Add", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-plus"></i><span class="text">新增</span></a>
                 </div>
