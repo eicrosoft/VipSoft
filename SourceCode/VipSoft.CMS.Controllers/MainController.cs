@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace VipSoft.CMS.Web.Controllers
+namespace VipSoft.CMS.Controllers
 {
     public class MainController : Controller
     {
