@@ -51,7 +51,7 @@ namespace VipSoft.CMS.Controllers
            // ViewBag.IsContent = ",1,7".IndexOf(CIdStr) > 0;
             //ViewData.Add("model",model);
             ViewBag.CategoryName = CurrentCategory.Name;
-            return View(model);
+            return View(model??new Article());
         }
                  
         public ActionResult Pic(int cid = 0, int page = 1)

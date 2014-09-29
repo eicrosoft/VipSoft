@@ -1,7 +1,7 @@
 ﻿@model List<VipSoft.Membership.Core.Entity.Menu>
 <div id="sidebar">
     <ul>
-        @foreach (var menu in Model.FindAll(p => p.ParentId == 201))
+        @foreach (var menu in Model.FindAll(p => p.ParentId == 101))
         { 
             <li class="submenu">
                 <a href="#"><i class="fa fa-th-list"></i><span>@menu.Name</span> <i class="arrow fa fa-chevron-right"></i></a>

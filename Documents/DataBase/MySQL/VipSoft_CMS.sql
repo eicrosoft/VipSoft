@@ -102,11 +102,11 @@ CREATE TABLE `vipsoft_feedback` (
   `qq` varchar(20) collate utf8_unicode_ci default NULL,
   `create_date` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `vipsoft_feedback` */
 
-insert  into `vipsoft_feedback`(id,title,name,content,tel,email,qq,create_date) values (1,'CMS功能不错','大虾','CMS功能不错','d','f','f','2014-03-26 00:24:39'),(2,'什么时候开发接口','应用者','什么时候开发接口','d','f','e','2014-03-26 00:24:39'),(3,'系统测试','Admin','测试内容','v','d','c','2013-03-26 00:24:39'),(4,'ad','fe','wfe','w','we','fe','2014-05-13 22:37:37'),(5,'a','b','ee','d','f','e','2014-05-13 22:38:11'),(6,'1','2','6','3','5','47262947','2014-05-13 22:47:28'),(7,'1','3','6','2','5','472629475','2014-05-13 22:48:58'),(8,'a','4','35','e','45','45','2014-05-13 22:51:31');
+insert  into `vipsoft_feedback`(id,title,name,content,tel,email,qq,create_date) values (1,'CMS功能不错','大虾','CMS功能不错','d','f','f','2014-03-26 00:24:39'),(2,'什么时候开发接口','应用者','什么时候开发接口','d','f','e','2014-03-26 00:24:39'),(3,'系统测试','Admin','测试内容','v','d','c','2013-03-26 00:24:39'),(4,'ad','fe','wfe','w','we','fe','2014-05-13 22:37:37'),(5,'a','b','ee','d','f','e','2014-05-13 22:38:11'),(6,'1','2','6','3','5','47262947','2014-05-13 22:47:28'),(7,'1','3','6','2','5','472629475','2014-05-13 22:48:58'),(8,'a','4','35','e','45','45','2014-05-13 22:51:31'),(9,'a','b',NULL,'d',NULL,NULL,'2014-08-01 23:59:46'),(10,'asf',NULL,'dsf',NULL,NULL,NULL,'2014-08-02 00:01:08'),(11,'e',NULL,NULL,'ewr',NULL,NULL,'2014-08-02 00:07:07'),(12,'ae','fe',NULL,'se',NULL,NULL,'2014-08-02 00:11:04');
 
 /*Table structure for table `vipsoft_menu` */
 
@@ -132,7 +132,7 @@ CREATE TABLE `vipsoft_menu` (
 
 /*Data for the table `vipsoft_menu` */
 
-insert  into `vipsoft_menu`(id,parent_id,depth,name,page_size,category_id,category_type,html_type,url,status,sequence,create_date,update_date) values (1,101,1,'关于我们',15,0,0,'','',1,1,NULL,NULL),(2,1,2,'关于我们',15,2,1,',10,','/VipSoft/Article/Add/2/2',1,1,NULL,NULL),(3,101,1,'最新动态',15,0,0,'','',1,1,NULL,NULL),(4,3,2,'最新动态',15,3,0,',0,1,2,3,4,5,6,7,8,9,10,','/VipSoft/Article/List/4/3',1,2,NULL,NULL),(5,101,1,'成功案例',15,0,0,'','',1,1,NULL,NULL),(6,5,2,'成功案例',15,4,0,',1,2,10,','/VipSoft/Article/List/6/4',1,1,NULL,NULL),(7,101,1,'加入我们',15,0,0,'','',1,1,NULL,NULL),(8,7,2,'加入我们',15,5,1,',10,','/VipSoft/Article/Add/8/5',1,1,NULL,NULL),(9,101,1,'授权服务',15,0,0,'','',1,1,NULL,NULL),(10,9,2,'授权服务',15,6,1,',10,','/VipSoft/Article/Add/10/6',1,1,NULL,NULL),(11,101,1,'在线留言',15,0,0,'','',1,1,NULL,NULL),(12,11,2,'在线留言',15,7,0,'','/VipSoft/FeedBack/List/12/7',1,1,NULL,NULL),(13,101,1,'联系我们',15,0,0,'','',1,1,NULL,NULL),(14,13,2,'联系我们',15,8,1,',10,','/VipSoft/Article/Add/14/8',1,1,NULL,NULL),(15,3,2,'分类管理',15,3,0,'','/VipSoft/Category/List/15/3',1,1,NULL,NULL),(16,101,1,'首页管理',15,NULL,0,NULL,NULL,1,1,NULL,NULL),(17,16,2,'联系我们',15,11,1,',10,','/VipSoft/Article/Add/17/11',1,1,NULL,NULL),(18,101,1,'友情链接',15,12,0,'','',1,1,NULL,NULL),(19,18,2,'链接管理',15,12,0,',1,3,9,','/VipSoft/Article/List/19/12',1,1,NULL,NULL),(101,0,0,'平台管理',15,0,0,'','',1,1,NULL,NULL),(201,0,0,'用户权限',15,NULL,0,NULL,'',1,1,NULL,NULL),(202,201,1,'用户管理',15,NULL,0,NULL,'',1,1,NULL,NULL),(203,202,2,'用户管理',15,NULL,0,NULL,'/VipSoft/User/List/',1,1,NULL,NULL),(204,201,1,'角色管理',15,NULL,0,NULL,'',1,1,NULL,NULL),(205,204,2,'角色管理',15,NULL,0,NULL,'/VipSoft/Role/LIST/',1,1,NULL,NULL),(206,201,1,'菜单管理',15,NULL,0,NULL,'',1,1,NULL,NULL),(207,206,2,'菜单设置',15,NULL,0,NULL,'/VipSoft/Menu/List/',1,1,NULL,NULL),(208,201,1,'权限管理',15,NULL,0,NULL,'',1,1,NULL,NULL),(209,208,2,'权限设置',15,NULL,0,NULL,'/VipSoft/Role/RoleAccess/',1,1,NULL,NULL),(210,NULL,NULL,NULL,15,NULL,0,NULL,'#',1,1,NULL,NULL),(301,NULL,NULL,'修改密码',15,NULL,0,NULL,'/VipSoft/User/ChangePassword',1,1,NULL,NULL);
+insert  into `vipsoft_menu`(id,parent_id,depth,name,page_size,category_id,category_type,html_type,url,status,sequence,create_date,update_date) values (1,101,1,'关于我们',15,0,0,'','',1,1,NULL,NULL),(2,1,2,'关于我们',15,2,1,',10,','/VipSoft/Article/Add/2/2',1,1,NULL,NULL),(3,101,1,'最新动态',15,0,0,'','',1,1,NULL,NULL),(4,3,2,'最新动态',15,3,0,',0,1,2,3,4,5,6,7,8,9,10,','/VipSoft/Article/List/4/3',1,2,NULL,NULL),(5,101,1,'成功案例',15,0,0,'','',1,1,NULL,NULL),(6,5,2,'成功案例',15,4,0,',1,2,10,','/VipSoft/Article/List/6/4',1,1,NULL,NULL),(7,101,1,'加入我们',15,0,0,'','',1,1,NULL,NULL),(8,7,2,'加入我们',15,5,1,',10,','/VipSoft/Article/Add/8/5',1,1,NULL,NULL),(9,101,1,'授权服务',15,0,0,'','',1,1,NULL,NULL),(10,9,2,'授权服务',15,6,1,',10,','/VipSoft/Article/Add/10/6',1,1,NULL,NULL),(11,101,1,'在线留言',15,0,0,'','',1,1,NULL,NULL),(12,11,2,'在线留言',15,7,0,'','/VipSoft/FeedBack/List/12/7',1,1,NULL,NULL),(13,101,1,'联系我们',15,0,0,'','',1,1,NULL,NULL),(14,13,2,'联系我们',15,8,1,',10,','/VipSoft/Article/Add/14/8',1,1,NULL,NULL),(15,3,2,'分类管理',15,3,0,'','/VipSoft/Category/List/15/3',1,1,NULL,NULL),(16,101,1,'首页管理',15,NULL,0,NULL,NULL,1,1,NULL,NULL),(17,16,2,'联系我们',15,11,1,',10,','/VipSoft/Article/Add/17/11',1,1,NULL,NULL),(18,101,1,'友情链接',15,12,0,'','',1,1,NULL,NULL),(19,18,2,'链接管理',15,12,0,',1,3,9,','/VipSoft/Article/List/19/12',1,1,NULL,NULL),(101,0,0,'平台管理',15,0,0,'','',1,1,NULL,NULL),(201,0,0,'用户权限',15,NULL,0,NULL,'',1,1,NULL,NULL),(202,201,1,'用户管理',15,NULL,0,NULL,'',1,1,NULL,NULL),(203,202,2,'用户管理',15,NULL,0,NULL,'/VipSoft/User/List/',1,1,NULL,NULL),(204,201,1,'角色管理',15,NULL,0,NULL,'',1,1,NULL,NULL),(205,204,2,'角色管理',15,NULL,0,NULL,'/VipSoft/Role/List/',1,1,NULL,NULL),(206,201,1,'菜单管理',15,NULL,0,NULL,'',1,1,NULL,NULL),(207,206,2,'菜单设置',15,NULL,0,NULL,'/VipSoft/Menu/List/',1,1,NULL,NULL),(208,201,1,'权限管理',15,NULL,0,NULL,'',1,1,NULL,NULL),(209,208,2,'权限设置',15,NULL,0,NULL,'/VipSoft/Role/RoleAccess/',1,1,NULL,NULL),(210,NULL,NULL,NULL,15,NULL,0,NULL,'#',1,1,NULL,NULL),(301,NULL,NULL,'修改密码',15,NULL,0,NULL,'/VipSoft/User/ChangePassword',1,1,NULL,NULL);
 
 /*Table structure for table `vipsoft_role` */
 
@@ -148,11 +148,11 @@ CREATE TABLE `vipsoft_role` (
   `update_date` timestamp NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ID` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `vipsoft_role` */
 
-insert  into `vipsoft_role`(id,code,name,description,status,create_date,update_date) values (2,'admin','管理员','有所有权限',1,NULL,NULL);
+insert  into `vipsoft_role`(id,code,name,description,status,create_date,update_date) values (2,'admin','管理员','有所有权限',1,NULL,NULL),(3,'11','21','31',1,NULL,'2014-08-06 21:30:37');
 
 /*Table structure for table `vipsoft_role_access` */
 
@@ -225,11 +225,11 @@ CREATE TABLE `vipsoft_users` (
   `update_date` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ID` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `vipsoft_users` */
 
-insert  into `vipsoft_users`(id,user_name,password,real_name,nick_name,card_type,card_no,province,city,address,zip_code,tel,mobile,fax,email,qq,msn,question,answer,status,create_date,update_date) values (10,'test','admin','测试','阿军',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL),(12,'VipSoft','******','苏州-阿军','苏州-阿军',NULL,'3212XXXXXXXX','江苏','苏州','苏州工业园区','215122','159********','159********','a','xx@vipsoft.com.cn','47262947',NULL,'A','B',1,'2013-04-24 23:53:15','0001-01-01 00:00:00');
+insert  into `vipsoft_users`(id,user_name,password,real_name,nick_name,card_type,card_no,province,city,address,zip_code,tel,mobile,fax,email,qq,msn,question,answer,status,create_date,update_date) values (10,'test','admin','测试','阿军',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL),(12,'VipSoft','******','苏州-阿军','苏州-阿军',NULL,'3212XXXXXXXX','江苏','苏州','苏州工业园区','215122','159********','159********','a','xx@vipsoft.com.cn','47262947',NULL,'A','B',1,'2013-04-24 23:53:15','0001-01-01 00:00:00'),(13,'1','2','3','4',NULL,'5','6','7','8','9','10','11','12','13','14',NULL,NULL,NULL,1,'0001-01-01 00:00:00','2014-08-06 20:44:51');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
