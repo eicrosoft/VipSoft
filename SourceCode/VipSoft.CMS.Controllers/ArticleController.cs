@@ -60,6 +60,12 @@ namespace VipSoft.CMS.Controllers
             return View(pageList);
         }
 
+        public ActionResult Products(int cid = 0, int page = 1)
+        {
+           
+            return View();
+        }
+
         [NonAction]
         private PagedList<Article> GetList(int cid, int page, int pageSize)
         {   

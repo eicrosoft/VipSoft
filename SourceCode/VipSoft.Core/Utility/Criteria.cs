@@ -113,12 +113,18 @@ namespace VipSoft.Core.Utility
         public string ToString(ClassMetadata classMetadata)
         {
             var result = new StringBuilder();
+            var index = 0;
             foreach (var criterion in this.CriterionList)
             {                
                 criterion.Driver = this.Driver;
                 criterion.DicParameter = this.DicParameter;
                 criterion.DbParameter = this.DbParameter;
-                result.Append(criterion.ToString(classMetadata));    
+                if (index > 0)
+                {
+                    result.Append(criterion.LogicOperation == LOP.OR?" OR ":" AND ");
+                }
+                result.Append(criterion.ToString(classMetadata));
+                index++;
             }
             return result.ToString();
         }

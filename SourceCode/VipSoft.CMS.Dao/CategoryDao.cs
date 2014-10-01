@@ -37,7 +37,7 @@ namespace VipSoft.CMS.Dao
             {                
                 var parameter = session.GetParameters<Category>("id");
                 parameter[0].Value = id;
-                var sql = string.Format(@"SELECT * FROM vipsoft_category A WHERE EXISTS (SELECT '1' FROM vipsoft_category B WHERE A.parent_id=B.parent_id AND B.id={0})", parameter[0].ParameterName);
+                var sql = string.Format(@"SELECT * FROM vipsoft_category A WHERE EXISTS (SELECT '1' FROM vipsoft_category B WHERE A.parent_id=B.parent_id AND A.STATUS=1 AND B.id={0})", parameter[0].ParameterName);
                 result = session.Load<Category>(sql, parameter);
             }
             return result;

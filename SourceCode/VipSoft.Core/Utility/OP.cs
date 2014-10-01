@@ -11,8 +11,11 @@ namespace VipSoft.Core.Utility
         AND, OR
     }
 
+    /// <summary>
+    /// =,<>,>=,<=,>,<,LIKE %{0}%,LIKE {0}%,LIKE %{0}
+    /// </summary>
     public enum OP
     {
         EQ, NE, IN, NOTIN, GE, LE, GT, LT, BETWEEN, LIKE, FLIKE, ELIKE, IS, UEMPTY
-    }        
+    } 
 }

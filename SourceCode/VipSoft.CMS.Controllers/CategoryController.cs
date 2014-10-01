@@ -56,8 +56,10 @@ namespace VipSoft.CMS.Controllers
         public ActionResult NavigationMenu()
         {            
             ViewBag.CurrentCategory = CurrentCategory;
-            // var model = new Category { ID = CId, Conditaion = "parent_id=[ID]" };            
-            var list = CategoryService.GetCategoryList(new Criteria("ParentID", CId));
+            // var model = new Category { ID = CId, Conditaion = "parent_id=[ID]" };   
+            var criteria = new Criteria("ParentID", CId);
+            criteria.Add(LOP.AND, "Status", 1);
+            var list = CategoryService.GetCategoryList(criteria);
             if (list.Count == 0)  //有子类就显示子类，没有子类就显示同级节点。
             {
                 list = CategoryService.GetBrotherNode(CId);

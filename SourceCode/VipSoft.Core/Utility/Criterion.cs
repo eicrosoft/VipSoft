@@ -198,7 +198,8 @@ namespace VipSoft.Core.Utility
             var result = new StringBuilder();
             if (Value is Criteria)
             {
-                result.Append("depth=1");
+                var criteria = Value as Criteria;
+                result.Append(criteria.ToString(classMetadata));
             }
             else
             {
