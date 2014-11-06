@@ -23,8 +23,8 @@
                     <h5>@ViewBag.SubTitle</h5>
                     <ul class="nav nav-tabs pull-right">
                         <li class="active"><a data-toggle="tab" href="#tab1r">基本信息</a></li>
-                        <li><a data-toggle="tab" href="#tab3r">扩展属性</a></li>
-                        <li><a data-toggle="tab" href="#tab2r">SEO选项</a></li>
+                        <li style="display: none"><a data-toggle="tab" href="#tab3r">扩展属性</a></li>
+                        <li style="display: none"><a data-toggle="tab" href="#tab2r">SEO选项</a></li>
                         <li>
                             <div class="buttons">
                                 <a title="Icon Title" class="btn" href="@Url.Action("List", new { cid = @Request.RequestContext.RouteData.Values["cid"], mid = @Request.RequestContext.RouteData.Values["mid"] })"><i class="fa fa-reply"></i><span class="text">返回</span></a>

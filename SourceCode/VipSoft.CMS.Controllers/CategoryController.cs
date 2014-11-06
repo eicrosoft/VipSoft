@@ -45,7 +45,7 @@ namespace VipSoft.CMS.Controllers
             var sbCategory = new StringBuilder();
             CategoryTreeJson(sbCategory, 4, false);
             ViewBag.Category = sbCategory.ToString();
-            ViewBag.Contact = ArticleService.GetArticle(new Criteria("CategoryId", 15)).Content;
+            //ViewBag.Contact = ArticleService.GetArticle(new Criteria("CategoryId", 15)).Content;
             return View();   
         }
 
@@ -59,7 +59,7 @@ namespace VipSoft.CMS.Controllers
             // var model = new Category { ID = CId, Conditaion = "parent_id=[ID]" };   
             var criteria = new Criteria("ParentID", CId);
             criteria.Add(LOP.AND, "Status", 1);
-            var list = CategoryService.GetCategoryList(criteria);
+            var list = CategoryService.GetCategoryList(criteria, new Order("sequence"));
             if (list.Count == 0)  //有子类就显示子类，没有子类就显示同级节点。
             {
                 list = CategoryService.GetBrotherNode(CId);
@@ -78,11 +78,19 @@ namespace VipSoft.CMS.Controllers
             var list = CategoryService.GetCategoryList().FindAll(p => p.ParentId == parentId);
             if (haveChild && list.Count > 0)
             {
-                sbCategory.Append("<ul>");
+                sbCategory.AppendFormat("<ul id='ChildMenu{0}' class='collapsed'>", parentId);
             }
             foreach (var item in list)
             {
-                sbCategory.AppendFormat("<li><a href='/Article/Pic/{1}'>{0}</a>", item.Name,item.ID);
+                if (haveChild)
+                {
+                    sbCategory.AppendFormat("<li><a href='/Article/Pic/{1}'>{0}</a>", item.Name, item.ID); 
+                }
+                else
+                {
+                    sbCategory.AppendFormat("<li><a class='hover' href='#Menu=ChildMenu{1}' onclick=\"DoMenu('ChildMenu{1}')\">{0}</a>", item.Name, item.ID);
+                }
+
                 CategoryTreeJson(sbCategory, item.ID, true);
                 sbCategory.Append("</li>");
             }
