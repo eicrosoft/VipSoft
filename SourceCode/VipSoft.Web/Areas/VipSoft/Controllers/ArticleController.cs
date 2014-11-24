@@ -110,7 +110,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
                 model = ArticleService.GetArticle(id);
                 EditValueBind(model);
             }
-            else if (articleDto.Menu.CategoryType == Convert.ToInt32(CategoryElement.Content))
+            else if (articleDto.Menu.CategoryType == Convert.ToInt32(CategoryType.Content))
             {
                 model = ArticleService.GetArticle(new Article() { CategoryId = cid, Conditaion = "category_id=[CategoryId]" });
                 EditValueBind(model);

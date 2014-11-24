@@ -47,8 +47,8 @@
     <Compile Include="Entity\Article.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\Feedback.cs" />
-    <Compile Include="Enum\ArticleElement.cs" />
-    <Compile Include="Enum\CategoryElement.cs" />
+    <Compile Include="Enum\ArticleEnum.cs" />
+    <Compile Include="Enum\CategoryEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IArticleService.cs" />
     <Compile Include="Service\ICategoryService.cs" />

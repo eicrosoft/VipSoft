@@ -1,12 +1,14 @@
 ﻿@using VipSoft.CMS.Core.Enum
 @using VipSoft.Web.Areas.VipSoft.Controllers
 @using VipSoft.WebUtility
-@model VipSoft.CMS.Core.Entity.Category
+@model CategoryDto
 @{
     ViewBag.Title = "管理首页";
     Layout = "~/Areas/VipSoft/Views/Shared/_AdminLayout.cshtml";
 }
+@section Style {
 
+}
 
 <div class="container-fluid">
     <div class="row">
@@ -26,30 +28,48 @@
                         @if (@Request.RequestContext.RouteData.Values["id"] != null)
                         {
                             <div class="form-group">
-                                <label class="control-label">@Html.LabelFor(model => model.ParentId)</label>
+                                <label class="control-label">@Html.LabelFor(model => model.Category.ParentId)</label>
                                 <div class="controls">
-                                    @Html.DropDownListFor(model => model.ParentId, (SelectList)ViewBag.Category, "请选择", new { @class = "select2 required" })
+                                    @Html.DropDownListFor(model => model.Category.ParentId, (SelectList)ViewBag.Category, "请选择", new { @class = "select2 required" })
                                 </div>
-                            </div> 
+                            </div>
                         }
                         <div class="form-group">
-                            <label class="control-label">@Html.LabelFor(model => model.Name)</label>
+                            <label class="control-label">@Html.LabelFor(model => model.Category.Name)</label>
                             <div class="controls">
-                                @Html.TextBoxFor(model => model.Name, new { @class = "" })
-                                @Html.ValidationMessageFor(model => model.Name)
+                                @Html.TextBoxFor(model => model.Category.Name, new { @class = "" })
+                                @Html.ValidationMessageFor(model => model.Category.Name)
                             </div>
                         </div>
+                        @if (Model.IsShowElement(CategoryElement.Thumbnail))
+                        {
+                            <div class="form-group">
+                                <label class="control-label">@Html.LabelFor(model => model.Category.Thumbnail) </label>
+                                <div class="controls">
+                                    <div id="swfu_container" style="margin: 3px 10px;">
+                                        <div>
+                                            <span id="spanButtonPlaceholder"></span>
+                                        </div>
+                                    </div>
+                                    <div id="thumbnails">
+                                        @Html.Raw(ViewBag.Picture)
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
                         <div class="form-group">
                             <label class="control-label">@Html.ValidationSummary(true)</label>
                             <div class="controls">
-                            <input type="hidden" id="mid" name="mid" value="@Request.RequestContext.RouteData.Values["mid"]"/>
-                            <input type="hidden" id="cid" name="ParentId" value="@Request.RequestContext.RouteData.Values["cid"]"/>
-                            @Html.HiddenFor(model => model.ID)
-                            @Html.Hidden("act", Request.QueryString["act"])
-                            <input type="submit" name="btnSubmit" value="提交保存" id="btnSubmit" class="btn btn-primary" />
-                            &nbsp;<input name="重置" type="reset" class="btn btn-danger" value="重 置" />
+                                <input type="hidden" id="mid" name="mid" value="@Request.RequestContext.RouteData.Values["mid"]" />
+                                <input type="hidden" id="cid" name="ParentId" value="@Request.RequestContext.RouteData.Values["cid"]" />
+                                @Html.HiddenFor(model => model.Category.ID)
+                                @Html.Hidden("act", Request.QueryString["act"])
+                                <input type="submit" name="btnSubmit" value="提交保存" id="btnSubmit" class="btn btn-primary" />
+                                &nbsp;<input name="重置" type="reset" class="btn btn-danger" value="重 置" />
                             </div>
-                        </div> 
+                        </div>
                     </form>
                 </div>
             </div>
@@ -58,11 +78,23 @@
 </div>
 
 @section Script {
+    <script src="@Url.Content("~/Scripts/jquery-ui.custom.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-colorpicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.icheck.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.jpanelmenu.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/unicorn.form_common.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/UEditor/third-party/swfupload/swfupload.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Admin/swfupload.handlers.js")" type="text/javascript"></script>
+
     <script src="@Url.Content("~/Scripts/jquery.form.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/Admin/VipSoft.CMS.Category.js")" type="text/javascript"></script>
-    <script type="text/javascript">  
+    <script type="text/javascript">
+
         //定义mid,cid供VipSoft.CMS.Category.js中的变量使用。
         var mid = @Request.RequestContext.RouteData.Values["mid"];
-        var cid = @Request.RequestContext.RouteData.Values["cid"];  
+        var cid = @Request.RequestContext.RouteData.Values["cid"];
     </script>
+
 }

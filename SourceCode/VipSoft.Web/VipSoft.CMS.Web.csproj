@@ -108,9 +108,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ajax\UploadHandler.ashx.cs">
-      <DependentUpon>UploadHandler.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +138,6 @@
     <Content Include="Scripts\jquery.treegrid.bootstrap3.js" />
     <Content Include="Scripts\jquery.treegrid.js" />
     <Content Include="Scripts\jquery.wizard.js" />
-    <Content Include="Ajax\UploadHandler.ashx" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -225,6 +221,7 @@
     <Content Include="Themes\Default\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Ajax\" />
     <Folder Include="Themes\Default\Views\Main\" />
   </ItemGroup>
   <ItemGroup>

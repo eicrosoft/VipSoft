@@ -51,8 +51,14 @@ namespace VipSoft.CMS.Core.Entity
         [Display(Name = "分类类型")]
         [Column(Name = "category_type")]
         public string CategoryType { get; set; }
-                                                           
 
+        /// <summary> 
+        /// 缩 略 图
+        /// </summary>    
+        [Display(Name = "缩 略 图")]
+        [Column(Name = "thumbnail")]
+        public string Thumbnail { get; set; }
+                                                     
         /// <summary> 
         /// SEO描述
         /// </summary>

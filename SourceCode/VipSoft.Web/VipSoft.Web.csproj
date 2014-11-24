@@ -203,6 +203,7 @@
     <Content Include="Content\themes\Admin\images\select2-spinner.gif" />
     <Content Include="Content\themes\Admin\images\select2.png" />
     <Content Include="Content\themes\Admin\images\select2x2.png" />
+    <Content Include="Content\themes\Admin\images\XPButtonNoText_61x22.png" />
     <Content Include="Content\themes\Admin\style.css" />
     <Content Include="Content\themes\Admin\unicorn-login.css" />
     <Content Include="Content\themes\Admin\unicorn.css" />

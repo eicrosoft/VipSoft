@@ -8,9 +8,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using VipSoft.CMS.Core.Entity;
+using VipSoft.CMS.Core.Enum;
+using VipSoft.Membership.Core.Entity;
+using VipSoft.Web.Ajax;
 
 namespace VipSoft.Web.Areas.VipSoft.Controllers
 {
@@ -91,17 +96,19 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         /// <returns></returns>
         public ActionResult Add(int id = 0)
         {
-            var model = new Category();
+            var model = new CategoryDto {Category = new Category()};
             CategoryBuild();
+            EditValueBind(model.Category);
             if (id > 0 && IsModify)
             {
-                model = CategoryService.GetCategory(id);
+                model.Category = CategoryService.GetCategory(id);
             }
             else
             {
-                model.ParentId = id;             //添加子分类时，当前的ID作为 ParentId 绑定 DropDownlist 用 ,修改的时候还是用的ParentID
+                model.Category.ParentId = id;             //添加子分类时，当前的ID作为 ParentId 绑定 DropDownlist 用 ,修改的时候还是用的ParentID
             }
-            ViewBag.SubTitle = GetCurrentMenu.Name;
+            model.Menu = GetCurrentMenu;
+            ViewBag.SubTitle = model.Menu.Name; 
             return View(model);
         }
 
@@ -124,6 +131,19 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             }
             var parentCategory = CategoryService.GetCategory(category.ParentId);
             category.Depth = parentCategory.Depth + 1;
+            if (Session["file_info"] != null)
+            {
+                List<Thumbnail> thumbnails = Session["file_info"] as List<Thumbnail>;
+                if (thumbnails != null && thumbnails.Count > 0)
+                {
+                    category.Thumbnail = thumbnails[0].ID + ".jpg";
+                }
+            }
+
+            if (Session["db_file"] != Session["file_info"])
+            {
+                SavePicture(category);
+            }
             if (category.ID > 0 && IsModify)
             {
 
@@ -144,6 +164,69 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         {
             var result = CategoryService.DeleteCategory(id);
             return Json(result);
+        }
+
+        #region SaveFile
+
+        private void EditValueBind(Category model)
+        {
+            Session["file_info"] = model.Thumbnail;
+            Session["db_file"] = model.Thumbnail;
+            ViewBag.Picture = "<img src=\"" + model.Thumbnail + "\" />"; 
+        }
+         
+
+        private string filePath = "/Uploads/";
+        private bool isSaveFilePath = true;
+
+        private void SavePicture(Category category)
+        {
+            if (Session["file_info"] != null)
+            {
+                List<Thumbnail> thumbnails = Session["file_info"] as List<Thumbnail>;
+
+                string UploadPath = Server.MapPath(filePath);
+
+                var fileName = "";
+                var orginalImge = Session["OriginalImage"] as HttpPostedFile;
+                if (orginalImge != null)
+                {
+                    var extension = Path.GetExtension(orginalImge.FileName);
+                    foreach (Thumbnail img in thumbnails)
+                    {
+                        fileName = img.ID + extension;
+                        orginalImge.SaveAs(Path.Combine(UploadPath, fileName));
+                        FileStream fs = new FileStream(UploadPath + "s_" + fileName, FileMode.Create);
+                        BinaryWriter bw = new BinaryWriter(fs);
+                        bw.Write(img.Data);
+                        bw.Close();
+                        fs.Close();
+                    }
+                }
+                category.Thumbnail = isSaveFilePath ? (filePath + fileName) : fileName;
+                //Session.Remove("file_info");
+            }
+        }
+        #endregion
+
+    }
+
+
+    public class CategoryDto
+    {
+        public Category Category { get; set; }
+        public Menu Menu { get; set; }
+
+
+        /// <summary>
+        /// 是否显示该属性
+        /// </summary>
+        /// <param name="categoryElement">界面元素</param>
+        /// <returns>是/否</returns>
+        public bool IsShowElement(CategoryElement categoryElement)
+        {
+            var val = string.Format(",{0},", Convert.ToInt32(categoryElement));
+            return Menu.HtmlType.Contains(val);
         }
 
     }
