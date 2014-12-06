@@ -152,6 +152,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             else
             {
                 category.ID = 0;
+                category.Status = 1;
                 result = CategoryService.AddCategory(category);
             }
             // RedirectToAction("List");   
