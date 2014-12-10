@@ -2,6 +2,8 @@
 =======
 8月1号，将代码迁移到 Github 上面
 
+官网：http://www.vipsoft.com.cn <br/><br/>
+
 演示地址：http://cms.vipsoft.com.cn <br/>
 后台地址：http://cms.vipsoft.com.cn/vipsoft  <br/>
 后台界面：http://www.vipsoft.com.cn/demo  <br/>
