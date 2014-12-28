@@ -28,14 +28,14 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         //
         // GET: /Category/
 
-        public ActionResult List(int cid=0)
+        public ActionResult List(int cid = 0)
         {
             IList<Category> list = new List<Category>();
             CategoryTreeTable(list, cid, 0);
             ViewData["Category"] = new SelectList(list, "ID", "Name");
             ViewBag.SubTitle = GetCurrentMenu.Name;
             //var list = CategoryService.GetCategoryList(new Category { ParentId = cid, Conditaion = "parent_id=[ParentId];" });
-            
+
             return View(list);
         }
 
@@ -96,8 +96,8 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         /// <returns></returns>
         public ActionResult Add(int id = 0)
         {
-            var model = new CategoryDto {Category = new Category()};
-            CategoryBuild();
+            var model = new CategoryDto { Category = new Category() };
+            //CategoryBuild();
             EditValueBind(model.Category);
             if (id > 0 && IsModify)
             {
@@ -108,24 +108,25 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
                 model.Category.ParentId = id;             //添加子分类时，当前的ID作为 ParentId 绑定 DropDownlist 用 ,修改的时候还是用的ParentID
             }
             model.Menu = GetCurrentMenu;
-            ViewBag.SubTitle = model.Menu.Name; 
+            CategoryBuild(model.Category.ParentId);
+            ViewBag.SubTitle = model.Menu.Name;
             return View(model);
         }
 
-        private void CategoryBuild()
+        private void CategoryBuild(int parentId)
         {
             IList<Category> list = new List<Category>();
             CategoryTreeBuild(list, CIdToInt, 0);
-            ViewData["Category"] = new SelectList(list, "ID", "Name");
+            ViewData["Category"] = new SelectList(list, "ID", "Name", parentId);
         }
 
         //Save data
         [HttpPost]
         [ValidateInput(false)]
-        public JsonResult Save(FormCollection formCollection,Category category)
+        public JsonResult Save(FormCollection formCollection, Category category)
         {
-            int result;             
-            if(category.ParentId == 0)
+            int result;
+            if (category.ParentId == 0)
             {
                 category.ParentId = Convert.ToInt32(formCollection.Get("ParentId").Trim(','));
             }
@@ -146,7 +147,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             }
             if (category.ID > 0 && IsModify)
             {
-
+                category.Status = 1;
                 result = CategoryService.UpdateCategory(category);
             }
             else
@@ -173,9 +174,9 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         {
             Session["file_info"] = model.Thumbnail;
             Session["db_file"] = model.Thumbnail;
-            ViewBag.Picture = "<img src=\"" + model.Thumbnail + "\" />"; 
+            ViewBag.Picture = "<img src=\"" + model.Thumbnail + "\" />";
         }
-         
+
 
         private string filePath = "/Uploads/";
         private bool isSaveFilePath = true;
