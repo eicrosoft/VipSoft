@@ -68,7 +68,7 @@ namespace VipSoft.Data.Persister
         /// <param name="session">The session.</param>
         int Update(ISessionImplementor session, IEntity obj);
 
-        T Get<T>(ISessionImplementor session, int id);
+        T Get<T>(ISessionImplementor session, object id);
 
         T Get<T>(ISessionImplementor session, string sql, CommandType commandType, params DbParameter[] parameters);
 

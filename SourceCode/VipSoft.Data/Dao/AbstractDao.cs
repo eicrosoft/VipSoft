@@ -82,7 +82,7 @@ namespace VipSoft.Data.Dao
             return result;
         }
 
-        public virtual T Get(int id)
+        public virtual T Get(object id)
         {
             T result;
             using (ISession session = SessionFaction.OpenSession())

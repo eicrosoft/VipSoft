@@ -47,7 +47,7 @@ namespace VipSoft.Core.Dao
         /// </summary>
         /// <param name="id">主健Id</param>
         /// <returns>T</returns>
-        T Get(int id);
+        T Get(object id);
 
         /// <summary>
         /// 根据 Criteria  获取对象

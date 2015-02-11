@@ -59,7 +59,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             var sbCategory = new StringBuilder("{Rows:[");
             CategoryTreeJson(sbCategory, CIdToInt, false);
             sbCategory.Append("]}");
-            Object obj = Newtonsoft.Json.JavaScriptConvert.DeserializeObject(sbCategory.ToString());
+            Object obj = Newtonsoft.Json.JsonConvert.DeserializeObject(sbCategory.ToString());
             return Json(obj);
         }
 

@@ -145,7 +145,7 @@ namespace VipSoft.Data
         /// <typeparam name="T"></typeparam>
         /// <param name="pKey"></param>
         /// <returns> a detached entity instance</returns>
-        T Get<T>(int pKey);
+        T Get<T>(object pKey);
 
         /// <summary> Retrieve an entity. </summary>
         /// <returns> a detached entity instance </returns>

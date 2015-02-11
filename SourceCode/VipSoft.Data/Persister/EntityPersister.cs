@@ -138,7 +138,7 @@ namespace VipSoft.Data.Persister
             return ExecuteNonQuery(session, sql.CommandText, CommandType.Text, sql.Parameters);
         }
 
-        public T Get<T>(ISessionImplementor session, int pKey)
+        public T Get<T>(ISessionImplementor session, object pKey)
         {
             var sql = Map.CreateSelectSql(session, this, pKey);
             return Get<T>(session, sql.CommandText, CommandType.Text, sql.Parameters);

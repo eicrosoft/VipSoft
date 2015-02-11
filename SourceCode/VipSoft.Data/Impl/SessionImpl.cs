@@ -497,7 +497,7 @@ namespace VipSoft.Data.Impl
             }
         }
 
-        public T Get<T>(int pKey)
+        public T Get<T>(object pKey)
         {
             using (new SessionIdLoggingContext(SessionId))
             {
