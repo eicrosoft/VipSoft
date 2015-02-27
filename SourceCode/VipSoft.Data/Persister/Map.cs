@@ -369,7 +369,7 @@ namespace VipSoft.Data.Persister
             return result;
         }
 
-        public static CmdParameter CreateDeleteSql(ISessionImplementor session, IEntityPersister entityPersister, params int[] pKeys)
+        public static CmdParameter CreateDeleteSql(ISessionImplementor session, IEntityPersister entityPersister, params object[] pKeys)
         {
             var result = new CmdParameter();
             var classMetadata = entityPersister.ClassMetadata;
@@ -389,7 +389,7 @@ namespace VipSoft.Data.Persister
             return result;
         }
 
-        public static CmdParameter CreateDeleteWithValidateSql(ISessionImplementor session, IEntityPersister entityPersister, params int[] pKeys)
+        public static CmdParameter CreateDeleteWithValidateSql(ISessionImplementor session, IEntityPersister entityPersister, params object[] pKeys)
         {
             var result = new CmdParameter();
             var classMetadata = entityPersister.ClassMetadata;
@@ -410,7 +410,7 @@ namespace VipSoft.Data.Persister
             return result;
         }
 
-        public static CmdParameter CreateDeleteWithAssociateSql(ISessionImplementor session, IEntityPersister entityPersister, params int[] pKeys)
+        public static CmdParameter CreateDeleteWithAssociateSql(ISessionImplementor session, IEntityPersister entityPersister, params object[] pKeys)
         {
             var result = new CmdParameter();
             var classMetadata = entityPersister.ClassMetadata;
@@ -498,9 +498,6 @@ namespace VipSoft.Data.Persister
 
             //}
             var parameters = new List<DbParameter>();
-            criteria.Driver = entityPersister.Driver;
-            criteria.DicParameter = entityPersister.GetParameter(session);
-            criteria.DbParameter = parameters;
             //entityPersister.Driver.FormatNameForSql(columnInfo.Name)
 
             // string rConditaion = GetConditaion(session, entityPersister, obj, out parameters);
@@ -511,6 +508,9 @@ namespace VipSoft.Data.Persister
             sql.AppendFormat(" FROM {0} ", classMetadata.TableName);
             if (criteria != null && criteria.CriterionList != null && criteria.CriterionList.Count > 0)
             {
+                criteria.Driver = entityPersister.Driver;
+                criteria.DicParameter = entityPersister.GetParameter(session);
+                criteria.DbParameter = parameters;
                 sql.Append(" WHERE ").Append(criteria.ToString(classMetadata));
                 result.Parameters = parameters.ToArray();
             }
@@ -526,6 +526,85 @@ namespace VipSoft.Data.Persister
             sql.Append(entityPersister.Driver.MultipleQueriesSeparator);
             result.CommandText = sql.ToString();
             log.Info(sql);
+            return result;
+        }
+
+        public static CmdParameter CreateDataCountSql(ISessionImplementor session, IEntityPersister entityPersister, Criteria criteria)
+        {
+            var classMetadata = entityPersister.ClassMetadata;
+            var result = new CmdParameter();  
+            var parameters = new List<DbParameter>(); 
+            var sql = new StringBuilder();  
+            sql.AppendFormat("SELECT COUNT(1) FROM {0} ", classMetadata.TableName);
+            if (criteria != null && criteria.CriterionList != null && criteria.CriterionList.Count > 0)
+            {
+                criteria.Driver = entityPersister.Driver;
+                criteria.DicParameter = entityPersister.GetParameter(session);
+                criteria.DbParameter = parameters;
+                sql.Append(" WHERE ").Append(criteria.ToString(classMetadata));
+                result.Parameters = parameters.ToArray();
+            } 
+            sql.Append(entityPersister.Driver.MultipleQueriesSeparator);
+            result.CommandText = sql.ToString();
+            log.Info(sql);
+            return result;
+        }
+
+        public static CmdParameter CreatePagingSql(ISessionImplementor session, IEntityPersister entityPersister, int pageSize, int dataStart,Criteria criteria, Order order)
+        {
+            //TODO 需要修改-开始
+            #region MyRegion
+            
+            var classMetadata = entityPersister.ClassMetadata;
+            var result = new CmdParameter();
+
+
+            //if (string.IsNullOrEmpty(obj.Conditaion))
+            //{
+            //    var columnInfo = classMetadata.ColumnInfos.Find(t => t.IsPrimaryKey);
+            //    if (columnInfo != null)
+            //    {
+            //        var v = columnInfo.PropertyInfo.FastGetValue(obj);
+            //        if (!IsNull(v)) result = CreateSelectSql(session, entityPersister, v);
+            //    }
+
+            //}
+            var parameters = new List<DbParameter>();
+            //entityPersister.Driver.FormatNameForSql(columnInfo.Name)
+
+            // string rConditaion = GetConditaion(session, entityPersister, obj, out parameters);
+
+            var sql = new StringBuilder("SELECT ");
+            //sql.Append(string.IsNullOrEmpty(obj.ResultColumns) ? "*" : obj.ResultColumns);
+            sql.Append("*");
+            sql.AppendFormat(" FROM {0} ", classMetadata.TableName);
+            var whereStr = "";
+            if (criteria != null && criteria.CriterionList != null && criteria.CriterionList.Count > 0)
+            {
+                criteria.Driver = entityPersister.Driver;
+                criteria.DicParameter = entityPersister.GetParameter(session);
+                criteria.DbParameter = parameters;
+                whereStr = criteria.ToString(classMetadata);
+                sql.Append(" WHERE ").Append(whereStr);
+                result.Parameters = parameters.ToArray();
+            }
+            // entityPersister.SetDbParamter(session, parameters, columnInfo.Name, value);
+            //var where = GetWhereCaluse(rConditaion);
+            //if (where.Length > 0)
+            //{
+            //    sql.AppendFormat(" WHERE {0} ", where);
+            //    result.Parameters = parameters.ToArray();
+            //}
+            //sql.Append(obj.OrderBy ?? "" );
+            var orderByStr = order != null ? order.ToString(classMetadata) : "";
+            sql.Append(orderByStr);
+            sql.Append(entityPersister.Driver.MultipleQueriesSeparator);
+            //result.CommandText = sql.ToString();
+
+            #endregion
+            //TODO 需要修改-结束
+            result.CommandText = entityPersister.Driver.CreatePagingSql(pageSize, dataStart, entityPersister.ClassMetadata.TableName, entityPersister.ClassMetadata.PrimaryKey, whereStr, orderByStr);
+            log.Info(result.CommandText);
             return result;
         }
 
@@ -623,7 +702,7 @@ namespace VipSoft.Data.Persister
         /// </summary>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static string GetInExpression(params int[] values)
+        public static string GetInExpression(params object[] values)
         {
             var sql = new StringBuilder();
             int count = values.Length;

@@ -26,7 +26,7 @@ namespace VipSoft.Core.Dao
         /// </summary>
         /// <param name="id">主键ID</param>
         /// <returns></returns>
-        int Delete(params int[] id);
+        int Delete(params object[] key);
 
         /// <summary>
         /// 根据 Conditaion 删除对象的值
@@ -45,9 +45,9 @@ namespace VipSoft.Core.Dao
         /// <summary>
         /// 根据主键获取对象 (T)
         /// </summary>
-        /// <param name="id">主健Id</param>
+        /// <param name="key">主健Id</param>
         /// <returns>T</returns>
-        T Get(object id);
+        T Get(object key);
 
         /// <summary>
         /// 根据 Criteria  获取对象
@@ -74,9 +74,27 @@ namespace VipSoft.Core.Dao
         List<T> GetList(Criteria criteria, params Order[] order);
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="dataStart">从0开始</param>
+        /// <param name="criteria"></param>
+        /// <param name="totalItemCount">列表的总数</param>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        List<T> GetPageList(int pageSize, int dataStart, out int totalItemCount, Criteria criteria, params Order[] order);
+
+        /// <summary>
         /// 得到所有数据的缓存
         /// </summary>
         /// <returns>列表</returns>
-        List<T> GetCacheList();  
+        List<T> GetCacheList();
+
+        /// <summary>
+        /// 得到第一行第一列的字段值
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        object GetScalar(string sql);
     }
 }

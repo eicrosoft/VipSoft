@@ -121,7 +121,7 @@ namespace VipSoft.Data
         /// <typeparam name="T">The primary keys</typeparam>
         /// <param name="pKeys"></param>
         /// <returns></returns>
-        int Delete<T>(params int[] pKeys);
+        int Delete<T>(params object[] pKeys);
 
         /// <summary>
         /// Delete entities with associate talbe
@@ -129,7 +129,7 @@ namespace VipSoft.Data
         /// <typeparam name="T"></typeparam>
         /// <param name="pKeys"></param>
         /// <returns></returns>
-        int DeleteWithAssociate<T>(params int[] pKeys);
+        int DeleteWithAssociate<T>(params object[] pKeys);
 
         /// <summary>
         /// Delete entities with check whether the entities used by associate table
@@ -137,7 +137,7 @@ namespace VipSoft.Data
         /// <typeparam name="T"></typeparam>
         /// <param name="pKeys"></param>
         /// <returns></returns>
-        int DeleteWithValidate<T>(params int[] pKeys);
+        int DeleteWithValidate<T>(params object[] pKeys);
 
         /// <summary>
         /// Retrieve an entity by primary key
@@ -174,6 +174,7 @@ namespace VipSoft.Data
 
         List<T> Load<T>(Criteria criteria);
         List<T> Load<T>(Criteria criteria,Order order);
+        List<T> LoadPageList<T>(int pageSize, int dataStart, out int totalItemCount, Criteria criteria, Order order);
 
 
 
@@ -221,6 +222,7 @@ namespace VipSoft.Data
         /// <returns></returns>
         object ExecuteScalar<T>(string sql, CommandType commandType, params DbParameter[] parameters);
 
+        object ExecuteScalar<T>(string sql, params DbParameter[] parameters);
         /// <summary>
         /// 
         /// </summary>

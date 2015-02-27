@@ -55,11 +55,11 @@ namespace VipSoft.Data.Persister
         /// <summary>
         /// Delete a persistent instance
         /// </summary>
-        int Delete(ISessionImplementor session, params int[] pKeys);
+        int Delete(ISessionImplementor session, params object[] pKeys);
 
-        int DeleteWithAssociate(ISessionImplementor session, params int[] pKeys);
+        int DeleteWithAssociate(ISessionImplementor session, params object[] pKeys);
 
-        int DeleteWithValidate(ISessionImplementor session, params int[] pKeys);
+        int DeleteWithValidate(ISessionImplementor session, params object[] pKeys);
 
         /// <summary>
         /// Update a persistent instance
@@ -78,12 +78,15 @@ namespace VipSoft.Data.Persister
         T Get<T>(ISessionImplementor session, IEntity model);
         T Get<T>(ISessionImplementor session, Criteria criteria);
 
+        //得到总记录数
+        int GetDataCount(ISessionImplementor session, Criteria criteria);
 
         #region MyRegion
         
         List<T> Load<T>(ISessionImplementor session);
         List<T> Load<T>(ISessionImplementor session,Criteria criteria);
-        List<T> Load<T>(ISessionImplementor session, Criteria criteria,Order order);                                      
+        List<T> Load<T>(ISessionImplementor session, Criteria criteria, Order order);
+        List<T> LoadPageList<T>(ISessionImplementor session, int pageSize, int dataStart, out int totalItemCount, Criteria criteria, Order order);
         #endregion
 
         List<T> Load<T>(ISessionImplementor session, IEntity model);

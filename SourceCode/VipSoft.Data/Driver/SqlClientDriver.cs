@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using VipSoft.Core.Utility;
 
 namespace VipSoft.Data.Driver
 {
@@ -99,7 +100,25 @@ namespace VipSoft.Data.Driver
             get { return true; }
         }
 
-        
+        public override string CreatePagingSql(int pageSize, int dataStart, string tableName, string primaryKey, string whereStr, string orderByStr)
+        {
+            //var totalSql = "SELECT COUNT(1) FROM YouJia_UserInfo";
+            //Object result = GetScalar(totalSql);
+            //totalItemCount = result == null ? 0 : ConvertHandler.ToInt32(result);
+            //            var sql = string.Format(@"SELECT u2.n, U.* FROM YouJia_UserInfo U,
+            //                                    (SELECT TOP {0} row_number() OVER (ORDER BY Name DESC) n, CODE FROM YouJia_UserInfo)
+            //                                     u2 WHERE U.CODE = u2.CODE AND u2.n >= {1} ORDER BY u2.n ASC", 
+            //                                    ((@pageIndex - 1) * @pageSize) + @pageSize, ((@pageIndex - 1) * @pageSize) + 1);
+            //=================
+            //{3} ORDER BY Name DESC
+            //{4} primaryKey
+            //{4} whereStr
+            var sql = string.Format(@"SELECT u2.n, U.* FROM {0} U,
+                                    (SELECT TOP {1} row_number() OVER ({3}) n, {4} FROM {0} {5})
+                                     u2 WHERE U.{4} = u2.{4} AND u2.n > {2} ORDER BY u2.n ASC",
+                                   tableName, dataStart + pageSize, dataStart, orderByStr, primaryKey, whereStr);
+            return sql;
+        }
     }
 }
 

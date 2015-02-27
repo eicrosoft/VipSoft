@@ -470,7 +470,7 @@ namespace VipSoft.Data.Impl
             }
         }
 
-        public int Delete<T>(params int[] pKeys)
+        public int Delete<T>(params object[] pKeys)
         {
             using (new SessionIdLoggingContext(SessionId))
             {
@@ -479,7 +479,7 @@ namespace VipSoft.Data.Impl
             }
         }
 
-        public int DeleteWithAssociate<T>(params int[] pKeys)
+        public int DeleteWithAssociate<T>(params object[] pKeys)
         {
             using (new SessionIdLoggingContext(SessionId))
             {
@@ -488,7 +488,7 @@ namespace VipSoft.Data.Impl
             }
         }
 
-        public int DeleteWithValidate<T>(params int[] pKeys)
+        public int DeleteWithValidate<T>(params object[] pKeys)
         {
             using (new SessionIdLoggingContext(SessionId))
             {
@@ -583,6 +583,19 @@ namespace VipSoft.Data.Impl
             return result;
         }
 
+        public List<T> LoadPageList<T>(int pageSize, int dataStart, out int totalItemCount, Criteria criteria, Order order)
+        {
+            List<T> result;
+            using (new SessionIdLoggingContext(SessionId))
+            {
+                CheckAndUpdateSessionStatus();
+                result = Factory.GetEntityPersister(typeof(T).Name).LoadPageList<T>(this,pageSize,dataStart,out totalItemCount,criteria, order);
+                //temporaryPersistenceContext.Clear();
+
+            }
+            return result;
+        }
+
         #endregion
 
         public List<T> Load<T>(IEntity obj)
@@ -650,6 +663,10 @@ namespace VipSoft.Data.Impl
             return result;
         }
 
+        public object ExecuteScalar<T>(string sql, params DbParameter[] parameters)
+        {
+            return ExecuteScalar<T>(sql, CommandType.Text, parameters);
+        }
         public DataSet ExecuteDataSet<T>(string sql, CommandType commandType, params DbParameter[] parameters)
         {
             DataSet result;

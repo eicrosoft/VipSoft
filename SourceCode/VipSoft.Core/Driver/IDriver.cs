@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.Common;
 using VipSoft.Core.Config;
+using VipSoft.Core.Utility;
 
 namespace VipSoft.Core.Driver
 {
@@ -120,6 +121,9 @@ namespace VipSoft.Core.Driver
         /// </remarks>
         /// <param name="parameterName">The unformatted name of the parameter</param>
         /// <returns>A parameter formatted for an IDbParameter.</returns>
-       // string FormatNameForParameter(string parameterName);
+        // string FormatNameForParameter(string parameterName);
+
+
+        string CreatePagingSql(int pageSize, int dataStart,string tableName, string primaryKey, string whereStr, string orderByStr);
     }
 }

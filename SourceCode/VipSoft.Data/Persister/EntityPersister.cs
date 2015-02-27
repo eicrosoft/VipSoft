@@ -113,20 +113,20 @@ namespace VipSoft.Data.Persister
             return ExecuteNonQuery(session, sql.CommandText, CommandType.Text, sql.Parameters);
         }
 
-        public int Delete(ISessionImplementor session, params int[] pKeys)
+        public int Delete(ISessionImplementor session, params object[] pKeys)
         {
             var sql = Map.CreateDeleteSql(session, this, pKeys);
 
             return ExecuteNonQuery(session, sql.CommandText, CommandType.Text, sql.Parameters);
         }
 
-        public int DeleteWithAssociate(ISessionImplementor session, params int[] pKeys)
+        public int DeleteWithAssociate(ISessionImplementor session, params object[] pKeys)
         {
             var sql = Map.CreateDeleteWithAssociateSql(session, this, pKeys);
             return ExecuteNonQuery(session, sql.CommandText, CommandType.Text, sql.Parameters);
         }
 
-        public int DeleteWithValidate(ISessionImplementor session, params int[] pKeys)
+        public int DeleteWithValidate(ISessionImplementor session, params object[] pKeys)
         {
             var sql = Map.CreateDeleteWithValidateSql(session, this, pKeys);
             return ExecuteNonQuery(session, sql.CommandText, CommandType.Text, sql.Parameters);
@@ -216,6 +216,13 @@ namespace VipSoft.Data.Persister
             return result;
         }
 
+        public int GetDataCount(ISessionImplementor session, Criteria criteria)
+        {
+            var sql = Map.CreateDataCountSql(session, this, criteria);
+            var result = ExecuteScalar(session, sql.CommandText, CommandType.Text,sql.Parameters);
+            return result == null ? 0 : ConvertHandler.ToInt32(result);
+        }
+
         public List<T> Load<T>(ISessionImplementor session)
         {
             var sql = Map.CreateSelectSql(session, this, null);
@@ -231,6 +238,13 @@ namespace VipSoft.Data.Persister
         public List<T> Load<T>(ISessionImplementor session, Criteria criteria, Order order)
         {
             var sql = Map.CreateSelectSql2(session, this, criteria, order);
+            return Load<T>(session, sql.CommandText, CommandType.Text, sql.Parameters);
+        }
+
+        public List<T> LoadPageList<T>(ISessionImplementor session, int pageSize, int dataStart, out int totalItemCount, Criteria criteria, Order order)
+        { 
+            totalItemCount = GetDataCount(session, criteria); 
+            var sql = Map.CreatePagingSql(session, this, pageSize,dataStart,criteria, order);
             return Load<T>(session, sql.CommandText, CommandType.Text, sql.Parameters);
         }
 

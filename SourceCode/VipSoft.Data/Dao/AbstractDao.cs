@@ -42,7 +42,7 @@ namespace VipSoft.Data.Dao
         }
 
 
-        public virtual int Delete(params int[] id)
+        public virtual int Delete(params object[] id)
         {
             int result;
             using (ISession session = SessionFaction.OpenSession())
@@ -134,9 +134,19 @@ namespace VipSoft.Data.Dao
             }
             return result;
         }
-
-
-
+        public List<T> GetPageList(int pageSize, int dataStart, out int totalItemCount, Criteria criteria, params Order[] order)
+        {
+            List<T> result;
+            totalItemCount = 1 == null ? 0 : ConvertHandler.ToInt32(1);
+            using (var session = SessionFaction.OpenSession())
+            {
+                result = order != null && order.Length > 0
+                    ? session.LoadPageList<T>(pageSize, dataStart, out totalItemCount, criteria, order[0])
+                    : session.LoadPageList<T>(pageSize, dataStart, out totalItemCount, criteria, null);
+            }
+            return result;
+        }
+       
         public virtual List<T> GetList(string sql)
         {
             List<T> result;
@@ -167,6 +177,16 @@ namespace VipSoft.Data.Dao
                 CacheHelper<List<T>>.SetCache(key, obj);
             }
             return obj;
+        }
+
+        public virtual object GetScalar(string sql)
+        { 
+            Object result;
+            using (var session = SessionFaction.OpenSession())
+            {
+                result = session.ExecuteScalar<T>(sql);
+            }
+            return result;
         }
     }
 }

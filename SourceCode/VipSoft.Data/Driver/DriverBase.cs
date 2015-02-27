@@ -5,6 +5,7 @@ using System.Reflection;
 using VipSoft.Core.Cache;
 using VipSoft.Core.Config;
 using VipSoft.Core.Driver;
+using VipSoft.Core.Utility;
 using VipSoft.FastReflection;
 
 namespace VipSoft.Data.Driver
@@ -196,5 +197,12 @@ namespace VipSoft.Data.Driver
             minfo.FastInvoke(dbCommandBuilder, parameters);
             return dbParameter;
         }
+
+
+        public virtual string CreatePagingSql(int pageSize, int dataStart, string tableName, string primaryKey, string whereStr, string orderByStr)
+        { 
+            return string.Empty;
+        }
+
     }
 }
