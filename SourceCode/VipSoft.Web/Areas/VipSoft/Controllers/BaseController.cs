@@ -106,7 +106,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         protected static readonly IApplicationContext Wac = ContextRegistry.GetContext();
         
         public ICategoryService CategoryService = Wac.GetObject("CategoryService") as ICategoryService;
-        protected List<Category> CategoryList { get { return CategoryService.GetCategoryList(); } }
+        protected List<Category> CategoryList { get { return CategoryService.GetList(); } }
 
         //方法待改造和迁移
         public void CategoryTreeBuild(IList<Category> result, int parentId, int spaceCount)

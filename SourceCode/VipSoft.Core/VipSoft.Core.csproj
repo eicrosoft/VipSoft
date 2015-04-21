@@ -59,6 +59,7 @@
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\SystemSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IService.cs" />
     <Compile Include="Utility\ConvertHandler.cs" />
     <Compile Include="Utility\OP.cs" />
     <Compile Include="Utility\Criterion.cs" />

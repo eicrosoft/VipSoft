@@ -46,7 +46,7 @@ namespace VipSoft.CMS.Controllers
             {
                 try
                 {
-                    return CategoryService.GetCategory(Convert.ToInt32(CIdStr));
+                    return CategoryService.Get(Convert.ToInt32(CIdStr));
                 }
                 catch
                 {

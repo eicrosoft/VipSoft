@@ -28,7 +28,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         {
             //int ids = 2;
            int   pageindex=1;
-            var feedbackList = FeedBackService.GetFeedbackList(new Feedback() );
+            var feedbackList = FeedBackService.GetList(new Feedback() );
             if (page.HasValue==true)
             {
 
@@ -65,7 +65,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
 
             if (ModelState.IsValid)
             {
-                var flag = FeedBackService.AddFeedback(feedback);
+                var flag = FeedBackService.Add(feedback);
 
                 if (flag != 0)
                 {
@@ -128,7 +128,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            FeedBackService.DeleteFeedback(id);
+            FeedBackService.Delete(id);
             return RedirectToAction("List");
         }
 

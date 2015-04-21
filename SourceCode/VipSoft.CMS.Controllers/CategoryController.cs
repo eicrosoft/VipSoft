@@ -25,14 +25,14 @@ namespace VipSoft.CMS.Controllers
         public ActionResult List()
         {
             //var list = CategoryService.GetCategoryList(new Category { ParentID = 0, Conditaion = "parent_id=[ParentID];" });
-            var list = CategoryService.GetCategoryList();
+            var list = CategoryService.GetList();
             return View(list);
         }
 
         public ActionResult MenuList()
         {                                                                                                                      
            // var list = CategoryService.GetCategoryList(new Category { Status = 1, Conditaion = "status=[Status];" });
-            var list = CategoryService.GetCategoryList(new Criteria("Status", 1), new Order("Sequence"));
+            var list = CategoryService.GetList(new Criteria("Status", 1), new Order("Sequence"));
             return View(list);
         }
 
@@ -59,7 +59,7 @@ namespace VipSoft.CMS.Controllers
             // var model = new Category { ID = CId, Conditaion = "parent_id=[ID]" };   
             var criteria = new Criteria("ParentID", CId);
             criteria.Add(LOP.AND, "Status", 1);
-            var list = CategoryService.GetCategoryList(criteria, new Order("sequence"));
+            var list = CategoryService.GetList(criteria, new Order("sequence"));
             if (list.Count == 0)  //有子类就显示子类，没有子类就显示同级节点。
             {
                 list = CategoryService.GetBrotherNode(CId);
@@ -75,7 +75,7 @@ namespace VipSoft.CMS.Controllers
         /// <param name="haveChild">是否有子节点</param>
         public void CategoryTreeJson(StringBuilder sbCategory, int parentId, bool haveChild)
         {
-            var list = CategoryService.GetCategoryList().FindAll(p => p.ParentId == parentId);
+            var list = CategoryService.GetList().FindAll(p => p.ParentId == parentId);
             if (haveChild && list.Count > 0)
             {
                 sbCategory.AppendFormat("<ul id='ChildMenu{0}' class='collapsed'>", parentId);
@@ -115,11 +115,11 @@ namespace VipSoft.CMS.Controllers
         public ActionResult Add(int id = 0)
         {
             var model = new Category();
-            var list = CategoryService.GetCategoryList();
+            var list = CategoryService.GetList();
             ViewData["Parent"] = new SelectList(list, "ID", "Name");
             if (id > 0)
             {
-                model = CategoryService.GetCategory(id);
+                model = CategoryService.Get(id);
             }
             return View(model);
         }
@@ -132,11 +132,11 @@ namespace VipSoft.CMS.Controllers
             {
                 if (category.ID != 0)
                 {
-                    CategoryService.UpdateCategory(category);
+                    CategoryService.Update(category);
                 }
                 else
                 {
-                    CategoryService.AddCategory(category);
+                    CategoryService.Add(category);
                 }
                 return RedirectToAction("List");
             }
@@ -147,7 +147,7 @@ namespace VipSoft.CMS.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            CategoryService.DeleteCategory(id);
+            CategoryService.Delete(id);
             return RedirectToAction("List");
         }
 

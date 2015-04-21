@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Spring.Core">
-      <HintPath>..\Extend-Bin\Spring.Core.dll</HintPath>
+      <HintPath>..\packages\Spring.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Web">
       <HintPath>..\Extend-Bin\Spring.Web.dll</HintPath>

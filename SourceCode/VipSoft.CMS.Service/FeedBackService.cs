@@ -10,32 +10,18 @@ using System.Collections.Generic;
 using VipSoft.CMS.Core.Dao;
 using VipSoft.CMS.Core.Entity;
 using VipSoft.CMS.Core.Service;
+using VipSoft.Core.Dao;
+using VipSoft.Service;
 
 
 namespace VipSoft.CMS.Service
 {
-    public class FeedBackService : AbstractService, IFeedBackService
+    public class FeedBackService : VipSoftService<Feedback>, IFeedBackService
     {
         //public IArticleDao ArticleDao = Wac.GetObject("ArticleDao") as IArticleDao;
         public IFeedBackDao FeedBackDao { get; set; }//= Wac.GetObject("FeedBackDao") as IFeedBackDao;
-        public int AddFeedback(Feedback feedback)
-        {
-           return  FeedBackDao.Add(feedback);
-        }
 
-        public int DeleteFeedback(int fid)
-        {
-            return FeedBackDao.Delete(fid);
-        }
-
-        public int UpdateFeedback(Feedback feedback)
-        {
-            return FeedBackDao.Update(feedback);
-        }
-
-        public IList<Feedback> GetFeedbackList(Feedback feedback)
-        {
-            return FeedBackDao.GetList(feedback);
-        }
+        public override IDao<Feedback> Dao { get { return FeedBackDao; } }
+         
     }
 }

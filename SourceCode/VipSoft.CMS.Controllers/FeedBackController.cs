@@ -29,7 +29,7 @@ namespace VipSoft.CMS.Controllers
         {   
             var result = 0;
             feedback.CreateDate = DateTime.Now;
-            var flag = FeedBackService.AddFeedback(feedback) > 0;          
+            var flag = FeedBackService.Add(feedback) > 0;          
             if (flag)
             {
                 result = 1;
@@ -89,7 +89,7 @@ namespace VipSoft.CMS.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            FeedBackService.DeleteFeedback(id);
+            FeedBackService.Delete(id);
             return RedirectToAction("List");
         }
 

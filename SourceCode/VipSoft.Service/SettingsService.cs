@@ -10,7 +10,7 @@ using VipSoft.Data.Engine;
 
 namespace VipSoft.Service
 {
-    public class SettingsService:AbstractService
+    public class SettingsService
     {
         
         private static Hashtable settingsCache = Hashtable.Synchronized(new Hashtable());

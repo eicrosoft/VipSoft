@@ -8,6 +8,7 @@
 
 using System.Collections.Generic;
 using VipSoft.CMS.Core.Entity;
+using VipSoft.Core.Service;
 using VipSoft.Core.Utility;
 
 namespace VipSoft.CMS.Core.Service
@@ -15,23 +16,9 @@ namespace VipSoft.CMS.Core.Service
     /// <summary> 
     ///  类别Service接口
     /// </summary>
-    public interface ICategoryService
-    {      
-        /// <summary> 
-        /// 新增类别
-        /// </summary>
-        int AddCategory(Category category);
-
-        /// <summary> 
-        /// 修改类别名称
-        /// </summary>
-        int DeleteCategory(int categoryId);
-
-        /// <summary> 
-        /// 修改类别名称
-        /// </summary>
-        int UpdateCategory(Category category);
-
+    public interface ICategoryService:IService<Category>
+    {
+        int Delete(int categoryId);
         /// <summary> 
         /// 设置类别排序
         /// </summary>
@@ -41,23 +28,6 @@ namespace VipSoft.CMS.Core.Service
         /// 批量设置类别状态
         /// </summary>
         int BatchSetCategory(int[] categoryId, int values);
-
-        /// <summary> 
-        /// 显示类别详细
-        /// </summary>
-        Category GetCategory(int categoryId);
-
-        /// <summary> 
-        /// 显示所有类别列表
-        /// </summary>
-        List<Category> GetCategoryList();
-
-        /// <summary> 
-        /// 显示类别列表                    
-        /// </summary>
-        List<Category> GetCategoryList(Category category);
-
-        List<Category> GetCategoryList(Criteria criteria,params Order[] order);                  
 
         /// <summary> 
         /// 根据id 得到他的兄弟节点

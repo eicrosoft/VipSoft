@@ -20,8 +20,8 @@ namespace VipSoft.CMS.Controllers
             var newsList = GetList(5, 1, 9);
             var productList = GetList(4, 1, 4);
             //var about = ArticleService.GetArticle(new Article() { CategoryId = 11, Conditaion = "category_id=[CategoryId]" });
-            var about = ArticleService.GetArticle(new Criteria("CategoryId", 11));
-            var msg = ArticleService.GetArticle(new Criteria("CategoryId", 11));
+            var about = ArticleService.Get(new Criteria("CategoryId", 11));
+            var msg = ArticleService.Get(new Criteria("CategoryId", 11));
             ViewBag.Msg = msg != null ? msg.Title : "";
             var model = new CmsIndex {Article = about, NewsList = newsList, ProductList = productList};
             return View(model);
@@ -29,7 +29,7 @@ namespace VipSoft.CMS.Controllers
         [NonAction]
         private PagedList<Article> GetList(int cid, int page, int pageSize)
         {
-            var articleList = ArticleService.GetArticleList(new Criteria("CategoryId", cid));//new Article { CategoryId = cid, Conditaion = "category_id=[CategoryId];" }));
+            var articleList = ArticleService.GetList(new Criteria("CategoryId", cid));//new Article { CategoryId = cid, Conditaion = "category_id=[CategoryId];" }));
             return articleList.ToPagedList(page, pageSize);
         }
     }

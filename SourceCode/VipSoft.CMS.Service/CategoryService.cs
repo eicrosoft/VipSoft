@@ -12,11 +12,13 @@ using VipSoft.CMS.Core.Dao;
 using VipSoft.CMS.Core.Entity;
 using VipSoft.CMS.Core.Service;
 using VipSoft.Core.Cache;
+using VipSoft.Core.Dao;
 using VipSoft.Core.Utility;
+using VipSoft.Service;
 
 namespace VipSoft.CMS.Service
 {
-    public class CategoryService : AbstractService, ICategoryService
+    public class CategoryService : VipSoftService<Category>, ICategoryService
     {
         /// <summary>
         /// //spring ioc
@@ -28,12 +30,11 @@ namespace VipSoft.CMS.Service
         /// </summary>
         public ICategoryDao CategoryDao { get; set; }
 
-        public int AddCategory(Category category)
-        {
-            return CategoryDao.Add(category);
-        }
 
-        public int DeleteCategory(int categoryId)
+        public override IDao<Category> Dao { get { return CategoryDao; } }
+  
+         
+        public int Delete(int categoryId)
         {                                   
             CacheHelper<List<Category>>.CleanAll();
             var ids = GetChildIds(categoryId);
@@ -53,11 +54,6 @@ namespace VipSoft.CMS.Service
         }
 
 
-        public int UpdateCategory(Category category)
-        {
-            return CategoryDao.Update(category);
-        }
-
         public int SetCategorySequence(int categoryId, int sequence)
         {
             return 0;
@@ -67,27 +63,7 @@ namespace VipSoft.CMS.Service
         {
             return 0;
         }
-
-        public Category GetCategory(int categoryId)
-        {
-            return CategoryDao.Get(categoryId);
-        }
-
-        public List<Category> GetCategoryList()
-        {
-            return CategoryDao.GetList();
-        }
-
-        public List<Category> GetCategoryList(Category category)
-        {
-            return CategoryDao.GetList(category);
-        }
-
-        public List<Category> GetCategoryList(Criteria criteria,params  Order[] order)
-        {
-            return CategoryDao.GetList(criteria,order);
-        }               
-                    
+          
         public List<Category> GetBrotherNode(int id)
         {
             return CategoryDao.GetBrotherNode(id);
@@ -132,12 +108,6 @@ namespace VipSoft.CMS.Service
                 GetParentNote(result, list, pModle.ParentId);
                 result.Add(pModle);
             }
-        }
-
-
-
-
-
-
+        } 
     }
 }

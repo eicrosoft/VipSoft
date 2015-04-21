@@ -71,7 +71,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         /// <param name="haveChild">是否有子节点</param>
         public void CategoryTreeJson(StringBuilder sbCategory, int parentId, bool haveChild)
         {
-            var list = CategoryService.GetCategoryList().FindAll(p => p.ParentId == parentId);
+            var list = CategoryService.GetList().FindAll(p => p.ParentId == parentId);
             if (haveChild && list.Count > 0)
             {
                 sbCategory.Append("children: [");
@@ -101,7 +101,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             EditValueBind(model.Category);
             if (id > 0 && IsModify)
             {
-                model.Category = CategoryService.GetCategory(id);
+                model.Category = CategoryService.Get(id);
             }
             else
             {
@@ -130,7 +130,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             {
                 category.ParentId = Convert.ToInt32(formCollection.Get("ParentId").Trim(','));
             }
-            var parentCategory = CategoryService.GetCategory(category.ParentId);
+            var parentCategory = CategoryService.Get(category.ParentId);
             category.Depth = parentCategory.Depth + 1;
             if (Session["file_info"] != null)
             {
@@ -148,13 +148,13 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             if (category.ID > 0 && IsModify)
             {
                 category.Status = 1;
-                result = CategoryService.UpdateCategory(category);
+                result = CategoryService.Update(category);
             }
             else
             {
                 category.ID = 0;
                 category.Status = 1;
-                result = CategoryService.AddCategory(category);
+                result = CategoryService.Add(category);
             }
             // RedirectToAction("List");   
             return Json(result);
@@ -164,7 +164,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            var result = CategoryService.DeleteCategory(id);
+            var result = CategoryService.Delete(id);
             return Json(result);
         }
 

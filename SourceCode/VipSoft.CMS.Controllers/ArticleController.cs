@@ -30,7 +30,7 @@ namespace VipSoft.CMS.Controllers
         public ActionResult Blogroll(int cid = 0)
         {
            //var list = ArticleService.GetArticleList(new Article { CategoryId = cid, Conditaion = "category_id=[CategoryId];" });
-            var list = ArticleService.GetArticleList(new Criteria("CategoryId", cid));
+            var list = ArticleService.GetList(new Criteria("CategoryId", cid));
            return View(list);
         }
 
@@ -46,7 +46,8 @@ namespace VipSoft.CMS.Controllers
         {
             //var article = id == 0 ? new Article { CategoryId = cid, Conditaion = "category_id=[CategoryId]" } : new Article { ID = id, Conditaion = "id=[ID]" };
             var criteria = id == 0 ? new Criteria("CategoryId", cid) : new Criteria("ID", id);
-            var model = ArticleService.GetArticle(criteria);
+            var model = ArticleService.Get(criteria);
+            //            var model = ArticleService.GetArticle(criteria);
             // ViewBag.Content = model.Content;
            // ViewBag.IsContent = ",1,7".IndexOf(CIdStr) > 0;
             //ViewData.Add("model",model);

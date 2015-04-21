@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using VipSoft.CMS.Core.Entity;
+using VipSoft.Core.Service;
 using VipSoft.Core.Utility;
 
 
@@ -17,23 +18,8 @@ namespace VipSoft.CMS.Core.Service
     /// <summary> 
     ///  文章接口
     /// </summary>
-    public interface IArticleService
-    {      
-        /// <summary> 
-        /// 新增文章
-        /// </summary>
-        int AddArticle(Article article);
-
-        /// <summary> 
-        /// 删除文章
-        /// </summary>
-        int DeleteArticle(int articleId);
-
-        /// <summary> 
-        /// 更新文章
-        /// </summary>
-        int UpdateArticle(Article article);
-
+    public interface IArticleService : IService<Article>
+    {  
         /// <summary> 
         /// 更新文章阅读次数
         /// </summary>
@@ -53,28 +39,7 @@ namespace VipSoft.CMS.Core.Service
         /// 批量设置文章特性(如置顶，标题着色)
         /// </summary>
         int BatchUpdateArticle(int[] articleId);
-
-        /// <summary> 
-        /// 显示文章详细
-        /// </summary>
-        Article GetArticle(int articleId);
-
-        Article GetArticle(Criteria criteria);
-
-
-        /// <summary> 
-        /// 显示文章详细
-        /// </summary>
-        Article GetArticle(Article article);
-
-        /// <summary> 
-        /// 显示文章列表
-        /// </summary>
-        IList<Article> GetArticleList(Article article);
-
-        IList<Article> GetArticleList(Criteria criteria);
-                                                                            
-
+                        
         /// <summary> 
         /// 显示文章列表
         /// </summary>

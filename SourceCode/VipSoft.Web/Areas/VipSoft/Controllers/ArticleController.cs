@@ -107,12 +107,12 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             CategoryBuild();
             if (id > 0)
             {
-                model = ArticleService.GetArticle(id);
+                model = ArticleService.Get(id);
                 EditValueBind(model);
             }
             else if (articleDto.Menu.CategoryType == Convert.ToInt32(CategoryType.Content))
             {
-                model = ArticleService.GetArticle(new Article() { CategoryId = cid, Conditaion = "category_id=[CategoryId]" });
+                model = ArticleService.Get(new Article() { CategoryId = cid, Conditaion = "category_id=[CategoryId]" });
                 EditValueBind(model);
             }
 
@@ -130,19 +130,11 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             var articleList = ArticleService.GetArticleList(childIds);
             ViewBag.SubTitle = GetCurrentMenu.Name;
             if (!string.IsNullOrEmpty(category))
-            {
-                //var result = from article in articleList
-                //              where article.CategoryId == Convert.ToInt32(category)
-                //              select article;
-                //articleList = result.ToList();
+            { 
                 articleList = articleList.Where(c => c.CategoryId == Convert.ToInt32(category)).ToList();
             }
             if (!string.IsNullOrEmpty(keywords))
-            {
-                //var result = from article in articleList
-                //             where article.Title == keywords
-                //             select article;
-                //articleList = result.ToList();
+            { 
                 articleList = articleList.Where(c => c.Title.Contains(keywords)).ToList();
             }
 
@@ -181,7 +173,11 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             {
                 SavePicture(article);
             }
-            flag = (article.ID != 0 ? ArticleService.UpdateArticle(article) : ArticleService.AddArticle(article)) > 0;
+            if (article.ID != 0)
+            {
+                article.CreateDate = DateTime.Now;
+            }
+            flag = (article.ID != 0 ? ArticleService.Update(article) : ArticleService.Add(article)) > 0;
             if (flag)
             {
                 //if (ContentTemplate.Contains(categoryId.ToString()))
@@ -199,78 +195,17 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
             // View(article);
             // return "aa";
             return Json(result);
-        }
-
-        //
-        // GET: /Article/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id)
-        //{
-        //    ArticleService.DeleteArticle(id);
-        //    return RedirectToAction("List", new { mid = MId, cid = CId });
-        //}
+        } 
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            var result = ArticleService.DeleteArticle(id);
+            var result = ArticleService.Delete(id);
             return Json(result);
         }
 
 
         #endregion
-
-
-        //
-        // GET: /Article/Edit/5
-
-        /*
-    //
-    // GET: /Article/Details/5
-
-    public ActionResult Details(int id)
-    {
-        return View();
-    }
-    //
-    // POST: /Article/Create
-
-    [HttpPost]
-    public ActionResult Create(FormCollection collection)
-    {
-        try
-        {
-            // TODO: Add insert logic here
-
-            return RedirectToAction("Index");
-        }
-        catch
-        {
-            return View();
-        }
-    }
-        
-   
-
-
-
-    //
-    // POST: /Article/Delete/5
-
-    [HttpPost]
-    public ActionResult Delete(int id, FormCollection collection)
-    {
-        try
-        {
-            // TODO: Add delete logic here
- 
-            return RedirectToAction("Index");
-        }
-        catch
-        {
-            return View();
-        }
-    }
-   */
+         
     }
 
     public class ArticleDto

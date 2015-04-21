@@ -61,6 +61,10 @@
       <Project>{2AF7F54C-9BC5-4AE9-A579-F19C7B107F96}</Project>
       <Name>VipSoft.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VipSoft.Service\VipSoft.Service.csproj">
+      <Project>{5127591A-90FD-4718-810C-3BCB2D8FFD7D}</Project>
+      <Name>VipSoft.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
