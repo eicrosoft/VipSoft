@@ -58,6 +58,7 @@
     <Compile Include="Entity\ClassMetadata.cs" />
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\SystemSettings.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IService.cs" />
     <Compile Include="Utility\ConvertHandler.cs" />

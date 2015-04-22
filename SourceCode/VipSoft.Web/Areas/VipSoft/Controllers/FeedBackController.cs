@@ -28,7 +28,7 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
         {
             //int ids = 2;
            int   pageindex=1;
-            var feedbackList = FeedBackService.GetList(new Feedback() );
+            var feedbackList = FeedBackService.GetList();
             if (page.HasValue==true)
             {
 

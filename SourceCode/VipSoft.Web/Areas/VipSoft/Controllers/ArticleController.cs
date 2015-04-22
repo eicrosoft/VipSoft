@@ -15,6 +15,7 @@ using System.Web.Mvc;
 using VipSoft.CMS.Core.Entity;
 using VipSoft.CMS.Core.Enum;
 using VipSoft.CMS.Core.Service;
+using VipSoft.Core.Utility;
 using VipSoft.Membership.Core.Entity;
 using VipSoft.Web.Ajax;
 using Webdiyer.WebControls.Mvc;
@@ -111,8 +112,8 @@ namespace VipSoft.Web.Areas.VipSoft.Controllers
                 EditValueBind(model);
             }
             else if (articleDto.Menu.CategoryType == Convert.ToInt32(CategoryType.Content))
-            {
-                model = ArticleService.Get(new Article() { CategoryId = cid, Conditaion = "category_id=[CategoryId]" });
+            { 
+                model = ArticleService.Get(new Criteria("CategoryId", cid));
                 EditValueBind(model);
             }
 
