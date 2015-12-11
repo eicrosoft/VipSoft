@@ -6,7 +6,9 @@
 后台地址：http://cms.vipsoft.com.cn/vipsoft  <br/>
 后台界面：http://www.vipsoft.com.cn/demo  <br/>
 界面下载：http://cms.vipsoft.com.cn/AdminUI.rar  <br/>
-GitHub  : https://github.com/eicrosoft/VipSoft/tree/develop  <br/>
+
+
+源程序迁至  : http://git.oschina.net/VipSoft/  <br/>
 
 
 
